@@ -1,0 +1,32 @@
+@use './variables' as *;
+
+// Breakpoints
+@mixin tablet {
+    @media screen and (min-width: $tablet-breakpoint) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: $desktop-breakpoint) {
+        @content;
+    }
+}
+
+@mixin flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+// Font mixins
+@mixin text($font-family, $font-size, $font-weight, $line-height) {
+    font-family: $font-family;
+    font-size: $font-size;
+    font-weight: $font-weight ;
+    line-height: $line-height;
+}
