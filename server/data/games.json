@@ -1,0 +1,23 @@
+[
+    {
+        "gameId": "2d4549705cda2f9115f643273485920050de49233df309cea7b4e21a90850dd8",
+        "expires": "24h",
+        "currentTurn": 1,
+        "player": {
+            "cardsInHand": [],
+            "cardsPlayed": []
+        },
+        "computer1": {
+            "cardsInHand": [],
+            "cardsPlayed": []
+        },
+        "computer2": {
+            "cardsInHand": [],
+            "cardsPlayed": []
+        },
+        "computer3": {
+            "cardsInHand": [],
+            "cardsPlayed": []
+        }
+    }
+]

@@ -1,0 +1,12 @@
+[
+    {
+        "menuType": "original",
+        "menuCards": {
+            "default": "nigiri",
+            "rolls": "maki",
+            "special": ["wasabi", "chopsticks"],
+            "appetizer": ["dumpling", "tempura", "sashimi"],
+            "dessert": "pudding"
+        }
+    }
+]
