@@ -1,0 +1,9 @@
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/mixins' as *;
+
+.site-footer {
+    background-color: papayawhip;
+    height: 5vh;
+    @include flex-centering;
+}

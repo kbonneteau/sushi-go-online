@@ -37,3 +37,48 @@
     font-weight: $font-weight ;
     line-height: $line-height;
 }
+
+// Button mixins
+@mixin button-primary {
+    @include text($roboto, 1rem, normal, normal);
+    cursor: pointer;
+    border: none;
+    border-radius: 1.5625rem;
+    background: grey;
+    color: white;
+    text-transform: uppercase;
+    margin: .5rem;
+    padding: 1rem 0;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+    &:hover {
+        background-color: black;
+        transition: all .15s ease;
+    }
+    &:active {
+        transform: translate(4px, 4px);
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
+    }
+}
+
+@mixin button-secondary {
+    @include text($roboto, 1rem, bold, normal);
+    cursor: pointer;
+    border: 3px solid grey;
+    border-radius: 1.5625rem;
+    color: grey;
+    text-transform: uppercase;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    margin: .5rem;
+    padding: 1rem 0;
+
+    &:hover {
+        border: 3px solid black;
+        color: black;
+        transition: all .15s ease;
+    }
+    &:active {
+        transform: translate(4px, 4px);
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
+    }
+}

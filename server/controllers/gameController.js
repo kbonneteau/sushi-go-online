@@ -2,17 +2,15 @@ const gameModel = require("../models/gameModel");
 
 let gameController = {
     /**
-     * 
+     * Creates a new game for the user and stores the new game information in game storage. Sends the user a json message with their new game.
     */
     createNewGame: (_req, res) => {
-        // Create new game session.
-        // Save game session to all game sessions.
-        // Redirect user to game page to start playing!
         const newGame = gameModel.constructGame();
         const newGameList = gameModel.addNewGameToList(newGame);
         gameModel.writeGames(newGameList);
         
-        // res.redirect(`/game/${newGame.gameId}`);
+        // Redirect user to game page to start playing (this did not work due to cors issue)
+        // res.redirect(`http://localhost:3000/game/${newGame.gameId}`);
         res.status(200).json(newGame);
     },
 
