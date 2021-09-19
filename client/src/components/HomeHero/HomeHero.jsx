@@ -35,8 +35,10 @@ const HomeHero = () => {
                 <div className="hero__cta-container">
                     <p className="hero__call-to-action">Want to play a game?</p>
                     <Link className="hero__learn-game" to="/">How to Play</Link>
-                    <button className="hero__play-game" onClick={handleNewGame}>New Game</button>
-                    <button className="hero__play-game" onClick={handleResumeGame}>Resume Game</button>
+                    <div className="hero__game-buttons-container">
+                        <button className="hero__play-game" onClick={handleNewGame}>New Game</button>
+                        <button className="hero__play-game" onClick={handleResumeGame}>Resume Game</button>
+                    </div>
                 </div>
             </div>
         </section>

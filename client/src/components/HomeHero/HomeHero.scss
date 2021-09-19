@@ -4,13 +4,15 @@
 
 .hero {
     display: flex;
-    gap: 1rem;
+    gap: 3.5rem;
 
     &__image {
 
     }
 
     &__content-container {
+        @include flex-column;
+        padding: 1rem 0 1rem;
 
     }
 
@@ -19,24 +21,37 @@
     }
 
     &__game-description {
-        font-family: $roboto;
+        @include text($roboto, 1rem, normal, 1.375rem);
         width: 50ch;
-        line-height: 22px;
+        flex-grow: 1;
     }
 
     &__cta-container {
-
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem;
     }
 
     &__call-to-action {
-
+        @include text($roboto, 1rem, normal, 1.375rem);
+        flex-basis: 100%;
+        margin: 0;
     }
 
     &__learn-game {
+        flex-grow: 1;
+        @include button-secondary;
+        text-decoration: none;
+        text-align: center;
+    }
 
+    &__game-buttons-container {
+        flex-grow: 1;
+        @include flex-column;
     }
 
     &__play-game {
-        
+        @include button-primary;
     }
 }
