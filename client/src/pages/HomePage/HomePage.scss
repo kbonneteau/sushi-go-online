@@ -4,5 +4,6 @@
 
 .home {
     @include flex-centering;
-    height: 100vh;
+    // 100vh - Header & Footer heights
+    height: 90vh;
 }

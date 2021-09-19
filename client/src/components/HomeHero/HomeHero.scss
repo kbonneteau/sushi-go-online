@@ -1,3 +1,42 @@
 @use '../../partials/variables' as *;
 @use '../../partials/typography' as *;
 @use '../../partials/mixins' as *;
+
+.hero {
+    display: flex;
+    gap: 1rem;
+
+    &__image {
+
+    }
+
+    &__content-container {
+
+    }
+
+    &__title {
+
+    }
+
+    &__game-description {
+        font-family: $roboto;
+        width: 50ch;
+        line-height: 22px;
+    }
+
+    &__cta-container {
+
+    }
+
+    &__call-to-action {
+
+    }
+
+    &__learn-game {
+
+    }
+
+    &__play-game {
+        
+    }
+}
