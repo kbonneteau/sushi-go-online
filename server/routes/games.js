@@ -1,9 +1,8 @@
 const router = require("express").Router();
 const gameController = require('../controllers/gameController');
 
-router.route("/") 
-    .get((req, res) => {
-    res.send("Hello from /game/ route");
-})
+// add filter middleware before game controller to sanitize harmful characters?
+router.route("/")
+    .post(gameController.createNewGame);
 
 module.exports = router;

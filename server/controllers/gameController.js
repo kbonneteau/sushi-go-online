@@ -4,8 +4,16 @@ let gameController = {
     /**
      * 
     */
-    createNewGame: (req, res) => {
-
+    createNewGame: (_req, res) => {
+        // Create new game session.
+        // Save game session to all game sessions.
+        // Redirect user to game page to start playing!
+        const newGame = gameModel.constructGame();
+        const newGameList = gameModel.addNewGameToList(newGame);
+        gameModel.writeGames(newGameList);
+        
+        // res.redirect(`/game/${newGame.gameId}`);
+        res.status(200).json(newGame);
     },
 
     /**

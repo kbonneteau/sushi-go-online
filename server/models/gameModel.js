@@ -20,7 +20,7 @@ const addNewGameToList = gameObject => [...readGames(), gameObject];
  * @param {array} games 
  * @returns {undefined}
  */
-const writeGames = games => fs.writeFileSync(gameData, JSON.stringify(games), null, 2);
+const writeGames = games => fs.writeFileSync(gameData, JSON.stringify(games, null, 2));
 
 /**
  * Creates a newly formatted game session.
