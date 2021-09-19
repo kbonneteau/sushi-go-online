@@ -1,10 +1,22 @@
 import './HomeHero.scss';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
+import { API_BASE_URL, API_GAME } from '../../utils/ApiUtils';
 
 const HomeHero = () => {
+    const history = useHistory();
+
     const handleNewGame = () => {
-        console.log('New game please')
+        console.log(API_BASE_URL + API_GAME);
+        axios.post(API_BASE_URL + API_GAME)
+            .then((res) => {
+                console.log('New game please');
+                history.push(`/game/${res.data.gameId}`);
+            })
+            .catch(() => {
+                // Throw an error modal?
+                console.log('An error occurred. Please try again.')
+            })
     }
     
     const handleResumeGame = () => {
@@ -21,9 +33,7 @@ const HomeHero = () => {
                     {/* Play with friends online, or play against various difficulties of computers. */}
                 </p>
                 <div className="hero__cta-container">
-                    <p className="hero__call-to-action">
-                        Want to play a game?
-                    </p>
+                    <p className="hero__call-to-action">Want to play a game?</p>
                     <Link className="hero__learn-game" to="/">How to Play</Link>
                     <button className="hero__play-game" onClick={handleNewGame}>New Game</button>
                     <button className="hero__play-game" onClick={handleResumeGame}>Resume Game</button>
