@@ -2,12 +2,35 @@
 @use '../../partials/typography' as *;
 @use '../../partials/mixins' as *;
 
-// .menu-card {
-//     height: 7rem;
-//     width: 7rem;
-//     background-color: teal;
+// @mixin text($font-family, $font-size, $font-weight, $line-height) 
 
-//     &__dish-type {
+.menu-card {
+    width: 10rem;
+    background-color: teal;
+    @include flex-centering;
+    flex-direction: column;
+    padding-bottom: 1rem;
+    border-radius: 10px;
+    @include primary-box-shadow;
+
+    &__dish-type {
+        background-color: $primary-cta;
+        color: white;
+        border-radius: 10px 10px 0 0;
+        width: 100%;
+        padding: .5rem 1rem;
+        margin: 0;
+        text-align: center;
+        @include text($roboto, 1.25rem, bold, normal);
+        letter-spacing: 1px;
+        text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+    }
+
+    &__dish-name {
+        margin: .5rem;
+    }
+
+    &__dish-image {
         
-//     }
-// }
+    }
+}
