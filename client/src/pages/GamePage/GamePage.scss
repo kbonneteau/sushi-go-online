@@ -1,3 +1,8 @@
 @use '../../partials/mixins' as *;
 @use '../../partials/typography' as *;
 @use '../../partials/variables' as *;
+
+.game-area {
+    height: 90vh;
+    position: relative;
+}
