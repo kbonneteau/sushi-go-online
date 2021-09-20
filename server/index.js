@@ -4,6 +4,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 const logger = require("morgan");
 const gameRoutes = require("./routes/games");
+const menuRoutes = require("./routes/menus");
 require("dotenv").config();
 
 const app = express();
@@ -25,5 +26,6 @@ app.use(logger("dev"));
 app.use(cors());
 
 app.use('/game', gameRoutes);
+app.use('/menu', menuRoutes);
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
