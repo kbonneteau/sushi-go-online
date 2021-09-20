@@ -1,10 +1,12 @@
 import './MenuBoard.scss';
 import { Component } from 'react';
+import MenuCardNigiri from '../MenuCardNigiri/MenuCardNigiri';
+import MenuCard from '../MenuCard/MenuCard';
 
 const menu = {
     "menuType": "original",
     "menuCards": {
-        "default": "nigiri",
+        "nigiri": "nigiri",
         "rolls": "maki",
         "special": ["wasabi", "chopsticks"],
         "appetizer": ["dumpling", "tempura", "sashimi"],
@@ -29,7 +31,7 @@ class MenuBoard extends Component {
         console.log('render')
         return (
             <div className="menu-board">
-                test
+                <MenuCard />
             </div>
         );
     };

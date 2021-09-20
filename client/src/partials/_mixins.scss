@@ -38,6 +38,12 @@
     line-height: $line-height;
 }
 
+// Box shadow
+@mixin primary-box-shadow {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+
 // Button mixins
 @mixin button-primary {
     @include text($roboto, 1rem, normal, normal);
@@ -49,7 +55,7 @@
     text-transform: uppercase;
     margin: .5rem;
     padding: 1rem 0;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    @include primary-box-shadow;
 
     &:hover {
         background-color: black;
@@ -57,7 +63,7 @@
     }
     &:active {
         transform: translate(4px, 4px);
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
+        @include primary-box-shadow;
     }
 }
 
@@ -68,7 +74,7 @@
     border-radius: 1.5625rem;
     color: grey;
     text-transform: uppercase;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    @include primary-box-shadow;
     margin: .5rem;
     padding: 1rem 0;
 
@@ -79,6 +85,6 @@
     }
     &:active {
         transform: translate(4px, 4px);
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
+        @include primary-box-shadow;
     }
 }
