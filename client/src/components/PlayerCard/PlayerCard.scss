@@ -6,19 +6,23 @@
     // height: 100%;
     width: 10rem;
     background-color: lightpink;
-    border: 1px solid black;
     @include flex-column;
+    gap: .5rem;
+    @include primary-box-shadow;
+    border-radius: 10px;
 
     &__card-icons {
-
+        display: flex;
+        justify-content: space-between;
     }
 
     &__top-icon {
-
+        padding: .5rem 0 ;
     }
 
     &__main-card-container {
-        
+        @include flex-centering;
+        flex-grow: 1;
     }
     
     &__main-icon {
@@ -27,17 +31,26 @@
     
     &__type-box {
         @include flex-centering;
+        padding: .5rem 0;
+        background-color: $accent;
+        border-radius: 0 0 10px 10px;
     }
 
     &__type-title {
         margin: 0;
         padding: 0 .25rem;
+        text-align: center;
+        color: white;
+        letter-spacing: 1px;
+        text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
     }
     
     &__point-value {
+        text-align: center;
         margin: 0;
         width: 10ch;
         padding: 0 .25rem;
         font-size: .9rem;
+        font-weight: bold;
     }
 }

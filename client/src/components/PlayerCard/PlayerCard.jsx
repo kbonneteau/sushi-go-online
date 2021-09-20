@@ -4,7 +4,9 @@ const PlayerCard = () => {
     return (
         <article className="player-card">
             <header className="player-card__card-icons">
-                <img className="player-card__top-icon" src="https://via.placeholder.com/60x60" alt="" />
+                <img className="player-card__top-icon" src="https://via.placeholder.com/50x50" alt="" />
+                <img className="player-card__top-icon" src="https://via.placeholder.com/50x50" alt="" />
+                <img className="player-card__top-icon" src="https://via.placeholder.com/50x50" alt="" />
             </header>
             <div className="player-card__main-card-container">
                 <img className="player-card__main-icon" src="https://via.placeholder.com/100x100" alt="" />
