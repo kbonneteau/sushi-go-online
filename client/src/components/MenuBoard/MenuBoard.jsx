@@ -22,7 +22,6 @@ class MenuBoard extends Component {
             <div className="menu-board">
                 {this.state.cards === null ? null : (
                     this.state.cards.map(card => {
-                        console.log(card)
                         if(card.dishType === 'nigiri') return <MenuCardNigiri key={card.id} image={card.image}/>;
                         return <MenuCard key={card.id} type={card.dishType} name={card.dishName} image={card.image} />;
                     })

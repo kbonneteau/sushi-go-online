@@ -1,3 +1,19 @@
 @use '../../partials/variables' as *;
 @use '../../partials/typography' as *;
 @use '../../partials/mixins' as *;
+
+.player-area {
+    background-color: powderblue;
+    height: 15rem;
+    width: 70rem;
+    padding: 1rem 1rem;
+
+    &__title {
+        margin: 0;
+    }
+    
+    &__action-description {
+        margin: 0;
+
+    }
+}
