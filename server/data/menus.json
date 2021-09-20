@@ -5,27 +5,27 @@
             {
                 "dishType": "nigiri",
                 "dishName": ["nigiri"],
-                "image": ""
+                "image": "https://via.placeholder.com/100x100"
             },
             {
                 "dishType": "rolls",
                 "dishName": ["maki"],
-                "image": ""
+                "image": "https://via.placeholder.com/100x100"
             },
             {
                 "dishType": "special",
                 "dishName": ["wasabi", "chopsticks"],
-                "image": ""
+                "image": "https://via.placeholder.com/100x100"
             },
             {
                 "dishType": "appetizer",
                 "dishName": ["dumpling", "tempura", "sashimi"],
-                "image": ""
+                "image": "https://via.placeholder.com/100x100"
             },
             {
                 "dishType": "dessert",
                 "dishName": ["pudding"],
-                "image": ""
+                "image": "https://via.placeholder.com/100x100"
             }
         ]
     }

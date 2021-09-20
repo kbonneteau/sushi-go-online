@@ -6,17 +6,7 @@
     background-color: pink;
     margin: 0 auto;
     width: 48.5rem;
-    // height: 21rem;
     padding: 2rem;
-    // height: calc(
-        // 7rem + 7rem (2 rows of cards
-        // 2rem top
-        // 2rem bottom
-        // 2rem * 2
-        // 10rem * 3
-        // 1.5rem gap * 3
-    // );
-
     @include flex-wrap;
     gap: 1.5rem;
 }
