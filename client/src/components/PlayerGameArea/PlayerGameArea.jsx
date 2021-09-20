@@ -2,6 +2,10 @@ import './PlayerGameArea.scss';
 import PlayerHand from '../PlayerHand/PlayerHand';
 
 const PlayerGameArea = () => {
+    const handleSubmit = e => {
+        e.preventDefault();
+
+    }
     return (
         <>
             <section className="player-area">

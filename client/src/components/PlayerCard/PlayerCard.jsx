@@ -2,9 +2,9 @@ import './PlayerCard.scss';
 
 const PlayerCard = () => {
     return (
-        <div>
+        <article className="player-card">
             Player Card
-        </div>
+        </article>
     );
 };
 

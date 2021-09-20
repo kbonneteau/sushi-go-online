@@ -1,3 +1,9 @@
 @use '../../partials/variables' as *;
 @use '../../partials/typography' as *;
 @use '../../partials/mixins' as *;
+
+.player-card {
+    height: 100%;
+    width: 10rem;
+    background-color: lightpink;
+}

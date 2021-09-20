@@ -14,7 +14,6 @@ class PlayerHand extends Component{
         console.log('player hand :: render')
         return (
             <article className="player-hand">
-                Player Hand
                 <PlayerCard />
             </article>
         );
