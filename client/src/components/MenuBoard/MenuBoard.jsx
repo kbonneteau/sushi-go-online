@@ -8,29 +8,52 @@ const menu = {
     "menuType": "original",
     "menuCards": [
         {
+            "id": 1,
             "dishType": "nigiri",
-            "dishName": ["nigiri"],
-            "image": ""
+            "dishName": "nigiri",
+            "image": "https://via.placeholder.com/100x100"
         },
         {
+            "id": 2,
             "dishType": "rolls",
-            "dishName": ["maki"],
-            "image": ""
+            "dishName": "maki",
+            "image": "https://via.placeholder.com/100x100"
         },
         {
+            "id": 3,
             "dishType": "special",
-            "dishName": ["wasabi", "chopsticks"],
-            "image": ""
+            "dishName": "wasabi",
+            "image": "https://via.placeholder.com/100x100"
         },
         {
+            "id": 4,
+            "dishType": "special",
+            "dishName": "chopsticks",
+            "image": "https://via.placeholder.com/100x100"
+        },
+        {
+            "id": 5,
             "dishType": "appetizer",
-            "dishName": ["dumpling", "tempura", "sashimi"],
-            "image": ""
+            "dishName": "dumpling",
+            "image": "https://via.placeholder.com/100x100"
         },
         {
+            "id": 6,
+            "dishType": "appetizer",
+            "dishName": "tempura",
+            "image": "https://via.placeholder.com/100x100"
+        },
+        {
+            "id": 7,
+            "dishType": "appetizer",
+            "dishName": "sashimi",
+            "image": "https://via.placeholder.com/100x100"
+        },
+        {
+            "id": 8,
             "dishType": "dessert",
-            "dishName": ["pudding"],
-            "image": ""
+            "dishName": "pudding",
+            "image": "https://via.placeholder.com/100x100"
         }
     ]
 }
@@ -60,11 +83,8 @@ class MenuBoard extends Component {
                 {this.state.cards === null ? null : (
                     this.state.cards.map(card => {
                         console.log(card)
-                        if(card.dishType === 'nigiri') return <MenuCardNigiri key={card.dishName} />;
-                        if(card.dishName.length > 1) {
-                            return card.dishName.map(name => <MenuCard key={name} type={card.dishType} name={name} />);
-                        }
-                        return <MenuCard key={card.dishName} type={card.dishType} name={card.dishName} />;
+                        if(card.dishType === 'nigiri') return <MenuCardNigiri key={card.id} image={card.image}/>;
+                        return <MenuCard key={card.id} type={card.dishType} name={card.dishName} image={card.image} />;
                     })
                 )}
             </div>

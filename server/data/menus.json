@@ -3,28 +3,51 @@
         "menuType": "original",
         "menuCards": [
             {
+                "id": 1,
                 "dishType": "nigiri",
-                "dishName": ["nigiri"],
+                "dishName": "nigiri",
                 "image": "https://via.placeholder.com/100x100"
             },
             {
+                "id": 2,
                 "dishType": "rolls",
-                "dishName": ["maki"],
+                "dishName": "maki",
                 "image": "https://via.placeholder.com/100x100"
             },
             {
+                "id": 3,
                 "dishType": "special",
-                "dishName": ["wasabi", "chopsticks"],
+                "dishName": "wasabi",
                 "image": "https://via.placeholder.com/100x100"
             },
             {
+                "id": 4,
+                "dishType": "special",
+                "dishName": "chopsticks",
+                "image": "https://via.placeholder.com/100x100"
+            },
+            {
+                "id": 5,
                 "dishType": "appetizer",
-                "dishName": ["dumpling", "tempura", "sashimi"],
+                "dishName": "dumpling",
                 "image": "https://via.placeholder.com/100x100"
             },
             {
+                "id": 6,
+                "dishType": "appetizer",
+                "dishName": "tempura",
+                "image": "https://via.placeholder.com/100x100"
+            },
+            {
+                "id": 7,
+                "dishType": "appetizer",
+                "dishName": "sashimi",
+                "image": "https://via.placeholder.com/100x100"
+            },
+            {
+                "id": 8,
                 "dishType": "dessert",
-                "dishName": ["pudding"],
+                "dishName": "pudding",
                 "image": "https://via.placeholder.com/100x100"
             }
         ]
