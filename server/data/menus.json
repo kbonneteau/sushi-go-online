@@ -1,12 +1,32 @@
 [
     {
         "menuType": "original",
-        "menuCards": {
-            "default": "nigiri",
-            "rolls": "maki",
-            "special": ["wasabi", "chopsticks"],
-            "appetizer": ["dumpling", "tempura", "sashimi"],
-            "dessert": "pudding"
-        }
+        "menuCards": [
+            {
+                "dishType": "nigiri",
+                "dishName": ["nigiri"],
+                "image": ""
+            },
+            {
+                "dishType": "rolls",
+                "dishName": ["maki"],
+                "image": ""
+            },
+            {
+                "dishType": "special",
+                "dishName": ["wasabi", "chopsticks"],
+                "image": ""
+            },
+            {
+                "dishType": "appetizer",
+                "dishName": ["dumpling", "tempura", "sashimi"],
+                "image": ""
+            },
+            {
+                "dishType": "dessert",
+                "dishName": ["pudding"],
+                "image": ""
+            }
+        ]
     }
 ]

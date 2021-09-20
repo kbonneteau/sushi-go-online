@@ -44,7 +44,7 @@ class MenuBoard extends Component {
     componentDidMount() {
         console.log('component did mount')
         this.setState({
-            cards: menu.menuCards
+            // cards: menu.menuCards
         })
         // console.log(Object.entries(menu.menuCards))
     }
