@@ -4,9 +4,9 @@
 
 // @mixin text($font-family, $font-size, $font-weight, $line-height) 
 
-.menu-card {
+.menu-card-nigiri {
     width: 10rem;
-    background-color: teal;
+    background-color: $nigiri;
     @include flex-centering;
     flex-direction: column;
     padding-bottom: 1rem;
