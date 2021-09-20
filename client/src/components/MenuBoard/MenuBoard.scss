@@ -4,13 +4,9 @@
 
 .menu-board {
     background-color: pink;
-    margin: 2rem auto 0;
-    width: 50%;
-    height: 21rem;
-    // height: calc(
-        // 7rem + 7rem (2 rows of cards
-        // 2rem top
-        // 2rem bottom
-        // 1.5rem gap
-    // );
+    margin: 0 auto;
+    width: 48.5rem;
+    padding: 2rem;
+    @include flex-wrap;
+    gap: 1.5rem;
 }
