@@ -6,7 +6,6 @@
 
 .menu-card {
     width: 10rem;
-    background-color: teal;
     @include flex-centering;
     flex-direction: column;
     padding-bottom: 1rem;
@@ -33,27 +32,4 @@
     &__dish-image {
         
     }
-}
-
-// Can this be refactored?
-.maki {
-    background-color: $maki;
-}
-.wasabi {
-    background-color: $wasabi;
-}
-.chopsticks {
-    background-color: $chopsticks;
-}
-.dumpling {
-    background-color: $dumpling;
-}
-.tempura {
-    background-color: $tempura;
-}
-.sashimi {
-    background-color: $sashimi;
-}
-.pudding {
-    background-color: $pudding;
 }
