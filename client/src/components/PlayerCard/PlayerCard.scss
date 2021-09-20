@@ -3,7 +3,41 @@
 @use '../../partials/mixins' as *;
 
 .player-card {
-    height: 100%;
+    // height: 100%;
     width: 10rem;
     background-color: lightpink;
+    border: 1px solid black;
+    @include flex-column;
+
+    &__card-icons {
+
+    }
+
+    &__top-icon {
+
+    }
+
+    &__main-card-container {
+        
+    }
+    
+    &__main-icon {
+
+    }
+    
+    &__type-box {
+        @include flex-centering;
+    }
+
+    &__type-title {
+        margin: 0;
+        padding: 0 .25rem;
+    }
+    
+    &__point-value {
+        margin: 0;
+        width: 10ch;
+        padding: 0 .25rem;
+        font-size: .9rem;
+    }
 }

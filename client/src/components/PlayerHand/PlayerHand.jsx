@@ -15,6 +15,12 @@ class PlayerHand extends Component{
         return (
             <article className="player-hand">
                 <PlayerCard />
+                <PlayerCard />
+                <PlayerCard />
+                <PlayerCard />
+                <PlayerCard />
+                <PlayerCard />
+                <PlayerCard />
             </article>
         );
     }

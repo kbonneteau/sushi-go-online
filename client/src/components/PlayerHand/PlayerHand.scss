@@ -3,6 +3,8 @@
 @use '../../partials/mixins' as *;
 
 .player-hand {
-    height: 12rem;
+    height: 15rem;
     background-color: lightcyan;
+    display: flex;
+    justify-content: space-evenly;
 }
