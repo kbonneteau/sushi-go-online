@@ -1,0 +1,16 @@
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/mixins' as *;
+
+.modal-icon {
+
+    &__food-icon {
+
+    }
+
+    &__card-count {
+        font-family: $roboto;
+        font-size: 1.2rem;
+        margin: 0;
+    }
+}

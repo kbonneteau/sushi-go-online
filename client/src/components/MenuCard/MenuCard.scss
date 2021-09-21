@@ -14,15 +14,10 @@
 
     &__dish-type {
         background-color: $primary-cta;
-        color: white;
         border-radius: 10px 10px 0 0;
         width: 100%;
         padding: .5rem 1rem;
-        margin: 0;
-        text-align: center;
-        @include text($roboto, 1.25rem, bold, normal);
-        letter-spacing: 1px;
-        text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+        @include title-text;
     }
 
     &__dish-name {
