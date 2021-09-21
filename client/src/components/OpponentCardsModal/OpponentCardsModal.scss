@@ -1,5 +1,6 @@
 @use '../../partials/variables' as *;
 @use '../../partials/typography' as *;
+@use '../../partials/keyframes' as *;
 @use '../../partials/mixins' as *;
 
 .played-modal {
@@ -27,34 +28,14 @@
     }
     
     &__visible {
-        // display: inline-block;
         background-color: lightsteelblue;
         height: 7.575rem;
         width: 29rem;
-        // width: 20rem;
-        animation: modal-slide 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
         @include primary-box-shadow;
+        @include modal-slide-animation;
     }
 
     &__hidden {
         display: none;
-    }
-}
-
-
-@keyframes modal-slide {
-    0% {
-        transform: translateX(-500px);
-        opacity: 0;
-    }
-    50%{
-        opacity: 0;
-    }
-    75% {
-        opacity: 0.75;
-    }
-      100% {
-        transform: translateX(0);
-        opacity: 1;
     }
 }
