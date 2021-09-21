@@ -4,19 +4,34 @@
 
 .played-modal {
     display: flex;
-    // justify-content: space-between;
 
     &__player-name {
         @include title-text;
         text-align: left;
+        padding: .5rem;
+    }
+
+    &__played-list {
+        list-style: none;
+        margin: 0;
+        padding: 0.25rem;
+        display: flex;
+        justify-content: space-evenly;
+        gap: .5rem;
+    }
+
+    &__played-item {
+        margin: 0;
+        padding: 0;
+        text-align: center;
     }
     
     &__visible {
         // display: inline-block;
-        background-color: lightgrey;
+        background-color: lightsteelblue;
         height: 7.575rem;
-        // flex-basis: 100%;
-        width: 20rem;
+        width: 29rem;
+        // width: 20rem;
     }
 
     &__hidden {

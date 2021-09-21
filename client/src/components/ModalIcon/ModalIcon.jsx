@@ -1,9 +1,10 @@
 import './ModalIcon.scss';
 
-const ModalIcon = () => {
+const ModalIcon = ({ image, count }) => {
     return (
         <div className="modal-icon">
-            Modal Icon
+            <img className="modal-icon__food-icon" src={image} alt="" />
+            <h4 className="modal-icon__card-count">{count}</h4>
         </div>
     );
 };
