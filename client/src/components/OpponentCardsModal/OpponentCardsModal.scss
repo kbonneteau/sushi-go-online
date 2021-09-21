@@ -5,6 +5,11 @@
 .played-modal {
     display: flex;
     // justify-content: space-between;
+
+    &__player-name {
+        @include title-text;
+        text-align: left;
+    }
     
     &__visible {
         // display: inline-block;

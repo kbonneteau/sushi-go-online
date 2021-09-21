@@ -1,35 +1,25 @@
 import './OpponentCardsModal.scss';
-import { Component } from 'react';
+import { useState } from 'react';
 import OpponentIcon from '../OpponentIcon/OpponentIcon';
+import ModalIcon from '../ModalIcon/ModalIcon';
 
-class OpponentCardsModal extends Component {
-    // this.props.id = player id. (2, 3 or 4)
-    state = {
-        hidden: true
-    };
+const icon = "https://via.placeholder.com/96x96"
 
-    handleMouseOver = (id) => {
-        console.log(id)
-        this.setState({
-            hidden: false
-        })
-    };
-    handleMouseLeave = (id) => {
-        console.log('Left',id)
-        this.setState({
-            hidden: true
-        })
-    };
-    render() {
-        return (
-            <div className="played-modal">
-                <div className={this.state.hidden ? 'played-modal__hidden' : 'played-modal__visible'}>
-                    Player {this.props.id} Modal
-                </div>
-                <OpponentIcon id={this.props.id} handleMouseOver={this.handleMouseOver} handleMouseLeave={this.handleMouseLeave} />
+const OpponentCardsModal = ({ id }) => {
+    const [ hidden, setHidden ] = useState(true);
+    // hidden state toggled when hovering mouse over icon
+    const handleMouseOver = () => setHidden(false);
+    const handleMouseLeave = () => setHidden(true);
+
+    return (
+        <div className="played-modal">
+            <div className={hidden ? 'played-modal__hidden' : 'played-modal__visible'}>
+                <h3 className="played-modal__player-name">Player {id}</h3>
+                <ModalIcon image={icon} count={1} />
             </div>
-        );
-    };
+            <OpponentIcon id={id} handleMouseOver={handleMouseOver} handleMouseLeave={handleMouseLeave} />
+        </div>
+    );
 }
 
 export default OpponentCardsModal;

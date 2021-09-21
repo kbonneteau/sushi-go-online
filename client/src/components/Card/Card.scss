@@ -37,12 +37,9 @@
     }
 
     &__type-title {
-        margin: 0;
+        @include title-text;
         padding: 0 .25rem;
-        text-align: center;
-        color: white;
-        letter-spacing: 1px;
-        text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+        font-size: 1rem;
         text-transform: uppercase;
     }
     
@@ -50,7 +47,7 @@
         text-align: center;
         margin: 0;
         min-width: 5ch;
-        max-width: 10ch;
+        max-width: 8ch;
         padding: 0 .25rem;
         font-size: .9rem;
         font-weight: bold;
