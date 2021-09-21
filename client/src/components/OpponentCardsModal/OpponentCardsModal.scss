@@ -3,13 +3,19 @@
 @use '../../partials/mixins' as *;
 
 .played-modal {
+    display: flex;
+    // justify-content: space-between;
     
+    &__visible {
+        // display: inline-block;
+        background-color: lightgrey;
+        height: 7.575rem;
+        // flex-basis: 100%;
+        width: 20rem;
+    }
+
+    &__hidden {
+        display: none;
+    }
 }
 
-.show-me {
-    display: inline-block;
-}
-
-.hidden {
-    display: none;
-}
