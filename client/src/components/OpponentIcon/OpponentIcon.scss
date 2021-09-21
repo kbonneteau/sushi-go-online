@@ -1,0 +1,21 @@
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/mixins' as *;
+
+.opponent-icon {
+    display: inline-block;
+    margin: .25rem;
+    
+    &__image {
+        border-radius: 50%;
+        border: 3px solid salmon;
+    }
+
+    &__player-name {
+        margin: 0;
+        text-align: center;
+        font-family: $roboto;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+}

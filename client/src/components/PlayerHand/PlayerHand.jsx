@@ -33,7 +33,6 @@ class PlayerHand extends Component{
         axios.get(API_BASE_URL + API_CARDS)
             .then(res => {
                 this.state.cardsInHand.forEach(cardId => {
-                    console.log(cardId)
                     newCards.push(res.data.find(card => cardId === card.id))
                 })
                 this.setState({
