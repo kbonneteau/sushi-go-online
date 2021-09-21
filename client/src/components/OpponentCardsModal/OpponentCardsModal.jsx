@@ -22,7 +22,7 @@ const OpponentCardsModal = ({ id }) => {
     const handleMouseLeave = () => setHidden(true);
 
     return (
-        <div className="played-modal">
+        <article className="played-modal">
             <div className={hidden ? 'played-modal__hidden' : 'played-modal__visible'}>
                 <h3 className="played-modal__player-name">Player {id}</h3>
                 <ul className="played-modal__played-list">
@@ -34,7 +34,7 @@ const OpponentCardsModal = ({ id }) => {
                 </ul>
             </div>
             <OpponentIcon id={id} handleMouseOver={handleMouseOver} handleMouseLeave={handleMouseLeave} />
-        </div>
+        </article>
     );
 }
 

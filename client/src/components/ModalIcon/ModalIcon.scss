@@ -14,3 +14,8 @@
         margin: 0;
     }
 }
+
+.vertical {
+    @include flex-centering;
+    justify-content: space-evenly;
+}

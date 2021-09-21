@@ -3,11 +3,28 @@
 @use '../../partials/mixins' as *;
 
 .player-area {
+    position: relative;
     background-color: powderblue;
     height: 20rem;
-    width: 80rem;
+    width: 85rem;
     // width: 70rem;
     padding: 1rem 1rem;
+
+    display: flex;
+
+    &__modal-container {
+        // position: absolute;
+        // left: -.125rem;
+        // top: -2rem;
+        // float: left;
+        align-self: flex-end;
+        background-color: red;
+    }
+    
+    &__details-container {
+        position: relative;
+        // left: 7rem;
+    }
 
     &__title {
         margin: 0;

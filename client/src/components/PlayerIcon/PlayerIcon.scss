@@ -1,0 +1,20 @@
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/keyframes' as *;
+@use '../../partials/mixins' as *;
+
+.player-icon {
+    margin-top: auto;
+    align-self: center;
+    padding: .25rem 0;
+
+    &__image {
+        border-radius: 50%;
+        cursor: pointer;
+        @include primary-box-shadow;
+    }
+
+    // &__player-name {
+    //     margin: 0;
+    // }
+}
