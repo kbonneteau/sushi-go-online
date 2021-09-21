@@ -2,6 +2,7 @@ import './GamePage.scss';
 import MenuBoard from '../../components/MenuBoard/MenuBoard';
 import PlayerGameArea from '../../components/PlayerGameArea/PlayerGameArea';
 import OpponentPlayingArea from '../../components/OpponentPlayingArea/OpponentPlayingArea';
+// import SelectCard from '../../components/SelectCard/SelectCard';
 
 // Should this component be stateful?
 const GamePage = () => {
@@ -14,7 +15,10 @@ const GamePage = () => {
                 <OpponentPlayingArea />
             </div>
             {/* Pass current hands to this component, and pass player hand to player game area component? */}
-            <PlayerGameArea />
+            <div className="game-area__player-interaction-container">
+                <PlayerGameArea />
+                {/* <SelectCard /> */}
+            </div> 
         </main>
     );
 };
