@@ -25,7 +25,24 @@ const constructPlayingCard = cardData => {
 };
 
 
+/**
+ * Constructs an array of all playing cards, with all details required by the game already added to the cards
+ * @returns {array} of all playing cards
+ */
+ const constructArrayOfCards = () => {
+    console.log('start :: constructArrayOfCards')
+    const cards = [];
+    readCards().forEach(cardType => {
+        const numberOfCards = cardType.numberInDeck;
+        [...Array(numberOfCards)].forEach(_card => cards.push(constructPlayingCard(cardType)));
+    })
+    console.log('There are this many cards in the array:', cards.length)
+    return cards;
+}
+
+
 module.exports = {
     readCards,
-    constructPlayingCard
+    constructPlayingCard,
+    constructArrayOfCards
 }
