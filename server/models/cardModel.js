@@ -1,5 +1,7 @@
 const fs = require('fs');
-const cardData = './data/cards.json';
+const Deck = require('card-deck');
+const cardData = '../data/cards.json';
+// const cardData = './data/cards.json';
 const { v4: uuid } = require('uuid');
 
 /**
