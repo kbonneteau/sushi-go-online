@@ -2,15 +2,14 @@
 @use '../../partials/typography' as *;
 @use '../../partials/keyframes' as *;
 @use '../../partials/mixins' as *;
+@use '../PlayerModal/PlayerModal.scss';
 
 .played-modal {
-    display: flex;
-    justify-content: flex-end;
     background-color: lightsteelblue;
     padding: 0 .5rem;
     @include flex-centering;
     @include primary-box-shadow;
-    // width: 100%;
+    height: 8.6875rem;
 
     &__player-name {
         @include title-text;
@@ -28,9 +27,7 @@
     }
 
     &__played-item {
-        margin: 0;
-        padding: 0;
-        text-align: center;
+        @extend .player-modal__item;
     }
     
     &__visible {

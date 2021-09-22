@@ -16,10 +16,9 @@ const cards = [
 ]
 
 const OpponentCardsModal = ({ id }) => {
-    const [ hidden, setHidden ] = useState(false);
-    // hidden state toggled when hovering mouse over icon
-    const handleMouseOver = () => setHidden(false);
-    // const handleMouseLeave = () => setHidden(true);
+    const [ hidden, setHidden ] = useState(true);
+    // hidden state toggled when user icon is clicked
+    const handleModalToggle = () => setHidden(!hidden);
 
     return (
         <article className="played-modal">
@@ -33,7 +32,7 @@ const OpponentCardsModal = ({ id }) => {
                     ))}
                 </ul>
             </div>
-            <OpponentIcon id={id} handleMouseOver={handleMouseOver} />
+            <OpponentIcon id={id} handleModalToggle={handleModalToggle} />
         </article>
     );
 }

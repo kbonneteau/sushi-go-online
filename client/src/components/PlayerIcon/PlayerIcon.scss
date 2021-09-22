@@ -4,7 +4,6 @@
 @use '../../partials/mixins' as *;
 
 .player-icon {
-    // margin-top: auto;
     align-self: center;
     padding: 0 0.25rem;
 
@@ -14,7 +13,4 @@
         @include primary-box-shadow;
     }
 
-    // &__player-name {
-    //     margin: 0;
-    // }
 }
