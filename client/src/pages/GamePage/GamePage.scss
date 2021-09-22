@@ -9,7 +9,11 @@
     justify-content: space-between;
 
     &__game-component-container {
-        display: flex;
+        // display: flex;
+        @include flex-centering;
+        align-items: flex-start;
+        justify-content: space-between;
+        height: 37.5rem;
     }
 
     &__player-interaction-container {

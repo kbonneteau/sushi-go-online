@@ -1,10 +1,15 @@
 import './PlayedCards.scss';
+import PlayerModal from '../PlayerModal/PlayerModal';
+import OpponentPlayingArea from '../OpponentPlayingArea/OpponentPlayingArea';
 
 const PlayedCards = () => {
     return (
-        <div>
-            Played Cards
-        </div>
+        <section className="played-cards-area">
+            <div className="played-cards-area__modal-container">
+                <PlayerModal />
+            </div>
+            <OpponentPlayingArea />
+        </section>
     );
 };
 

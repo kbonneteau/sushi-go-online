@@ -5,6 +5,12 @@
 
 .played-modal {
     display: flex;
+    justify-content: flex-end;
+    background-color: lightsteelblue;
+    padding: 0 .5rem;
+    @include flex-centering;
+    @include primary-box-shadow;
+    // width: 100%;
 
     &__player-name {
         @include title-text;
@@ -18,7 +24,7 @@
         padding: 0.25rem;
         display: flex;
         justify-content: space-evenly;
-        gap: .5rem;
+        gap: 1rem;
     }
 
     &__played-item {
@@ -28,10 +34,6 @@
     }
     
     &__visible {
-        background-color: lightsteelblue;
-        height: 7.575rem;
-        width: 29rem;
-        @include primary-box-shadow;
         @include modal-slide-animation;
     }
 

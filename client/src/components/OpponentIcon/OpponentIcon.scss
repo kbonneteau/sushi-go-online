@@ -3,8 +3,9 @@
 @use '../../partials/mixins' as *;
 
 .opponent-icon {
-    display: inline-block;
-    margin: .25rem;
+    // display: inline-block;
+    // margin: .25rem;
+    padding: 0 0.25rem;
     
     &__image {
         border-radius: 50%;
