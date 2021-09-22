@@ -8,6 +8,10 @@ import PlayedCards from '../../components/PlayedCards/PlayedCards';
 const GamePage = () => {
     // Modal popup with a cardflip animation?
     // User can pull up "cards played modal to see the cards on the board"
+    
+    // On component mount, make axios call for game data.
+    // New game will load fresh game session
+    // resume game will load previous data.
     return (
         <main className="game-area">
             <div className="game-area__game-component-container">
