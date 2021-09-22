@@ -1,7 +1,8 @@
 import './GamePage.scss';
 import MenuBoard from '../../components/MenuBoard/MenuBoard';
 import PlayerGameArea from '../../components/PlayerGameArea/PlayerGameArea';
-import OpponentPlayingArea from '../../components/OpponentPlayingArea/OpponentPlayingArea';
+import PlayedCards from '../../components/PlayedCards/PlayedCards';
+// import SelectCard from '../../components/SelectCard/SelectCard';
 
 // Should this component be stateful?
 const GamePage = () => {
@@ -10,11 +11,17 @@ const GamePage = () => {
     return (
         <main className="game-area">
             <div className="game-area__game-component-container">
-                <MenuBoard />
-                <OpponentPlayingArea />
+                <div className="game-area__menu-container">
+                    <h1 className="game-area__title">Menu</h1>
+                    <MenuBoard />
+                </div>
+                <PlayedCards />
             </div>
             {/* Pass current hands to this component, and pass player hand to player game area component? */}
-            <PlayerGameArea />
+            <div className="game-area__player-interaction-container">
+                <PlayerGameArea />
+                {/* <SelectCard /> */}
+            </div> 
         </main>
     );
 };

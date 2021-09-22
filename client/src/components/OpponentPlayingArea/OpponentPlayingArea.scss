@@ -3,9 +3,6 @@
 @use '../../partials/mixins' as *;
 
 .opponent-area {
-    padding: 1rem;
-    flex-basis: 37.875rem;
     @include flex-column;
     align-items: flex-end;
-    gap: 1rem;
 }

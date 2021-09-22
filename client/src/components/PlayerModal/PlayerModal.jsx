@@ -1,9 +1,9 @@
-import './OpponentCardsModal.scss';
+import './PlayerModal.scss';
 import { useState } from 'react';
-import OpponentIcon from '../OpponentIcon/OpponentIcon';
+import PlayerIcon from '../PlayerIcon/PlayerIcon';
 import ModalIcon from '../ModalIcon/ModalIcon';
 
-// Dummy data.  Fed in by props in the future.
+// dummy data
 const cards = [
     {icon: 'https://via.placeholder.com/50x50', count: 3},
     {icon: 'https://via.placeholder.com/50x50', count: 0},
@@ -15,26 +15,28 @@ const cards = [
     {icon: 'https://via.placeholder.com/50x50', count: 0},
 ]
 
-const OpponentCardsModal = ({ id }) => {
-    const [ hidden, setHidden ] = useState(true);
+
+const PlayerModal = () => {
+    const [ hidden, setHidden ] = useState(false);
     // hidden state toggled when user icon is clicked
     const handleModalToggle = () => setHidden(!hidden);
 
     return (
-        <article className="played-modal">
-            <div className={hidden ? 'played-modal__hidden' : 'played-modal__visible'}>
-                <h3 className="played-modal__player-name">Player {id}'s Played Cards</h3>
-                <ul className="played-modal__played-list">
+        <article className="player-modal">
+            <div className={'player-modal__visible'}>
+            {/* <div className={hidden ? 'player-modal__hidden' : 'player-modal__visible'}> */}
+                <h3 className="player-modal__player-name">Your Played Cards</h3>
+                <ul className="player-modal__cards-list">
                     {cards.map((card, i) => (
-                        <li key={i} className="played-modal__played-item">
+                        <li key={i} className="player-modal__item">
                             <ModalIcon image={card.icon} count={card.count} />
                         </li>
                     ))}
                 </ul>
             </div>
-            <OpponentIcon id={id} handleModalToggle={handleModalToggle} />
+            <PlayerIcon handleModalToggle={handleModalToggle} />
         </article>
     );
-}
+};
 
-export default OpponentCardsModal;
+export default PlayerModal;

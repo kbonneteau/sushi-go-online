@@ -1,6 +1,7 @@
 import './PlayerGameArea.scss';
 import { Component } from 'react';
 import PlayerHand from '../PlayerHand/PlayerHand';
+import SelectCard from '../SelectCard/SelectCard';
 
 
 class PlayerGameArea extends Component {
@@ -16,6 +17,7 @@ class PlayerGameArea extends Component {
                     </p>
                     <PlayerHand />
                 </section>
+                <SelectCard />
             </>
         );
     }
