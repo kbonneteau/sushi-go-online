@@ -26,19 +26,8 @@ let gameController = {
      * 
     */
     restoreGameSession: (req, res) => {
-        console.log('restore game session')
-        // console.log(req.headers.authorization)
-        // const authToken = req.headers.authorization.split(" ")[1];
-
-        // jwt.verify(authToken, process.env.JWT_SECRET, (err, decoded) => {
-        //     if(err) {
-        //         next();
-        //     }
-        //     console.log('decoded:', decoded)
-        //     req.decoded = decoded.game;
-        //     console.log('req.decoded:', req.decoded)
-        // });
-        res.send('valid auth token.  Welcome to restore game session')
+        // Do I want to pull and server gameData to pass as props from client-side HomeHero to Game Page?
+        res.status(200).json({ gameId: req.decoded })
     },
 
     /**

@@ -29,10 +29,11 @@ const HomeHero = () => {
                     Authorization: `Bearer ${localStorage.getItem('jwtToken')}`
                 }
             })
-            .then(() => {
-                console.log('you got in')
+            .then((res) => {
+                history.push(`/game/${res.data.gameId}`);
             })
-            .catch(error => console.log(error))
+            // Create an error modal if the user needs to start a new game
+            .catch(error => console.log(error.message))
     }
 
     return (
