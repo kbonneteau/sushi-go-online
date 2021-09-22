@@ -11,7 +11,8 @@ const HomeHero = () => {
         axios.post(API_BASE_URL + API_GAME)
             .then((res) => {
                 console.log('New game please');
-                history.push(`/game/${res.data.gameId}`);
+                localStorage.setItem('jwtToken', res.data.token)
+                history.push(`/game/${res.data.newGame.gameId}`);
             })
             .catch(() => {
                 // Throw an error modal?
@@ -21,6 +22,17 @@ const HomeHero = () => {
     
     const handleResumeGame = () => {
         console.log('Resume game')
+        console.log(localStorage.getItem('jwtToken'))
+        axios
+            .get(API_BASE_URL + API_GAME, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('jwtToken')}`
+                }
+            })
+            .then(() => {
+                console.log('you got in')
+            })
+            .catch(error => console.log(error))
     }
 
     return (

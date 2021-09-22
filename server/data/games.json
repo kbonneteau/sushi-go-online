@@ -19,5 +19,215 @@
       "cardsInHand": [],
       "cardsPlayed": []
     }
+  },
+  {
+    "gameId": "8b4641ff-da40-4b81-a605-6b55a6e9daa2",
+    "timestamp": 1632333630755,
+    "currentTurn": 1,
+    "player": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer1": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer2": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer3": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    }
+  },
+  {
+    "gameId": "a1869eeb-c645-4108-aa93-2849303b49d7",
+    "timestamp": 1632333970230,
+    "currentTurn": 1,
+    "player": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer1": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer2": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer3": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    }
+  },
+  {
+    "gameId": "29f18375-4661-4493-a14b-2a683a7aa278",
+    "timestamp": 1632334091444,
+    "currentTurn": 1,
+    "player": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer1": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer2": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer3": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    }
+  },
+  {
+    "gameId": "a6df2258-78b3-4bae-af5d-771c727543cb",
+    "timestamp": 1632334121572,
+    "currentTurn": 1,
+    "player": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer1": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer2": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer3": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    }
+  },
+  {
+    "gameId": "93b7d955-c0ee-4b96-8d98-107a58d11fb3",
+    "timestamp": 1632334152215,
+    "currentTurn": 1,
+    "player": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer1": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer2": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer3": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    }
+  },
+  {
+    "gameId": "d4917124-48c2-48f9-80e0-53bcd3389b39",
+    "timestamp": 1632334167696,
+    "currentTurn": 1,
+    "player": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer1": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer2": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer3": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    }
+  },
+  {
+    "gameId": "5b9a0b7e-ad27-4442-b358-b8f440275477",
+    "timestamp": 1632334189125,
+    "currentTurn": 1,
+    "player": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer1": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer2": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer3": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    }
+  },
+  {
+    "gameId": "9cde7ab6-1e1b-410b-89ce-79e0ad3165d8",
+    "timestamp": 1632334461125,
+    "currentTurn": 1,
+    "player": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer1": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer2": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer3": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    }
+  },
+  {
+    "gameId": "254ff68a-28f5-4f26-86c5-0b4682ccea6a",
+    "timestamp": 1632334471197,
+    "currentTurn": 1,
+    "player": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer1": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer2": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer3": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    }
+  },
+  {
+    "gameId": "dd76e8e4-1bb2-4349-a5b7-6cf2b18398a7",
+    "timestamp": 1632334580527,
+    "currentTurn": 1,
+    "player": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer1": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer2": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    },
+    "computer3": {
+      "cardsInHand": [],
+      "cardsPlayed": []
+    }
   }
 ]

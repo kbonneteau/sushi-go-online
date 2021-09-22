@@ -6,6 +6,7 @@ const logger = require("morgan");
 const gameRoutes = require("./routes/games");
 const menuRoutes = require("./routes/menus");
 const cardRoutes = require("./routes/cards");
+const sessionRestoration = require('./middleware/findSession');
 require("dotenv").config();
 
 const app = express();
@@ -26,7 +27,7 @@ app.use(logger("dev"));
 // app.use(cors(corsOptions));
 app.use(cors());
 
-app.use('/game', gameRoutes);
+app.use('/game', sessionRestoration, gameRoutes);
 app.use('/menu', menuRoutes);
 app.use('/cards', cardRoutes);
 
