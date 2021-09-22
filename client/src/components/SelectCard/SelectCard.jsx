@@ -1,8 +1,14 @@
 import './SelectCard.scss';
 
-const SelectCard = () => {
+const SelectCard = ({ selectedCard }) => {
+    const handleCardCommit = () => {
+        selectedCard === null 
+            ? console.log('this card is null')
+            : console.log("Commit card", selectedCard);
+    }
+
     return (
-        <button className="select-card">
+        <button onClick={handleCardCommit} className="select-card">
             Play Selected Card
         </button>
     );

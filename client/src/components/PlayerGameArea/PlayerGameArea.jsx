@@ -1,5 +1,5 @@
 import './PlayerGameArea.scss';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import PlayerHand from '../PlayerHand/PlayerHand';
 import SelectCard from '../SelectCard/SelectCard';
 
@@ -8,10 +8,10 @@ const PlayerGameArea = () => {
     const [ selectedCard, setSelectedCard ] = useState(null);
 
     const handleCardSelection = (clickedId) => {
-        setSelectedCard(clickedId);
-        // console.log('Clicked! :: game area, ID:', clickedId)
+        clickedId === selectedCard 
+            ? setSelectedCard(null)
+            : setSelectedCard(clickedId);
     }
-
 
     return (
         <>
@@ -22,7 +22,7 @@ const PlayerGameArea = () => {
                 </p>
                 <PlayerHand selectedCard={selectedCard} handleCardSelection={handleCardSelection} />
             </section>
-            <SelectCard />
+            <SelectCard selectedCard={selectedCard} />
         </>
     );
 };
