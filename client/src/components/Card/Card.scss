@@ -2,13 +2,23 @@
 @use '../../partials/typography' as *;
 @use '../../partials/mixins' as *;
 
+.selected {
+    transform: translateY(-25px);
+}
+
 .player-card {
-    // height: 100%;
+    cursor: pointer;
+    height: 100%;
     width: 10rem;
     @include flex-column;
     gap: .5rem;
     @include primary-box-shadow;
     border-radius: 10px;
+    
+    &:hover {
+        transform: translateY(-25px);
+        transition: transform .15s ease;
+    }
 
     &__card-icons {
         display: flex;

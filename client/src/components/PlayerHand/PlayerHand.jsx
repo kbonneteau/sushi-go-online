@@ -54,7 +54,12 @@ class PlayerHand extends Component{
 
         return (
             <article className="player-hand">
-                {this.state.cardDetails.map(card => <Card key={card.id} card={card} />)}
+                {this.state.cardDetails.map(card => (
+                    <Card key={card.id} card={card} 
+                        selectedCard={this.props.selectedCard}
+                        handleCardSelection={this.props.handleCardSelection} 
+                    />)
+                )}
             </article>
         );
     }
