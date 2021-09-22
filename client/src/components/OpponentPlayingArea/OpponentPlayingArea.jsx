@@ -1,6 +1,5 @@
 import './OpponentPlayingArea.scss';
 import OpponentCardsModal from '../OpponentCardsModal/OpponentCardsModal';
-import OpponentIcon from '../OpponentIcon/OpponentIcon';
 
 const OpponentPlayingArea = () => {
     return (
