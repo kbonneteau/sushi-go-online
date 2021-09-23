@@ -4,7 +4,7 @@ import PlayerHand from '../PlayerHand/PlayerHand';
 import SelectCard from '../SelectCard/SelectCard';
 
 
-const PlayerGameArea = () => {
+const PlayerGameArea = ({ player }) => {
     const [ selectedCard, setSelectedCard ] = useState(null);
 
     const handleCardSelection = (clickedId) => {
@@ -13,6 +13,7 @@ const PlayerGameArea = () => {
             : setSelectedCard(clickedId);
     }
 
+    console.log('playergamearea ::', player.cardsInHand)
     return (
         <>
             <section className="player-area">
@@ -20,7 +21,11 @@ const PlayerGameArea = () => {
                 <p className="player-area__action-description">
                     Select a card to play and pass your hand to the next player
                 </p>
-                <PlayerHand selectedCard={selectedCard} handleCardSelection={handleCardSelection} />
+                <PlayerHand 
+                    playerCards={player.cardsInHand} 
+                    selectedCard={selectedCard} 
+                    handleCardSelection={handleCardSelection}
+                />
             </section>
             <SelectCard selectedCard={selectedCard} />
         </>

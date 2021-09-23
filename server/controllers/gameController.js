@@ -30,6 +30,13 @@ let gameController = {
         res.status(200).json({ gameId: req.decoded })
     },
 
+    getCurrentGameData: (req, res) => {
+        const game = gameModel.readGames().find(game => game.gameId === req.params.gameId)
+        game 
+            ? res.status(200).json(game)
+            : res.status(400).json({ message: 'Unable to find a game with the provided id' });
+    },
+
     /**
      * 
     */
