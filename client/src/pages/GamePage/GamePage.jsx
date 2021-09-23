@@ -25,7 +25,7 @@ const GamePage = ({ match }) => {
 
     useEffect(() => {
         console.log('useEffect')
-
+        // If there aren't any players, make an axios request to get the data.
         if(!opponents && !player){
         axios.get(API_BASE_URL + API_GAME + `/${match.params.gameId}`)
             .then(res => {
@@ -36,15 +36,21 @@ const GamePage = ({ match }) => {
             .catch(err => console.log(err.message))
         }
 
+        // if there are opponents, but they haven't selected a card, make a selection.
         if(opponents && !opponentSelectedCard) {
             setOpponentSelectedCard(allComputersCommitCards(opponents))
         }
 
 
+        // If the opponent has selected a card...
         // Can I filter update the opponents object here after each round instead of back-end.
         if(opponentSelectedCard) {
-            console.log('Now this card is selected',opponentSelectedCard)
-            console.log('opponents')
+            console.log('Now these cards are selected',opponentSelectedCard)
+        }
+
+        // If a new round is starting, re-initialize the round data.
+        if(roundStart) {
+            setOpponentSelectedCard(null);
         }
     }, [opponents, player, match.params.gameId, opponentSelectedCard])
 
