@@ -16,7 +16,7 @@ const cards = [
 ]
 
 
-const PlayerModal = () => {
+const PlayerModal = ({ playedCards }) => {
     const [ hidden, setHidden ] = useState(false);
     // hidden state toggled when user icon is clicked
     const handleModalToggle = () => setHidden(!hidden);

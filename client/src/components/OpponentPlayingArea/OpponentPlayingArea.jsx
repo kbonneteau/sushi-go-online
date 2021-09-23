@@ -1,12 +1,16 @@
 import './OpponentPlayingArea.scss';
 import OpponentCardsModal from '../OpponentCardsModal/OpponentCardsModal';
 
-const OpponentPlayingArea = () => {
+const OpponentPlayingArea = ({ opponents }) => {
     return (
         <div className="opponent-area">
-            <OpponentCardsModal id="2" />
-            <OpponentCardsModal id="3" />
-            <OpponentCardsModal id="4" />
+            {opponents.map(opponent => (
+                <OpponentCardsModal 
+                    key={opponent.playerPosition} 
+                    opponent={opponent}
+                    id={opponent.playerPosition} 
+                />)
+            )}
         </div>
     );
 };

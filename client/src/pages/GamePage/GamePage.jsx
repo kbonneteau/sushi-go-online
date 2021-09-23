@@ -5,9 +5,7 @@ import PlayedCards from '../../components/PlayedCards/PlayedCards';
 import axios from 'axios';
 import { API_BASE_URL, API_GAME } from '../../utils/ApiUtils';
 import { useState, useEffect } from 'react';
-// import SelectCard from '../../components/SelectCard/SelectCard';
 
-// Should this component be stateful?
 const GamePage = ({ match }) => {
     // Modal popup with a cardflip animation?
     // User can pull up "cards played modal to see the cards on the board"
@@ -37,7 +35,7 @@ const GamePage = ({ match }) => {
                     <MenuBoard />
                 </div>
                 {player && opponents
-                    ? <PlayedCards />
+                    ? <PlayedCards player={player} opponents={opponents} />
                     : null
                 }
                 
