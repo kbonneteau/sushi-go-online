@@ -1,19 +1,9 @@
 import './PlayerGameArea.scss';
-import { useState } from 'react';
 import PlayerHand from '../PlayerHand/PlayerHand';
 import SelectCard from '../SelectCard/SelectCard';
 
 
-const PlayerGameArea = ({ player }) => {
-    const [ selectedCard, setSelectedCard ] = useState(null);
-
-    const handleCardSelection = (clickedId) => {
-        clickedId === selectedCard 
-            ? setSelectedCard(null)
-            : setSelectedCard(clickedId);
-    }
-
-    console.log('playergamearea ::', player.cardsInHand)
+const PlayerGameArea = ({ player, handleCardSelection, selectedCard }) => {
     return (
         <>
             <section className="player-area">

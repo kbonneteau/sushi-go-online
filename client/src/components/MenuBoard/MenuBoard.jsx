@@ -10,14 +10,14 @@ class MenuBoard extends Component {
     };
 
     componentDidMount() {
-        console.log('menu board :: component did mount')
+        // console.log('menu board :: component did mount')
         axios.get(`/menu/original`)
             .then(res => this.setState({ cards: res.data.menuCards }))
             .catch(console.log)
     }
     
     render() {
-        console.log('menu board :: render')
+        // console.log('menu board :: render')
         return (
             <div className="menu-board">
                 {this.state.cards === null ? null : (
