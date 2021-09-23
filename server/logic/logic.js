@@ -6,7 +6,28 @@ const cardModel = require('../models/cardModel');
 // console.log(cardModel.readCards())
 console.log("Starting logic file")
 
-
+let players = [
+    {
+        "playerPosition": 1,
+        "cardsInHand": [],
+        "cardsPlayed": []
+    },
+    {
+        "playerPosition": 2,
+        "cardsInHand": [],
+        "cardsPlayed": []
+    },
+    {
+        "playerPosition": 3,
+        "cardsInHand": [],
+        "cardsPlayed": []
+    },
+    {
+        "playerPosition": 4,
+        "cardsInHand": [],
+        "cardsPlayed": []
+    }
+]
 
 
 const constructDeck = () => {
@@ -14,23 +35,29 @@ const constructDeck = () => {
     return new Deck(cardModel.constructArrayOfCards());
 }
 
+
+
 const deck = constructDeck()
 
-deck.shuffle()
+const dealCardsToPlayers = (deck, players, maxCards) => {
+    // Shuffle the deck
+    deck.shuffle();
 
-console.log('drawing new card')
-let newCard = deck.draw();
-console.log(newCard);
-console.log(`there are ${deck.remaining()} cards remaining`)
+    for(let i = 0; i < maxCards; i++) {
 
-console.log('drawing new card')
-newCard = deck.draw();
-console.log(newCard);
-console.log(`there are ${deck.remaining()} cards remaining`)
+        players.forEach(player => {
+            player.cardsInHand.push(deck.draw())
+        })
+    }
 
-console.log('drawing new card')
-newCard = deck.draw();
-console.log(newCard);
-console.log(`there are ${deck.remaining()} cards remaining`)
+    console.log(`Player ${players[0].playerPosition} has the following cards`, players[0].cardsInHand);
+    console.log(`Player ${players[1].playerPosition} has the following cards`, players[1].cardsInHand);
+    console.log(`Player ${players[2].playerPosition} has the following cards`, players[2].cardsInHand);
+    console.log(`Player ${players[3].playerPosition} has the following cards`, players[3].cardsInHand);
+}
 
-// console.log(deck)
+
+
+
+
+dealCardsToPlayers(deck, players, 7);

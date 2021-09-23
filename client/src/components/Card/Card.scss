@@ -22,11 +22,14 @@
 
     &__card-icons {
         display: flex;
-        justify-content: space-between;
+        padding: .5rem;
+        // justify-content: space-between;
     }
 
+    // Need to resize this guy (maybe add parent container)
     &__top-icon {
-        padding: .5rem 0 ;
+        // padding: .5rem;
+        width: 3rem;
     }
 
     &__main-card-container {
@@ -35,7 +38,7 @@
     }
     
     &__main-icon {
-
+        width: 7.5rem;
     }
     
     &__type-box {
