@@ -9,10 +9,14 @@ import { useState, useEffect } from 'react';
 const GamePage = ({ match }) => {
     // Modal popup with a cardflip animation?
     // User can pull up "cards played modal to see the cards on the board"
-    
-    // On component mount, make axios call for game data.
-    // New game will load fresh game session
-    // resume game will load previous data.
+
+    const [ playerCommit, setPlayerCommit ] = useState(false);
+    const [ roundStart, setRoundStart ] = useState(false);
+    const [ computerCommit, setComputerCommit ] = useState(null);
+
+    // If computers do not have cards committed in state, roundStart = true
+
+
 
     const [ player, setPlayer ] = useState(null);
     const [ opponents, setOpponents ] = useState(null);
