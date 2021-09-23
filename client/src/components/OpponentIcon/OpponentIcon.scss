@@ -1,0 +1,20 @@
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/mixins' as *;
+@use '../PlayerIcon/PlayerIcon.scss';
+
+.opponent-icon {
+    padding: 0 0.25rem;
+    
+    &__image {
+        @extend .player-icon__image;
+    }
+
+    &__player-name {
+        margin: 0;
+        text-align: center;
+        font-family: $roboto;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+}

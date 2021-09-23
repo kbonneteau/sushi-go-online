@@ -1,0 +1,21 @@
+@use '../../partials/mixins' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/variables' as *;
+
+.game-area {
+    height: 90vh;
+    position: relative;
+    @include flex-column;
+    justify-content: space-between;
+
+    &__game-component-container {
+        @include flex-centering;
+        align-items: flex-start;
+        justify-content: space-between;
+        height: 37.5rem;
+    }
+
+    &__player-interaction-container {
+        display: flex;
+    }
+}

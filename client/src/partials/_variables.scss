@@ -1,0 +1,35 @@
+@use './typography';
+
+// Media query breakpoint definitions
+$desktop-breakpoint: 1280px;
+$tablet-breakpoint:  768px;
+$max-content-width:  67.5rem;
+
+// Margin amounts
+$mobile-margin:  1rem;
+$tablet-margin:  1.5rem;
+$desktop-margin: 11.25rem;
+
+// Site font
+$lato: 'Lato';
+$roboto: 'Roboto';
+$roboto-condensed: 'Roboto Condensed';
+
+// Site colours
+$primary-cta: #F77F00;
+$accent: #9E948A;
+
+$nigiri: #FBC83A;
+$maki: #D5262E;
+$tempura: #C098C7;
+$sashimi: #C8D92B;
+$dumpling: #6996CD;
+$chopsticks: #A2D5CD;
+$wasabi: #FBC83A;
+$pudding: #F8B2B5;
+// $primary-dark:      #323232;  // Black - paragraph text & nav background fill
+// $secondary-text:    #AFAFAF;  // Silver - Text label
+// $secondary-outline: #E1E1E1;  // Mercury
+// $secondary-bg:      #FAFAFA;  // Alabaster
+// $primary-cta:       #0095FF;  // Brainflix-blue
+// $cta-hover:         #0065AD;  // Brainflix-blue alt

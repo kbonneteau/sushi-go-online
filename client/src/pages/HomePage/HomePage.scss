@@ -1,0 +1,9 @@
+@use '../../partials/mixins' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/variables' as *;
+
+.home {
+    @include flex-centering;
+    // 100vh - Header & Footer heights
+    height: 90vh;
+}

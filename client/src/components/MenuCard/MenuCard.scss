@@ -1,0 +1,31 @@
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/mixins' as *;
+
+// @mixin text($font-family, $font-size, $font-weight, $line-height) 
+
+.menu-card {
+    width: 10rem;
+    @include flex-centering;
+    flex-direction: column;
+    padding-bottom: 1rem;
+    border-radius: 10px;
+    @include primary-box-shadow;
+
+    &__dish-type {
+        background-color: $primary-cta;
+        border-radius: 10px 10px 0 0;
+        width: 100%;
+        padding: .5rem 1rem;
+        @include title-text;
+    }
+
+    &__dish-name {
+        margin: .5rem;
+        text-transform: uppercase;
+    }
+
+    &__dish-image {
+        
+    }
+}

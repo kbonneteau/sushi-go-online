@@ -1,0 +1,68 @@
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/mixins' as *;
+
+.selected {
+    transform: translateY(-25px);
+}
+
+.player-card {
+    cursor: pointer;
+    height: 100%;
+    width: 10rem;
+    @include flex-column;
+    gap: .5rem;
+    @include primary-box-shadow;
+    border-radius: 10px;
+    
+    &:hover {
+        transform: translateY(-25px);
+        transition: transform .15s ease;
+    }
+
+    &__card-icons {
+        display: flex;
+        padding: .5rem;
+        // justify-content: space-between;
+    }
+
+    // Need to resize this guy (maybe add parent container)
+    &__top-icon {
+        // padding: .5rem;
+        width: 3rem;
+    }
+
+    &__main-card-container {
+        @include flex-centering;
+        flex-grow: 1;
+    }
+    
+    &__main-icon {
+        width: 7.5rem;
+    }
+    
+    &__type-box {
+        @include flex-centering;
+        padding: .5rem 0;
+        background-color: $accent;
+        border-radius: 0 0 10px 10px;
+        height: 3.125rem;
+    }
+
+    &__type-title {
+        @include title-text;
+        padding: 0 .25rem;
+        font-size: 1rem;
+        text-transform: uppercase;
+    }
+    
+    &__point-value {
+        text-align: center;
+        margin: 0;
+        min-width: 5ch;
+        max-width: 8ch;
+        padding: 0 .25rem;
+        font-size: .9rem;
+        font-weight: bold;
+    }
+}

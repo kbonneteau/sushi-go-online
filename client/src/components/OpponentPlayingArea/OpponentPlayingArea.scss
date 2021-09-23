@@ -1,0 +1,8 @@
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/mixins' as *;
+
+.opponent-area {
+    @include flex-column;
+    align-items: flex-end;
+}

@@ -1,0 +1,40 @@
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/keyframes' as *;
+@use '../../partials/mixins' as *;
+@use '../PlayerModal/PlayerModal.scss';
+
+.played-modal {
+    background-color: lightsteelblue;
+    padding: 0 .5rem;
+    @include flex-centering;
+    @include primary-box-shadow;
+    height: 8.6875rem;
+
+    &__player-name {
+        @include title-text;
+        text-align: left;
+        padding: .5rem;
+    }
+
+    &__played-list {
+        list-style: none;
+        margin: 0;
+        padding: 0.25rem;
+        display: flex;
+        justify-content: space-evenly;
+        gap: 1rem;
+    }
+
+    &__played-item {
+        @extend .player-modal__item;
+    }
+    
+    &__visible {
+        @include modal-slide-animation;
+    }
+
+    &__hidden {
+        display: none;
+    }
+}
