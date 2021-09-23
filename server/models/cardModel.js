@@ -1,7 +1,7 @@
 const fs = require('fs');
 const Deck = require('card-deck');
-const cardData = '../data/cards.json';
-// const cardData = './data/cards.json';
+// const cardData = '../data/cards.json';
+const cardData = './data/cards.json';
 const { v4: uuid } = require('uuid');
 
 /**
@@ -30,19 +30,43 @@ const constructPlayingCard = cardData => {
  * @returns {array} of all playing cards
  */
  const constructArrayOfCards = () => {
-    console.log('start :: constructArrayOfCards')
     const cards = [];
     readCards().forEach(cardType => {
         const numberOfCards = cardType.numberInDeck;
         [...Array(numberOfCards)].forEach(_card => cards.push(constructPlayingCard(cardType)));
     })
-    console.log('There are this many cards in the array:', cards.length)
     return cards;
 }
 
+/**
+ * Constructs a new deck with all required Sushi Go cards
+ * @param {array} containing all cards required in the deck 
+ * @returns {class object} containing 59 Sushi Go cards
+ */
+// const constructDeck = (cardArray) => new Deck(cardArray);
+
+
+/**
+ * Shuffles and deals cards to all players, placing the cards in their hand.
+ * @param {array} players array of player objects
+ * @param {number} maxCards the max number of cards to deal to each player
+ * @returns {array} or players with shuffled cards in their hands
+ */
+const dealCardsToPlayers = (players, maxCards) => {
+    const deck = new Deck(constructArrayOfCards());
+    deck.shuffle();
+    for(let i = 0; i < maxCards; i++) {
+        players.forEach(player => {
+            player.cardsInHand.push(deck.draw())
+        })
+    }
+    return players;
+}
 
 module.exports = {
     readCards,
     constructPlayingCard,
-    constructArrayOfCards
+    constructArrayOfCards,
+    // constructDeck,
+    dealCardsToPlayers
 }

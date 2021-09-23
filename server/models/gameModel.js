@@ -1,6 +1,7 @@
 const fs = require('fs');
 const { v4: uuid } = require('uuid');
 const gameData = './data/games.json';
+const cardModel = require("./cardModel");
 
 /**
  * Read all games in persistent storage.
@@ -22,33 +23,46 @@ const addNewGameToList = gameObject => [...readGames(), gameObject];
  */
 const writeGames = games => fs.writeFileSync(gameData, JSON.stringify(games, null, 2));
 
+
 /**
- * Creates a newly formatted game session.
+ * Initializes an array of player objects.
+ * @returns {array} of players and their hands.
+ */
+const constructPlayers = () => {
+    return [
+        {
+            playerPosition: 1,
+            cardsInHand: [],
+            cardsPlayed: []
+        },
+        {
+            playerPosition: 2,
+            cardsInHand: [],
+            cardsPlayed: []
+        },
+        {
+            playerPosition: 3,
+            cardsInHand: [],
+            cardsPlayed: []
+        },
+        {
+            playerPosition: 4,
+            cardsInHand: [],
+            cardsPlayed: []
+        }
+    ]
+}
+
+/**
+ * Creates a newly formatted game session. Max cards are hard-coded as number of players is pre-designated
  * @returns {object} containing required game properties
  */
-
-// Note to self: should I have the creation of hands handled at this point?
 const constructGame = () => {
     return {
         gameId: uuid(),
         timestamp: Date.now(),
         currentTurn: 1,
-        player: {
-            cardsInHand: [],
-            cardsPlayed: []
-        },
-        computer1: {
-            cardsInHand: [],
-            cardsPlayed: []
-        },
-        computer2: {
-            cardsInHand: [],
-            cardsPlayed: []
-        },
-        computer3: {
-            cardsInHand: [],
-            cardsPlayed: []
-        }
+        players: cardModel.dealCardsToPlayers(constructPlayers(), 7)
     };
 };
 
@@ -60,6 +74,7 @@ module.exports = {
     readGames,
     addNewGameToList,
     writeGames,
+    constructPlayers,
     constructGame,
     updateGameData
 }
