@@ -1,5 +1,5 @@
 import './SelectCard.scss';
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 
 const SelectCard = ({ selectedCard }) => {
     const handleCardCommit = () => {
