@@ -24,6 +24,9 @@
         display: flex;
         justify-content: space-evenly;
         gap: 1rem;
+        // width: 39rem;
+        height: 5.8125rem;
+        @include flex-centering;
     }
 
     &__played-item {

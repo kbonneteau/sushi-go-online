@@ -2,25 +2,15 @@ import './PlayerModal.scss';
 import { useState } from 'react';
 import PlayerIcon from '../PlayerIcon/PlayerIcon';
 import ModalIcon from '../ModalIcon/ModalIcon';
-
-// dummy data
-const cards = [
-    {icon: 'https://via.placeholder.com/50x50', count: 3},
-    {icon: 'https://via.placeholder.com/50x50', count: 0},
-    {icon: 'https://via.placeholder.com/50x50', count: 1},
-    {icon: 'https://via.placeholder.com/50x50', count: 2},
-    {icon: 'https://via.placeholder.com/50x50', count: 0},
-    {icon: 'https://via.placeholder.com/50x50', count: 0},
-    {icon: 'https://via.placeholder.com/50x50', count: 1},
-    {icon: 'https://via.placeholder.com/50x50', count: 0},
-]
+import { countCards } from '../../utils/GameUtils';
 
 
 const PlayerModal = ({ playedCards }) => {
     const [ hidden, setHidden ] = useState(false);
     // hidden state toggled when user icon is clicked
     const handleModalToggle = () => setHidden(!hidden);
-    console.log("player played cards",playedCards)
+
+    const cards = countCards(playedCards);
 
     return (
         <article className="player-modal">
