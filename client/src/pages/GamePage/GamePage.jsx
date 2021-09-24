@@ -36,6 +36,11 @@ const GamePage = ({ match }) => {
         }
     }
 
+    const setPlayers = arrayOfPlayers => {
+        setPlayer(GameLogic.findPlayer(arrayOfPlayers));
+        setOpponents(GameLogic.findOpponents(arrayOfPlayers));
+    }
+
     useEffect(() => {
         // console.log('useEffect')
         // If there aren't any players, make an axios request to get the data.
@@ -44,8 +49,9 @@ const GamePage = ({ match }) => {
             .then(res => {
                 // console.log("axios done, setting state")
                 // console.log(res.data.players)
-                setPlayer(GameLogic.findPlayer(res.data.players));
-                setOpponents(GameLogic.findOpponents(res.data.players));
+                setPlayers(res.data.players);
+                // setPlayer(GameLogic.findPlayer(res.data.players));
+                // setOpponents(GameLogic.findOpponents(res.data.players));
             })
             .catch(err => console.log(err.message))
         }
@@ -76,7 +82,13 @@ const GamePage = ({ match }) => {
         if(playerCommit) {
             const allPlayers = [player, ...opponents]
             console.log('card commit ::')
-            GameLogic.setPlayedCards(player, opponents, selectedCard, opponentSelectedCard)
+            const playersWithCards = GameLogic.setPlayedCards(player, opponents, selectedCard, opponentSelectedCard);
+            setPlayers(playersWithCards);
+
+            // Infinite loop triggered without this
+            setPlayerCommit(false);
+            // setRoundStart(true)
+            setOpponentSelectedCard(GameLogic.allComputersCommitCards(opponents))
         }
 
     }, [opponents, player, match.params.gameId, opponentSelectedCard, roundStart, selectedCard, playerCommit])

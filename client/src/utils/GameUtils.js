@@ -53,3 +53,50 @@ export const allComputersCommitCards = arrayOfComputers => {
     return committedCards;
 }
 
+
+export const countCards = opponentCards => {
+    // console.log('count cards :: game logic')
+    console.log(opponentCards)
+    let cardTypes = {};
+    opponentCards.forEach(card => {
+        const { id } = card;
+        const maki = 'maki'
+        console.log(id)
+
+        // If it's a maki, show the count of maki cards, not the number of maki they have
+        if( 
+            id === '239bd62a-37e3-4f5d-9c04-a6dbbe7e2e7f' ||
+            id === '91c99c9d-cbdd-4be2-bc60-0b6172e12fe4' ||
+            id === '0f6753a9-be5e-4814-a755-b6c63a2a8d36'
+        ) {
+            cardTypes[maki] 
+                ? cardTypes[maki].count ++
+                : cardTypes = {
+                    ...cardTypes,
+                    [maki]: {
+                        icon: card.image.icon,
+                        count: 1
+                    }
+                };
+        } else if(id in cardTypes) {
+            cardTypes[id].count++ 
+        } else {
+            cardTypes = {
+                ...cardTypes,
+                [id]: {
+                    icon: card.image.icon,
+                    count: 1
+                }
+            }
+        }
+    })
+
+    return Object.values(cardTypes);
+    // console.log('cardtypes',Object.values(cardTypes))
+
+    // I need to track the unique id present for each card.
+    // I need to iterate the count for each unique id.
+    // I need to return an array of objects for each unique ID
+    // OR can I just do a for.. in loop on opponent cards modal
+    // opponent.playedCards.filter
+}
