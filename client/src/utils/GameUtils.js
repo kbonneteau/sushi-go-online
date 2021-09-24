@@ -53,3 +53,33 @@ export const allComputersCommitCards = arrayOfComputers => {
     return committedCards;
 }
 
+
+export const countCards = opponentCards => {
+    // console.log('count cards :: game logic')
+    console.log(opponentCards)
+    let cardTypes = {};
+    opponentCards.forEach(card => {
+        const { id } = card;
+        console.log(id)
+        if(id in cardTypes) {
+            cardTypes[id].count++ 
+        } else {
+            cardTypes = {
+                ...cardTypes,
+                [id]: {
+                    icon: card.image.icon,
+                    count: 1
+                }
+            }
+        }
+    })
+
+    return Object.values(cardTypes);
+    console.log('cardtypes',Object.values(cardTypes))
+
+    // I need to track the unique id present for each card.
+    // I need to iterate the count for each unique id.
+    // I need to return an array of objects for each unique ID
+    // OR can I just do a for.. in loop on opponent cards modal
+    // opponent.playedCards.filter
+}
