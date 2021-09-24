@@ -24,6 +24,7 @@ const PORT = process.env.PORT || 8000;
 app.use(express.json());
 app.use(helmet());
 app.use(logger("dev"));
+app.use(express.static('public'));
 // app.use(cors(corsOptions));
 app.use(cors());
 
