@@ -5,7 +5,8 @@ import PlayedCards from '../../components/PlayedCards/PlayedCards';
 import axios from 'axios';
 import { API_BASE_URL, API_GAME } from '../../utils/ApiUtils';
 import { useState, useEffect } from 'react';
-import allComputersCommitCards from '../../utils/GameUtils';
+import * as GameLogic from '../../utils/GameUtils';
+// import { allComputersCommitCards, findPlayer, findOpponents, setPlayedCards } from '../../utils/GameUtils';
 
 
 const GamePage = ({ match }) => {
@@ -42,15 +43,16 @@ const GamePage = ({ match }) => {
         axios.get(API_BASE_URL + API_GAME + `/${match.params.gameId}`)
             .then(res => {
                 // console.log("axios done, setting state")
-                setPlayer(res.data.players.find(player => player.playerPosition === 1));
-                setOpponents(res.data.players.filter(player => player.playerPosition !== 1));
+                // console.log(res.data.players)
+                setPlayer(GameLogic.findPlayer(res.data.players));
+                setOpponents(GameLogic.findOpponents(res.data.players));
             })
             .catch(err => console.log(err.message))
         }
 
         // if there are opponents, but they haven't selected a card, make a selection.
         if(opponents && !opponentSelectedCard) {
-            setOpponentSelectedCard(allComputersCommitCards(opponents))
+            setOpponentSelectedCard(GameLogic.allComputersCommitCards(opponents))
         }
 
 
@@ -72,7 +74,9 @@ const GamePage = ({ match }) => {
 
         // If card is committed, do something.
         if(playerCommit) {
-            console.log('card committed!!')
+            const allPlayers = [player, ...opponents]
+            console.log('card commit ::')
+            GameLogic.setPlayedCards(player, opponents, selectedCard, opponentSelectedCard)
         }
 
     }, [opponents, player, match.params.gameId, opponentSelectedCard, roundStart, selectedCard, playerCommit])
