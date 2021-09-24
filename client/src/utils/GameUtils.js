@@ -13,9 +13,9 @@
 import { DiceRoll } from 'rpg-dice-roller';
 
 
-const roundLogic = {
-    initializeRound: computerCardCommit => computerCardCommit ? false : true,
-}
+// const roundLogic = {
+//     initializeRound: computerCardCommit => computerCardCommit ? false : true,
+// }
 
 
 /**

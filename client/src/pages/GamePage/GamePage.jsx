@@ -7,29 +7,41 @@ import { API_BASE_URL, API_GAME } from '../../utils/ApiUtils';
 import { useState, useEffect } from 'react';
 import allComputersCommitCards from '../../utils/GameUtils';
 
+
 const GamePage = ({ match }) => {
     // Modal popup with a cardflip animation?
     // User can pull up "cards played modal to see the cards on the board"
 
-    // const [ playerCommit, setPlayerCommit ] = useState(false);
-    const [ roundStart, setRoundStart ] = useState(false);
     // const [ computerCommit, setComputerCommit ] = useState(null);
-
+    const [ playerCommit, setPlayerCommit ] = useState(false);
+    const [ roundStart, setRoundStart ] = useState(false);
     // If computers do not have cards committed in state, roundStart = true
-
-
-
+    const [ selectedCard, setSelectedCard ] = useState({});
     const [ player, setPlayer ] = useState(null);
     const [ opponents, setOpponents ] = useState(null);
     const [ opponentSelectedCard, setOpponentSelectedCard ] = useState(null);
 
+    const handleCardSelection = clickedCard => {
+        clickedCard.id === selectedCard.id 
+            ? setSelectedCard({})
+            : setSelectedCard(clickedCard);
+    }
+
+    const handleCardCommit = () => { 
+        if(selectedCard.id !== undefined) {
+            setPlayerCommit(true)
+        } else {
+            console.log('this card is null')
+        }
+    }
+
     useEffect(() => {
-        console.log('useEffect')
+        // console.log('useEffect')
         // If there aren't any players, make an axios request to get the data.
         if(!opponents && !player){
         axios.get(API_BASE_URL + API_GAME + `/${match.params.gameId}`)
             .then(res => {
-                console.log("axios done, setting state")
+                // console.log("axios done, setting state")
                 setPlayer(res.data.players.find(player => player.playerPosition === 1));
                 setOpponents(res.data.players.filter(player => player.playerPosition !== 1));
             })
@@ -45,14 +57,25 @@ const GamePage = ({ match }) => {
         // If the opponent has selected a card...
         // Can I filter update the opponents object here after each round instead of back-end.
         if(opponentSelectedCard) {
-            console.log('Now these cards are selected',opponentSelectedCard)
+            // console.log('Now these cards are selected',opponentSelectedCard)
+        }
+
+        // If a card is selected, do something here.
+        if(selectedCard.id !== undefined) {
+            console.log('player selected card ::',selectedCard)
         }
 
         // If a new round is starting, re-initialize the round data.
         if(roundStart) {
             setOpponentSelectedCard(null);
         }
-    }, [opponents, player, match.params.gameId, opponentSelectedCard])
+
+        // If card is committed, do something.
+        if(playerCommit) {
+            console.log('card committed!!')
+        }
+
+    }, [opponents, player, match.params.gameId, opponentSelectedCard, roundStart, selectedCard, playerCommit])
 
 
     return (
@@ -71,7 +94,12 @@ const GamePage = ({ match }) => {
             {/* Pass current hands to this component, and pass player hand to player game area component? */}
             <div className="game-area__player-interaction-container">
                 {player 
-                    ? <PlayerGameArea player={player} />
+                    ? <PlayerGameArea 
+                        player={player} 
+                        handleCardSelection={handleCardSelection} 
+                        selectedCard={selectedCard}
+                        handleCardCommit={handleCardCommit} 
+                      />
                     : null
                 }
                 {/* <SelectCard /> */}

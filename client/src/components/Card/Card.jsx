@@ -4,18 +4,18 @@ import { useState, useEffect } from 'react';
 const Card = ({ card, selectedCard, handleCardSelection }) => {
     const [ selected, setSelected ] = useState(false);
 
-    const handleCardSelect = (clickedId) => {
-        handleCardSelection(clickedId)
+    const handleCardSelect = (card) => {
+        handleCardSelection(card)
         setSelected(!selected);
     }
     
     useEffect(() => {
-        if(selected && selectedCard !== card.id) {
+        if(selected && selectedCard.id !== card.id) {
             setSelected(false)
         }
     }, [selected, selectedCard, card.id]);
     return (
-        <article onClick={() => handleCardSelect(card.id)}>
+        <article onClick={() => handleCardSelect(card)}>
             <div className={selected ? `player-card ${card.card} selected` : `player-card ${card.card}`}>
                 <header className="player-card__card-icons">
                     {card.card === "maki"
