@@ -6,49 +6,49 @@
                 "id": 1,
                 "dishType": "nigiri",
                 "dishName": "nigiri",
-                "image": "https://via.placeholder.com/100x100"
+                "image": "http://localhost:8080/images/squid_nigiri.png"
             },
             {
                 "id": 2,
                 "dishType": "rolls",
                 "dishName": "maki",
-                "image": "https://via.placeholder.com/100x100"
+                "image": "http://localhost:8080/images/maki.png"
             },
             {
                 "id": 3,
                 "dishType": "special",
                 "dishName": "wasabi",
-                "image": "https://via.placeholder.com/100x100"
+                "image": "http://localhost:8080/images/wasabi.png"
             },
             {
                 "id": 4,
                 "dishType": "special",
                 "dishName": "chopsticks",
-                "image": "https://via.placeholder.com/100x100"
+                "image": "http://localhost:8080/images/chopsticks.png"
             },
             {
                 "id": 5,
                 "dishType": "appetizer",
                 "dishName": "dumpling",
-                "image": "https://via.placeholder.com/100x100"
+                "image": "http://localhost:8080/images/dumpling.png"
             },
             {
                 "id": 6,
                 "dishType": "appetizer",
                 "dishName": "tempura",
-                "image": "https://via.placeholder.com/100x100"
+                "image": "http://localhost:8080/images/tempura.png"
             },
             {
                 "id": 7,
                 "dishType": "appetizer",
                 "dishName": "sashimi",
-                "image": "https://via.placeholder.com/100x100"
+                "image": "http://localhost:8080/images/sashimi.png"
             },
             {
                 "id": 8,
                 "dishType": "dessert",
                 "dishName": "pudding",
-                "image": "https://via.placeholder.com/100x100"
+                "image": "http://localhost:8080/images/pudding.png"
             }
         ]
     }
