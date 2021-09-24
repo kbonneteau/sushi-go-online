@@ -7,17 +7,16 @@ import { API_BASE_URL, API_GAME } from '../../utils/ApiUtils';
 import { useState, useEffect } from 'react';
 import allComputersCommitCards from '../../utils/GameUtils';
 
+
 const GamePage = ({ match }) => {
     // Modal popup with a cardflip animation?
     // User can pull up "cards played modal to see the cards on the board"
 
-    // const [ playerCommit, setPlayerCommit ] = useState(false);
-    const [ roundStart, setRoundStart ] = useState(false);
     // const [ computerCommit, setComputerCommit ] = useState(null);
-
+    const [ playerCommit, setPlayerCommit ] = useState(false);
+    const [ roundStart, setRoundStart ] = useState(false);
     // If computers do not have cards committed in state, roundStart = true
     const [ selectedCard, setSelectedCard ] = useState({});
-
     const [ player, setPlayer ] = useState(null);
     const [ opponents, setOpponents ] = useState(null);
     const [ opponentSelectedCard, setOpponentSelectedCard ] = useState(null);
@@ -26,6 +25,14 @@ const GamePage = ({ match }) => {
         clickedCard.id === selectedCard.id 
             ? setSelectedCard({})
             : setSelectedCard(clickedCard);
+    }
+
+    const handleCardCommit = () => { 
+        if(selectedCard.id !== undefined) {
+            setPlayerCommit(true)
+        } else {
+            console.log('this card is null')
+        }
     }
 
     useEffect(() => {
@@ -63,7 +70,12 @@ const GamePage = ({ match }) => {
             setOpponentSelectedCard(null);
         }
 
-    }, [opponents, player, match.params.gameId, opponentSelectedCard, roundStart, selectedCard])
+        // If card is committed, do something.
+        if(playerCommit) {
+            console.log('card committed!!')
+        }
+
+    }, [opponents, player, match.params.gameId, opponentSelectedCard, roundStart, selectedCard, playerCommit])
 
 
     return (
@@ -82,7 +94,12 @@ const GamePage = ({ match }) => {
             {/* Pass current hands to this component, and pass player hand to player game area component? */}
             <div className="game-area__player-interaction-container">
                 {player 
-                    ? <PlayerGameArea player={player} handleCardSelection={handleCardSelection} selectedCard={selectedCard} />
+                    ? <PlayerGameArea 
+                        player={player} 
+                        handleCardSelection={handleCardSelection} 
+                        selectedCard={selectedCard}
+                        handleCardCommit={handleCardCommit} 
+                      />
                     : null
                 }
                 {/* <SelectCard /> */}

@@ -3,7 +3,7 @@ import PlayerHand from '../PlayerHand/PlayerHand';
 import SelectCard from '../SelectCard/SelectCard';
 
 
-const PlayerGameArea = ({ player, handleCardSelection, selectedCard }) => {
+const PlayerGameArea = ({ player, handleCardSelection, selectedCard, handleCardCommit }) => {
     return (
         <>
             <section className="player-area">
@@ -17,7 +17,7 @@ const PlayerGameArea = ({ player, handleCardSelection, selectedCard }) => {
                     handleCardSelection={handleCardSelection}
                 />
             </section>
-            <SelectCard selectedCard={selectedCard} />
+            <SelectCard handleCardCommit={handleCardCommit} />
         </>
     );
 };
