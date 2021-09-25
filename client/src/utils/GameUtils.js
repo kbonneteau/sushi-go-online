@@ -27,50 +27,6 @@ export const computerTurn = (computerHand) => {
 }
 
 /**
- * Updates the all players in the game to reflect:
- *  - the cards each player has played
- *  - the remaining cards in their hands.
- * 
- * @param {object} player the main player in the game
- * @param {array} opponents all opponents the player is facing
- * @param {object} playerCommittedCard the card selected by the player
- * @param {array} opponentCommittedCards objects containing the opponent played cards & the corresponding opponent
- * @returns {array} of all players and their updates hands + played cards
- */
-export const setPlayedCards = (player, opponents, playerCommittedCard, opponentCommittedCards) => {
-    player = removePlayedCardsFromHands(player, playerCommittedCard);
-    player.cardsPlayed = [...player.cardsPlayed, playerCommittedCard];
-    const allPlayers = [player];
-    // Loop through each opponent and find the played card associated with them. 
-    // Update their hand, and push to the allPlayers array.
-    opponents.forEach(opponent => {
-        const playedCard = opponentCommittedCards.find(opponentCard => opponentCard.playerPosition === opponent.playerPosition);
-        opponent = removePlayedCardsFromHands(opponent, playedCard.selectedCard);
-        opponent.cardsPlayed = [...opponent.cardsPlayed, playedCard.selectedCard];
-        allPlayers.push(opponent);
-    })
-    console.log("All players", allPlayers)
-    return allPlayers;
-}
-
-/**
- * Finds and removes the card played by the user from their active hand.
- * @param {object} player one of the players on the board
- * @param {object} playedCard the card played by the user during a round
- * @returns {object} player containing all the previous attributes, plus the played card removed from their current hand.
- */
-export const removePlayedCardsFromHands = (player, playedCard ) => {
-    const foundIndex = player.cardsInHand.findIndex(card => card.id === playedCard.id);
-    // console.log('Player:', player.playerPosition)
-    // console.log('found index', foundIndex)
-    const filteredHand = player.cardsInHand.filter((_card, i) => i !== foundIndex)
-    return {
-        ...player,
-        cardsInHand: filteredHand
-    };
-}
-
-/**
  * Each computer takes a turn and commits a card from their hand.
  * @param {array} arrayOfComputers contains a list of computer objects with the current cards in their hands.
  * @return {array} of computers with a specific card selected
@@ -86,6 +42,67 @@ export const allComputersCommitCards = arrayOfComputers => {
     });
 
     return committedCards;
+}
+
+/**
+ * Finds and removes the card played by the user from their active hand.
+ * @param {object} player one of the players on the board
+ * @param {object} playedCard the card played by the user during a round
+ * @returns {object} player containing all the previous attributes, plus the played card removed from their current hand.
+ */
+export const removePlayedCardsFromHands = (player, playedCard ) => {
+    const foundIndex = player.cardsInHand.findIndex(card => card.id === playedCard.id);
+    // console.log('Player:', player.playerPosition)
+    // console.log('found index', foundIndex)
+    // Not sure why, but splice was not working as expected here.
+    const filteredHand = player.cardsInHand.filter((_card, i) => i !== foundIndex)
+    return {
+        ...player,
+        cardsInHand: filteredHand
+    };
+}
+
+const rotatePlayerHands = () => {
+    // I need to take in all of the players and their hands.
+    // I need to loop through each of the players and update their hands.
+
+    // === Approach 1 ===
+    // I use a for loop. I remember all of the current player's hands, and update with the previous player's hands.
+    // If player 1 && no previous player hand, don't attempt to update, only remember.
+    // If player 4, don't loop to the next player in line, instead loop back to player one.
+    // Once player 1 is updated, break from the loop.
+
+    // === Approach 2 ===
+    // Do similar to above, but use forEach and don't loop back to start
+    // Once loop ends, we remember the last played hand, and we simply update player 1 at the end.
+    // === No need for loop break.
+}
+
+/**
+ * Updates the all players in the game to reflect:
+ *  - the cards each player has played
+ *  - the remaining cards in their hands.
+ * 
+ * @param {object} player the main player in the game
+ * @param {array} opponents all opponents the player is facing
+ * @param {object} playerCommittedCard the card selected by the player
+ * @param {array} opponentCommittedCards objects containing the opponent played cards & the corresponding opponent
+ * @returns {array} of all players and their updates hands + played cards
+ */
+ export const setPlayedCards = (player, opponents, playerCommittedCard, opponentCommittedCards) => {
+    player = removePlayedCardsFromHands(player, playerCommittedCard);
+    player.cardsPlayed = [...player.cardsPlayed, playerCommittedCard];
+    const allPlayers = [player];
+    // Loop through each opponent and find the played card associated with them. 
+    // Update their hand, and push to the allPlayers array.
+    opponents.forEach(opponent => {
+        const playedCard = opponentCommittedCards.find(opponentCard => opponentCard.playerPosition === opponent.playerPosition);
+        opponent = removePlayedCardsFromHands(opponent, playedCard.selectedCard);
+        opponent.cardsPlayed = [...opponent.cardsPlayed, playedCard.selectedCard];
+        allPlayers.push(opponent);
+    })
+    console.log("All players", allPlayers)
+    return allPlayers;
 }
 
 /**

@@ -85,6 +85,10 @@ const GamePage = ({ match }) => {
         if(playerCommit) {
             const allPlayers = [player, ...opponents]
             console.log('card commit ::')
+            // Here, I want to
+            //      - update played cards
+            //      - pass hand to next player
+            //      - receive a new hand
             const playersWithCards = GameLogic.setPlayedCards(player, opponents, selectedCard, opponentSelectedCard);
             setPlayers(playersWithCards);
 
