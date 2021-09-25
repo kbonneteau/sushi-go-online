@@ -58,7 +58,10 @@ const GamePage = ({ match }) => {
 
         // if there are opponents, but they haven't selected a card, make a selection.
         if(opponents && !opponentSelectedCard) {
-            setOpponentSelectedCard(GameLogic.allComputersCommitCards(opponents))
+            // Don't attempt a selection if there are no cards left.
+            if(opponents[1].cardsInHand.length > 0) {
+                setOpponentSelectedCard(GameLogic.allComputersCommitCards(opponents))
+            }
         }
 
 
@@ -70,7 +73,7 @@ const GamePage = ({ match }) => {
 
         // If a card is selected, do something here.
         if(selectedCard.id !== undefined) {
-            console.log('player selected card ::',selectedCard)
+            // console.log('player selected card ::',selectedCard)
         }
 
         // If a new round is starting, re-initialize the round data.
@@ -87,8 +90,14 @@ const GamePage = ({ match }) => {
 
             // Infinite loop triggered without this
             setPlayerCommit(false);
-            // setRoundStart(true)
-            setOpponentSelectedCard(GameLogic.allComputersCommitCards(opponents))
+            // setRoundStart((prevRound) => {
+            //     if(prevRound === true) return
+            //     else return true;
+            // })
+
+            // This resolved the issue with computer async card setting (I think??)
+            setOpponentSelectedCard(null)
+            setSelectedCard({})
         }
 
     }, [opponents, player, match.params.gameId, opponentSelectedCard, roundStart, selectedCard, playerCommit])

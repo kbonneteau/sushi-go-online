@@ -4,9 +4,15 @@
 
 .modal-icon {
 
-    &__food-icon {
-        // width: 4rem;
+    &__icon-container {
         height: 4rem;
+        width: 4rem;
+        @include flex-centering;
+    }
+
+    &__food-icon {
+        max-width: 4rem;
+        max-height: 4rem;
     }
 
     &__card-count {
