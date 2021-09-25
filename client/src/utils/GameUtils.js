@@ -65,11 +65,12 @@ export const removePlayedCardsFromHands = (player, playedCard ) => {
 }
 
 /**
+ * Exchanges the cardsInHand value for each player. Each player passes their hand to the next player, and takes the previous players hand as their own.
  * 
  * @param {array} players an array containing a shallow copy of all players currently in the game
- * @returns 
+ * @returns {array} containing all of the updated player hands
  */
-export const rotatePlayerHands = players => {
+export const exchangeCardsWithNextPlayer = players => {
     console.log('rotate player hands ::')
     // Tracking variables
     let updatedPlayers = [];
@@ -108,6 +109,7 @@ export const rotatePlayerHands = players => {
  * @returns {array} of all players and their updates hands + played cards
  */
  export const setPlayedCards = (player, opponents, playerCommittedCard, opponentCommittedCards) => {
+    // Create deep clone to ensure nested data is not mutated
     let playerClone = cloneDeep(player)
     playerClone = removePlayedCardsFromHands(playerClone, playerCommittedCard);
     playerClone.cardsPlayed = [...playerClone.cardsPlayed, playerCommittedCard];
@@ -122,7 +124,7 @@ export const rotatePlayerHands = players => {
         allPlayers.push(opponentClone);
     })
     console.log("All players", allPlayers)
-    rotatePlayerHands(allPlayers)
+    exchangeCardsWithNextPlayer(allPlayers)
     return allPlayers;
 }
 
