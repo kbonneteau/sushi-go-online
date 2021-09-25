@@ -29,7 +29,8 @@
     // Need to resize this guy (maybe add parent container)
     &__top-icon {
         // padding: .5rem;
-        width: 3rem;
+        max-width: 3rem;
+        max-height: 3rem;
     }
 
     &__main-card-container {
@@ -38,7 +39,8 @@
     }
     
     &__main-icon {
-        width: 7.5rem;
+        max-width: 7.5rem;
+        max-height: 7rem;
     }
     
     &__type-box {

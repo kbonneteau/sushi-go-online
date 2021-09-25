@@ -118,7 +118,7 @@
         "subType": "chopsticks",
         "dishType": "special",
         "numberInDeck": 3,
-        "value": "Swap fpr 2",
+        "value": "Swap for 2",
         "modifier": "Value changes based on number of cards",
         "image": {
             "icon": "http://localhost:8080/images/chopsticks.png",
