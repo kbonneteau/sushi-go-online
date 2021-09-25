@@ -1,9 +1,11 @@
 import './PlayerHand.scss';
 // import { useState, useEffect } from 'react';
 import Card from '../Card/Card.jsx';
+import useStore from '../../store';
 
 
-const PlayerHand = ({ playerCards, selectedCard, handleCardSelection }) => {
+const PlayerHand = ({ selectedCard, handleCardSelection }) => {
+    const playerCards = useStore(state => state.player).cardsInHand
     return (
         <article className="player-hand">
             {playerCards.map((card, i) => (

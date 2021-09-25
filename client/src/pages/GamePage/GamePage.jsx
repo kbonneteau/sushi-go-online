@@ -6,19 +6,22 @@ import axios from 'axios';
 import { API_BASE_URL, API_GAME } from '../../utils/ApiUtils';
 import { useState, useEffect } from 'react';
 import * as GameLogic from '../../utils/GameUtils';
+import useStore from '../../store';
 // import { allComputersCommitCards, findPlayer, findOpponents, setPlayedCards } from '../../utils/GameUtils';
 
 
 const GamePage = ({ match }) => {
     // Modal popup with a cardflip animation?
     // User can pull up "cards played modal to see the cards on the board"
+    const player = useStore(state => state.player)
+    const setPlayer = useStore(state => state.setPlayer)
 
     // const [ computerCommit, setComputerCommit ] = useState(null);
     const [ playerCommit, setPlayerCommit ] = useState(false);
     const [ roundStart, setRoundStart ] = useState(false);
     // If computers do not have cards committed in state, roundStart = true
     const [ selectedCard, setSelectedCard ] = useState({});
-    const [ player, setPlayer ] = useState(null);
+    // const [ player, setPlayer ] = useState(null);
     const [ opponents, setOpponents ] = useState(null);
     const [ opponentSelectedCard, setOpponentSelectedCard ] = useState(null);
     const [ chopsticksPlayed, setChopsticksPlayed ] = useState(false);
@@ -41,6 +44,7 @@ const GamePage = ({ match }) => {
     const handlePlayChopsticks = () => setUseChopsticks(true)
 
     const setPlayers = arrayOfPlayers => {
+        console.log('add players')
         setPlayer(GameLogic.findPlayer(arrayOfPlayers));
         setOpponents(GameLogic.findOpponents(arrayOfPlayers));
     }
@@ -130,7 +134,6 @@ const GamePage = ({ match }) => {
             <div className="game-area__player-interaction-container">
                 {player 
                     ? <PlayerGameArea 
-                        player={player} 
                         handleCardSelection={handleCardSelection} 
                         selectedCard={selectedCard}
                         handleCardCommit={handleCardCommit} 
