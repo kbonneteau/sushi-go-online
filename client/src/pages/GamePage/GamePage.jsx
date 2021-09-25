@@ -21,7 +21,8 @@ const GamePage = ({ match }) => {
     const [ player, setPlayer ] = useState(null);
     const [ opponents, setOpponents ] = useState(null);
     const [ opponentSelectedCard, setOpponentSelectedCard ] = useState(null);
-    const [ chopsticksPlayed, setChopsticksPlayed ] = useState(false)
+    const [ chopsticksPlayed, setChopsticksPlayed ] = useState(false);
+    const [ useChopsticks, setUseChopsticks ] = useState(false);
 
     const handleCardSelection = clickedCard => {
         clickedCard.id === selectedCard.id 
@@ -36,6 +37,8 @@ const GamePage = ({ match }) => {
             console.log('this card is null')
         }
     }
+
+    const handlePlayChopsticks = () => setUseChopsticks(true)
 
     const setPlayers = arrayOfPlayers => {
         setPlayer(GameLogic.findPlayer(arrayOfPlayers));
@@ -85,14 +88,11 @@ const GamePage = ({ match }) => {
 
         // If card is committed, do something.
         if(playerCommit) {
-            const allPlayers = [player, ...opponents]
+            // const allPlayers = [player, ...opponents]
             console.log('card commit ::')
-            // Here, I want to
-            //      - update played cards
-            //      - pass hand to next player
-            //      - receive a new hand
             const playersWithCards = GameLogic.setPlayedCards(player, opponents, selectedCard, opponentSelectedCard);
             setPlayers(playersWithCards);
+
             if(selectedCard.id === '89d6dbdc-a835-42a5-b5bc-321d7f6a8f16') {
                 setChopsticksPlayed(true)
             };
@@ -103,6 +103,7 @@ const GamePage = ({ match }) => {
             //     if(prevRound === true) return
             //     else return true;
             // })
+
 
             // This resolved the issue with computer async card setting (I think??)
             setOpponentSelectedCard(null)
@@ -134,6 +135,8 @@ const GamePage = ({ match }) => {
                         selectedCard={selectedCard}
                         handleCardCommit={handleCardCommit} 
                         chopsticksPlayed={chopsticksPlayed}
+                        useChopsticks={useChopsticks}
+                        handlePlayChopsticks={handlePlayChopsticks}
                       />
                     : null
                 }

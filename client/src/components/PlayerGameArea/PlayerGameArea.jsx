@@ -2,9 +2,10 @@ import './PlayerGameArea.scss';
 import PlayerHand from '../PlayerHand/PlayerHand';
 import SelectCard from '../SelectCard/SelectCard';
 import PlayChopsticks from '../PlayChopsticks/PlayChopsticks';
+import SelectCardAlt from '../SelectCardAlt/SelectCardAlt';
 
 
-const PlayerGameArea = ({ player, handleCardSelection, selectedCard, handleCardCommit, chopsticksPlayed }) => {
+const PlayerGameArea = ({ player, handleCardSelection, selectedCard, handleCardCommit, chopsticksPlayed, useChopsticks, handlePlayChopsticks }) => {
     return (
         <>
             <section className="player-area">
@@ -19,9 +20,15 @@ const PlayerGameArea = ({ player, handleCardSelection, selectedCard, handleCardC
                 />
             </section>
             <div className="player-area__player-action-container">
-                <SelectCard handleCardCommit={handleCardCommit} />
+                {!useChopsticks
+                    ? <SelectCard handleCardCommit={handleCardCommit} />
+                    : <SelectCardAlt handleCardCommit={handleCardCommit} />
+                }
                 {chopsticksPlayed 
-                    ? <PlayChopsticks handleCardCommit={handleCardCommit} chopsticksPlayed={chopsticksPlayed} />
+                    ? <PlayChopsticks 
+                        useChopsticks={useChopsticks} 
+                        handlePlayChopsticks={handlePlayChopsticks}
+                      />
                     : null
                 }
             </div>

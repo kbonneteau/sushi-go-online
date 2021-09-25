@@ -1,13 +1,14 @@
 import './PlayChopsticks.scss';
-import SelectCard from '../SelectCard/SelectCard';
 
-const PlayChopsticks = ({ handlePlayChopsticks, handleCardCommit }) => {
+const PlayChopsticks = ({ handlePlayChopsticks, useChopsticks }) => {
     return (
-        <>
-            {/* <SelectCard handleCardCommit={handleCardCommit} /> */}
-            <button onClick={() => console.log('clicked!')} className="play-chopsticks">
-                Play Chopsticks
-            </button>
+        <>  
+            {useChopsticks
+                ? null
+                : (<button onClick={handlePlayChopsticks} className="play-chopsticks">
+                        Play Chopsticks
+                    </button>)
+            }
         </>
     );
 };

@@ -1,0 +1,9 @@
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/keyframes' as *;
+@use '../../partials/mixins' as *;
+@use '../PlayChopsticks/PlayChopsticks.scss';
+
+.select-card-alt {
+    @extend .play-chopsticks;
+}
