@@ -5,7 +5,7 @@ import PlayChopsticks from '../PlayChopsticks/PlayChopsticks';
 import SelectCardAlt from '../SelectCardAlt/SelectCardAlt';
 
 
-const PlayerGameArea = ({ player, handleCardSelection, selectedCard, handleCardCommit, chopsticksPlayed, useChopsticks, handlePlayChopsticks }) => {
+const PlayerGameArea = ({ player, handleCardSelection, selectedCard, handleCardCommit, chopsticksInPlayedHand, useChopsticks, handlePlayChopsticks }) => {
     return (
         <>
             <section className="player-area">
@@ -24,9 +24,8 @@ const PlayerGameArea = ({ player, handleCardSelection, selectedCard, handleCardC
                     ? <SelectCard handleCardCommit={handleCardCommit} />
                     : <SelectCardAlt handleCardCommit={handleCardCommit} />
                 }
-                {chopsticksPlayed 
+                {chopsticksInPlayedHand && !useChopsticks
                     ? <PlayChopsticks 
-                        useChopsticks={useChopsticks} 
                         handlePlayChopsticks={handlePlayChopsticks}
                       />
                     : null

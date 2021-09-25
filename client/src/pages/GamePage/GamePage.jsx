@@ -21,7 +21,7 @@ const GamePage = ({ match }) => {
     const [ player, setPlayer ] = useState(null);
     const [ opponents, setOpponents ] = useState(null);
     const [ opponentSelectedCard, setOpponentSelectedCard ] = useState(null);
-    const [ chopsticksPlayed, setChopsticksPlayed ] = useState(false);
+    const [ chopsticksInPlayedHand, setChopsticksInPlayedHand ] = useState(false);
     const [ useChopsticks, setUseChopsticks ] = useState(false);
 
     const handleCardSelection = clickedCard => {
@@ -94,7 +94,7 @@ const GamePage = ({ match }) => {
             setPlayers(playersWithCards);
 
             if(selectedCard.id === '89d6dbdc-a835-42a5-b5bc-321d7f6a8f16') {
-                setChopsticksPlayed(true)
+                setChopsticksInPlayedHand(true)
             };
 
             // Infinite loop triggered without this
@@ -110,7 +110,7 @@ const GamePage = ({ match }) => {
             setSelectedCard({})
         }
 
-    }, [opponents, player, match.params.gameId, opponentSelectedCard, roundStart, selectedCard, playerCommit, chopsticksPlayed])
+    }, [opponents, player, match.params.gameId, opponentSelectedCard, roundStart, selectedCard, playerCommit, chopsticksInPlayedHand])
 
 
     return (
@@ -134,7 +134,7 @@ const GamePage = ({ match }) => {
                         handleCardSelection={handleCardSelection} 
                         selectedCard={selectedCard}
                         handleCardCommit={handleCardCommit} 
-                        chopsticksPlayed={chopsticksPlayed}
+                        chopsticksInPlayedHand={chopsticksInPlayedHand}
                         useChopsticks={useChopsticks}
                         handlePlayChopsticks={handlePlayChopsticks}
                       />

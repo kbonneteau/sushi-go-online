@@ -1,15 +1,10 @@
 import './PlayChopsticks.scss';
 
-const PlayChopsticks = ({ handlePlayChopsticks, useChopsticks }) => {
+const PlayChopsticks = ({ handlePlayChopsticks }) => {
     return (
-        <>  
-            {useChopsticks
-                ? null
-                : (<button onClick={handlePlayChopsticks} className="play-chopsticks">
-                        Play Chopsticks
-                    </button>)
-            }
-        </>
+        <button onClick={handlePlayChopsticks} className="play-chopsticks">
+            Play Chopsticks
+        </button>
     );
 };
 
