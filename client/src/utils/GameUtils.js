@@ -1,4 +1,5 @@
 import { DiceRoll } from 'rpg-dice-roller';
+import { cloneDeep } from 'lodash';
 
 
 /**
@@ -51,31 +52,48 @@ export const allComputersCommitCards = arrayOfComputers => {
  * @returns {object} player containing all the previous attributes, plus the played card removed from their current hand.
  */
 export const removePlayedCardsFromHands = (player, playedCard ) => {
-    const foundIndex = player.cardsInHand.findIndex(card => card.id === playedCard.id);
+    const currentPlayer = player;
+    const foundIndex = currentPlayer.cardsInHand.findIndex(card => card.id === playedCard.id);
     // console.log('Player:', player.playerPosition)
     // console.log('found index', foundIndex)
     // Not sure why, but splice was not working as expected here.
-    const filteredHand = player.cardsInHand.filter((_card, i) => i !== foundIndex)
+    const filteredHand = currentPlayer.cardsInHand.filter((_card, i) => i !== foundIndex)
     return {
-        ...player,
+        ...currentPlayer,
         cardsInHand: filteredHand
     };
 }
 
-const rotatePlayerHands = () => {
-    // I need to take in all of the players and their hands.
-    // I need to loop through each of the players and update their hands.
-
-    // === Approach 1 ===
-    // I use a for loop. I remember all of the current player's hands, and update with the previous player's hands.
-    // If player 1 && no previous player hand, don't attempt to update, only remember.
-    // If player 4, don't loop to the next player in line, instead loop back to player one.
-    // Once player 1 is updated, break from the loop.
-
-    // === Approach 2 ===
-    // Do similar to above, but use forEach and don't loop back to start
-    // Once loop ends, we remember the last played hand, and we simply update player 1 at the end.
-    // === No need for loop break.
+/**
+ * 
+ * @param {array} players an array containing a shallow copy of all players currently in the game
+ * @returns 
+ */
+export const rotatePlayerHands = players => {
+    console.log('rotate player hands ::')
+    // Tracking variables
+    let updatedPlayers = [];
+    let previousPlayerHand;
+    
+    players.forEach(player => {
+        // Since array being entered is already a copy, don't need to worry about mutating state.
+        if(player.playerPosition === 1) {
+            previousPlayerHand = player.cardsInHand;
+            return;
+        };
+        // store the current player's hand
+        const currentPlayerPreviousHand = player.cardsInHand;
+        // update their current hand with the previous player's hand
+        player.cardsInHand = previousPlayerHand;
+        // Update previousPlayerHand to this player's previous hand
+        previousPlayerHand = currentPlayerPreviousHand;
+        // Save the updated players in an array
+        updatedPlayers.push(player)
+    });
+    const currentPlayer = players[0];
+    currentPlayer.cardsInHand = previousPlayerHand;
+    return [currentPlayer, updatedPlayers];
+    // console.log(updatedPlayers)
 }
 
 /**
@@ -90,30 +108,38 @@ const rotatePlayerHands = () => {
  * @returns {array} of all players and their updates hands + played cards
  */
  export const setPlayedCards = (player, opponents, playerCommittedCard, opponentCommittedCards) => {
-    player = removePlayedCardsFromHands(player, playerCommittedCard);
-    player.cardsPlayed = [...player.cardsPlayed, playerCommittedCard];
-    const allPlayers = [player];
+    let playerClone = cloneDeep(player)
+    playerClone = removePlayedCardsFromHands(playerClone, playerCommittedCard);
+    playerClone.cardsPlayed = [...playerClone.cardsPlayed, playerCommittedCard];
+    const allPlayers = [playerClone];
     // Loop through each opponent and find the played card associated with them. 
     // Update their hand, and push to the allPlayers array.
     opponents.forEach(opponent => {
-        const playedCard = opponentCommittedCards.find(opponentCard => opponentCard.playerPosition === opponent.playerPosition);
-        opponent = removePlayedCardsFromHands(opponent, playedCard.selectedCard);
-        opponent.cardsPlayed = [...opponent.cardsPlayed, playedCard.selectedCard];
-        allPlayers.push(opponent);
+        let opponentClone = cloneDeep(opponent);
+        const playedCard = opponentCommittedCards.find(opponentCard => opponentCard.playerPosition === opponentClone.playerPosition);
+        opponentClone = removePlayedCardsFromHands(opponentClone, playedCard.selectedCard);
+        opponentClone.cardsPlayed = [...opponentClone.cardsPlayed, playedCard.selectedCard];
+        allPlayers.push(opponentClone);
     })
     console.log("All players", allPlayers)
+    rotatePlayerHands(allPlayers)
     return allPlayers;
 }
+
+
+export const updatePlayerHands = () => {
+
+};
 
 /**
  * Takes in an array of opponent cards played.  Loops through the array of cards to count all the matching types.
  * A tracking object is used to keep count of the card types, and is converted to an array for the front-end to map through.
- * @param {array} opponentCards array of opponent's played cards
+ * @param {array} playedCards array of opponent's played cards
  * @returns {array} of objects containing the cart icon and card count.
  */
-export const countCards = opponentCards => {
+export const countCards = playedCards => {
     let cardTypes = {};
-    opponentCards.forEach(card => {
+    playedCards.forEach(card => {
         const { id } = card;
         const maki = 'maki'
 
