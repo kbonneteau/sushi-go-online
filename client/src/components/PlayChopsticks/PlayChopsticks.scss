@@ -1,0 +1,16 @@
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/keyframes' as *;
+@use '../../partials/mixins' as *;
+@use '../SelectCard/SelectCard.scss';
+
+.play-chopsticks {
+    @extend .select-card;
+    border: 3px solid $maki;
+    color: $maki;
+
+    &:hover {
+        box-shadow: inset 11em 0 0 0 $maki;
+        border: 3px solid $maki;
+    }
+}

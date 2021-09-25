@@ -21,6 +21,7 @@ const GamePage = ({ match }) => {
     const [ player, setPlayer ] = useState(null);
     const [ opponents, setOpponents ] = useState(null);
     const [ opponentSelectedCard, setOpponentSelectedCard ] = useState(null);
+    const [ chopsticksPlayed, setChopsticksPlayed ] = useState(false)
 
     const handleCardSelection = clickedCard => {
         clickedCard.id === selectedCard.id 

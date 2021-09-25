@@ -6,6 +6,7 @@
     background-color: powderblue;
     height: 20rem;
     width: 80rem;
+    // flex-grow: 1;
     // width: 70rem;
     padding: 1rem 1rem;
 
@@ -16,5 +17,12 @@
     &__action-description {
         margin: 0;
 
+    }
+
+    &__player-action-container {
+        padding: 3rem;
+        @include flex-centering;
+        flex-direction: column;
+        justify-content: center;
     }
 }
