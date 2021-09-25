@@ -4,7 +4,7 @@ import SelectCard from '../SelectCard/SelectCard';
 import PlayChopsticks from '../PlayChopsticks/PlayChopsticks';
 
 
-const PlayerGameArea = ({ player, handleCardSelection, selectedCard, handleCardCommit }) => {
+const PlayerGameArea = ({ player, handleCardSelection, selectedCard, handleCardCommit, chopsticksPlayed }) => {
     return (
         <>
             <section className="player-area">
@@ -20,7 +20,10 @@ const PlayerGameArea = ({ player, handleCardSelection, selectedCard, handleCardC
             </section>
             <div className="player-area__player-action-container">
                 <SelectCard handleCardCommit={handleCardCommit} />
-                <PlayChopsticks />
+                {chopsticksPlayed 
+                    ? <PlayChopsticks handleCardCommit={handleCardCommit} chopsticksPlayed={chopsticksPlayed} />
+                    : null
+                }
             </div>
         </>
     );

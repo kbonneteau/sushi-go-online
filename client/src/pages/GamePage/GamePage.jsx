@@ -74,6 +74,7 @@ const GamePage = ({ match }) => {
 
         // If a card is selected, do something here.
         if(selectedCard.id !== undefined) {
+            console.log(selectedCard)
             // console.log('player selected card ::',selectedCard)
         }
 
@@ -92,6 +93,9 @@ const GamePage = ({ match }) => {
             //      - receive a new hand
             const playersWithCards = GameLogic.setPlayedCards(player, opponents, selectedCard, opponentSelectedCard);
             setPlayers(playersWithCards);
+            if(selectedCard.id === '89d6dbdc-a835-42a5-b5bc-321d7f6a8f16') {
+                setChopsticksPlayed(true)
+            };
 
             // Infinite loop triggered without this
             setPlayerCommit(false);
@@ -105,7 +109,7 @@ const GamePage = ({ match }) => {
             setSelectedCard({})
         }
 
-    }, [opponents, player, match.params.gameId, opponentSelectedCard, roundStart, selectedCard, playerCommit])
+    }, [opponents, player, match.params.gameId, opponentSelectedCard, roundStart, selectedCard, playerCommit, chopsticksPlayed])
 
 
     return (
@@ -129,6 +133,7 @@ const GamePage = ({ match }) => {
                         handleCardSelection={handleCardSelection} 
                         selectedCard={selectedCard}
                         handleCardCommit={handleCardCommit} 
+                        chopsticksPlayed={chopsticksPlayed}
                       />
                     : null
                 }
