@@ -22,17 +22,41 @@ export const computerTurn = (computerHand) => {
 
 
 export const setPlayedCards = (player, opponents, playerCommittedCard, opponentCommittedCards) => {
+    player = removePlayedCardsFromHands(player, playerCommittedCard);
     player.cardsPlayed = [...player.cardsPlayed, playerCommittedCard];
     const allPlayers = [player];
+    console.log('setPlayedCards :: ',player)
     // Loop through each opponent and find the played card associated with them. 
     // Update their hand, and push to the allPlayers array.
     opponents.forEach(opponent => {
         const playedCard = opponentCommittedCards.find(opponentCard => opponentCard.playerPosition === opponent.playerPosition);
+        // console.log('opponent selected card', playedCard)
+        opponent = removePlayedCardsFromHands(opponent, playedCard.selectedCard);
         opponent.cardsPlayed = [...opponent.cardsPlayed, playedCard.selectedCard];
+        console.log('setPlayedCards :: ',opponent)
         allPlayers.push(opponent);
     })
-
+    console.log("All players", allPlayers)
     return allPlayers;
+}
+
+export const removePlayedCardsFromHands = (player, playedCard ) => {
+    console.log('Player:', player.playerPosition)
+    // console.log('Hand before:', player)
+    const foundIndex = player.cardsInHand.findIndex(card => {
+        // console.log('find index', playedCard.id, '===', card.id)
+        // if(card.id !== playedCard.id) {
+        //     console.error("no matching index")
+        // }
+        return card.id === playedCard.id
+    });
+    console.log('found index', foundIndex)
+    const filteredHand = player.cardsInHand.filter((_card, i) => i !== foundIndex)
+    // console.log('Hand after:', player)
+    return {
+        ...player,
+        cardsInHand: filteredHand
+    };
 }
 
 /**
@@ -56,12 +80,12 @@ export const allComputersCommitCards = arrayOfComputers => {
 
 export const countCards = opponentCards => {
     // console.log('count cards :: game logic')
-    console.log(opponentCards)
+    // console.log(opponentCards)
     let cardTypes = {};
     opponentCards.forEach(card => {
         const { id } = card;
         const maki = 'maki'
-        console.log(id)
+        // console.log(id)
 
         // If it's a maki, show the count of maki cards, not the number of maki they have
         if( 
