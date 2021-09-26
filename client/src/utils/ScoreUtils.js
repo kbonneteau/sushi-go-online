@@ -282,10 +282,11 @@ const compareCounts = (players, propertyName) => {
         }
     })
 
-    return {
-        highestNumber: players.filter(player => player[propertyName] === highestNumber),
-        lowestNumber: players.filter(player => player[propertyName] === lowestNumber)
-    }
+    return { highestNumber, lowestNumber }
+    // return {
+    //     highestNumber: players.filter(player => player[propertyName] === highestNumber),
+    //     lowestNumber: players.filter(player => player[propertyName] === lowestNumber)
+    // }
 }
 
 const makiCounts = (players) => {
@@ -302,21 +303,40 @@ const makiCounts = (players) => {
         }
     })
 
-    return {
-        highestNumber: players.filter(player => player.makiCount === highestNumber),
-        secondHighestNumber: players.filter(player => player.makiCount === secondHighestNumber)
-    }
+    return { highestNumber, secondHighestNumber }
 }
+
+
+const awardBonusPoints = (players, puddingResults, makiResults) => {
+    console.log(puddingResults)
+    players.forEach(player => {
+        console.log(`player ${player.playerPosition} score before`, player.score)
+        if(player.puddingCount === puddingResults.highestNumber) {
+            console.log('player pudding is highest')
+            player.score += 3;
+        }
+        if(player.puddingCount === puddingResults.lowestNumber) {
+            console.log('player pudding is lowest')
+            player.score -= 3;
+        }
+        if(player.makiCount === makiResults.highestNumber) {
+            console.log('player maki is highest')
+            player.score += 6;
+        }
+        if(player.makiCount === makiResults.secondHighestNumber) {
+            console.log('player maki is second highest')
+            player.score += 3;
+        }
+        console.log(`player ${player.playerPosition} score after`, player.score)
+    })
+    return players;
+}
+
 
 
 export const calculateBonusPoints = (players) => {
     const puddingResults = compareCounts(players, 'puddingCount');
     const makiResults = makiCounts(players);
 
-    console.log('pudding results:', puddingResults)
-    console.log('maki results:', makiResults)
-
+    return awardBonusPoints(players, puddingResults, makiResults);
 };
-
-// calculateScore(player);
-

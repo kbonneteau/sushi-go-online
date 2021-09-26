@@ -23,6 +23,7 @@ const GamePage = ({ match }) => {
     const [ opponents, setOpponents ] = useState(null);
     const [ opponentSelectedCard, setOpponentSelectedCard ] = useState(null);
     const [ gameOver, setGameOver] = useState(false)
+    const [ results, setResults ] = useState([])
 
     const handleCardSelection = clickedCard => {
         clickedCard.id === selectedCard.id 
@@ -88,7 +89,7 @@ const GamePage = ({ match }) => {
             let allPlayers = [player]
             opponents.forEach(opponent => allPlayers = [...allPlayers, opponent])
             setGameOver(true)
-            GameLogic.determineWinner(allPlayers);
+            setResults(GameLogic.determineWinner(allPlayers));
         }
 
         // If card is committed, do something.

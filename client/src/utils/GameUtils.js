@@ -182,9 +182,9 @@ export const determineWinner = (players) => {
     console.log('determine winner ::')
     let updatedPlayers = [];
     players.forEach(player => {
-        updatedPlayers = [ ...updatedPlayers, calculateScore(player) ]
+        // Clone player so results can be manipulated without altering state.
+        const playerClone = cloneDeep(player);
+        updatedPlayers = [ ...updatedPlayers, calculateScore(playerClone) ]
     })
-    // console.log('updated players', updatedPlayers)
-    calculateBonusPoints(updatedPlayers)
+    return calculateBonusPoints(updatedPlayers);
 }
-
