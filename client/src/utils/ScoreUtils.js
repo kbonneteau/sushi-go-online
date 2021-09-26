@@ -270,7 +270,6 @@ export const calculateScore = (player) => {
 
 
 const compareCounts = (players, propertyName) => {
-    //Track player position and their high score
     let highestNumber = 0;
     let lowestNumber = players[0][propertyName];
     players.forEach(player => {
@@ -290,13 +289,29 @@ const compareCounts = (players, propertyName) => {
 }
 
 const makiCounts = (players) => {
-    
+    let highestNumber = 0;
+    let secondHighestNumber = players[0].makiCount;
+    players.forEach(player => {
+
+        if(player.makiCount > highestNumber){
+            return highestNumber = player.makiCount
+        }
+        // If it's not the highest number, is it the second highest?
+        if (player.makiCount > secondHighestNumber){
+            secondHighestNumber = player.makiCount
+        }
+    })
+
+    return {
+        highestNumber: players.filter(player => player.makiCount === highestNumber),
+        secondHighestNumber: players.filter(player => player.makiCount === secondHighestNumber)
+    }
 }
 
 
 export const calculateBonusPoints = (players) => {
     const puddingResults = compareCounts(players, 'puddingCount');
-    const makiResults = compareCounts(players, 'makiCount');
+    const makiResults = makiCounts(players);
 
     console.log('pudding results:', puddingResults)
     console.log('maki results:', makiResults)
