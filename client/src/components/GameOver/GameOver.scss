@@ -4,7 +4,8 @@
 @use '../../partials/mixins' as *;
 
 .game-over {
-    height: 30rem;
+    // height: 30rem;
+    padding: 3rem 0;
     width: 50rem;
     background-color: salmon;
     @include primary-box-shadow;

@@ -6,7 +6,7 @@ import win2 from '../../assets/images/win.webp';
 import lose from '../../assets/images/lose.gif';
 
 
-const GameOver = () => {
+const GameOver = ({ results }) => {
     const history = useHistory();
     const handleGameOver = () => {
         console.log('destroy session')
@@ -20,7 +20,7 @@ const GameOver = () => {
                 <h3 className="game-over__results-title">Results</h3>
                 <ul className="game-over__results-list">
                     {/* Players.map */}
-                    <PlayerResults />
+                    {results.map(playerResults => <PlayerResults />)}
                 </ul>
             </div>
             <button onClick={handleGameOver} className="game-over__new-game">

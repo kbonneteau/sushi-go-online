@@ -148,7 +148,7 @@ const GamePage = ({ match }) => {
             </main>
             {gameOver 
                 ?  (<div className="game-area__game-over-container">
-                        <GameOver />
+                        <GameOver results={results} />
                     </div>) 
                 : null
             }
