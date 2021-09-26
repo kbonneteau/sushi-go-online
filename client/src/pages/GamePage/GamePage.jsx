@@ -2,6 +2,7 @@ import './GamePage.scss';
 import MenuBoard from '../../components/MenuBoard/MenuBoard';
 import PlayerGameArea from '../../components/PlayerGameArea/PlayerGameArea';
 import PlayedCards from '../../components/PlayedCards/PlayedCards';
+import GameOver from '../../components/GameOver/GameOver';
 import axios from 'axios';
 import { API_BASE_URL, API_GAME } from '../../utils/ApiUtils';
 import { useState, useEffect } from 'react';
@@ -21,6 +22,8 @@ const GamePage = ({ match }) => {
     const [ player, setPlayer ] = useState(null);
     const [ opponents, setOpponents ] = useState(null);
     const [ opponentSelectedCard, setOpponentSelectedCard ] = useState(null);
+    const [ gameOver, setGameOver] = useState(false)
+    const [ results, setResults ] = useState([])
 
     const handleCardSelection = clickedCard => {
         clickedCard.id === selectedCard.id 
@@ -81,6 +84,14 @@ const GamePage = ({ match }) => {
             setOpponentSelectedCard(null);
         }
 
+        if(player && player.cardsInHand.length === 0) {
+            console.log('game over!')
+            let allPlayers = [player]
+            opponents.forEach(opponent => allPlayers = [...allPlayers, opponent])
+            setGameOver(true)
+            setResults(GameLogic.determineWinner(allPlayers));
+        }
+
         // If card is committed, do something.
         if(playerCommit) {
             const allPlayers = [player, ...opponents]
@@ -108,32 +119,40 @@ const GamePage = ({ match }) => {
 
 
     return (
-        <main className="game-area">
-            <div className="game-area__game-component-container">
-                <div className="game-area__menu-container">
-                    <h1 className="game-area__title">Menu</h1>
-                    <MenuBoard />
+        <>
+            <main className={gameOver ? "game-area game-area--game-over" : "game-area"}>
+                <div className="game-area__game-component-container">
+                    <div className="game-area__menu-container">
+                        <h1 className="game-area__title">Menu</h1>
+                        <MenuBoard />
+                    </div>
+                    {player && opponents
+                        ? <PlayedCards player={player} opponents={opponents} />
+                        : null
+                    }
+                    
                 </div>
-                {player && opponents
-                    ? <PlayedCards player={player} opponents={opponents} />
-                    : null
-                }
-                
-            </div>
-            {/* Pass current hands to this component, and pass player hand to player game area component? */}
-            <div className="game-area__player-interaction-container">
-                {player 
-                    ? <PlayerGameArea 
-                        player={player} 
-                        handleCardSelection={handleCardSelection} 
-                        selectedCard={selectedCard}
-                        handleCardCommit={handleCardCommit} 
-                      />
-                    : null
-                }
-                {/* <SelectCard /> */}
-            </div> 
-        </main>
+                {/* Pass current hands to this component, and pass player hand to player game area component? */}
+                <div className="game-area__player-interaction-container">
+                    {player 
+                        ? <PlayerGameArea 
+                            player={player} 
+                            handleCardSelection={handleCardSelection} 
+                            selectedCard={selectedCard}
+                            handleCardCommit={handleCardCommit} 
+                        />
+                        : null
+                    }
+                    {/* <SelectCard /> */}
+                </div> 
+            </main>
+            {gameOver 
+                ?  (<div className="game-area__game-over-container">
+                        <GameOver results={results} />
+                    </div>) 
+                : null
+            }
+        </>
     );
 };
 

@@ -1,5 +1,6 @@
 import { DiceRoll } from 'rpg-dice-roller';
 import { cloneDeep } from 'lodash';
+import { calculateScore, calculateBonusPoints } from './ScoreUtils';
 
 
 /**
@@ -174,4 +175,16 @@ export const countCards = playedCards => {
     })
 
     return Object.values(cardTypes);
+}
+
+
+export const determineWinner = (players) => {
+    console.log('determine winner ::')
+    let updatedPlayers = [];
+    players.forEach(player => {
+        // Clone player so results can be manipulated without altering state.
+        const playerClone = cloneDeep(player);
+        updatedPlayers = [ ...updatedPlayers, calculateScore(playerClone) ]
+    })
+    return calculateBonusPoints(updatedPlayers);
 }
