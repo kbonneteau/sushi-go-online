@@ -18,16 +18,38 @@ const GamePage = ({ match }) => {
     const [ roundStart, setRoundStart ] = useState(false);
     // If computers do not have cards committed in state, roundStart = true
     const [ selectedCard, setSelectedCard ] = useState({});
+    const [ multiCardSelection, setMultiCardSelection ] = useState([]);
     const [ player, setPlayer ] = useState(null);
     const [ opponents, setOpponents ] = useState(null);
     const [ opponentSelectedCard, setOpponentSelectedCard ] = useState(null);
     const [ chopsticksInPlayedHand, setChopsticksInPlayedHand ] = useState(false);
     const [ useChopsticks, setUseChopsticks ] = useState(false);
 
+    
     const handleCardSelection = clickedCard => {
+        console.log('single card selection')
+        // If the clicked card id is the same as the selected card, then deselect the card.
+        // Otherwise, store it in state
         clickedCard.id === selectedCard.id 
-            ? setSelectedCard({})
-            : setSelectedCard(clickedCard);
+        ? setSelectedCard({})
+        : setSelectedCard(clickedCard);
+    }
+    
+    const handleMultiCardSelection = clickedCard => {
+        console.log('multi card selection')
+        const selectedCards = [...multiCardSelection]
+        // user can select two cards.
+        // If 2 cards are already selected, 
+
+        if(selectedCards.length === 2) {
+            selectedCards.unshift(clickedCard);
+            selectedCards.pop();
+        } else {
+            selectedCards.push(clickedCard);
+        }
+
+        console.log(selectedCards)
+        setMultiCardSelection(selectedCards)
     }
 
     const handleCardCommit = () => { 
@@ -38,7 +60,11 @@ const GamePage = ({ match }) => {
         }
     }
 
-    const handlePlayChopsticks = () => setUseChopsticks(true)
+    const handlePlayChopsticks = () => {
+        setSelectedCard({})
+        setUseChopsticks(true);
+    }
+
 
     const setPlayers = arrayOfPlayers => {
         setPlayer(GameLogic.findPlayer(arrayOfPlayers));
@@ -132,6 +158,7 @@ const GamePage = ({ match }) => {
                     ? <PlayerGameArea 
                         player={player} 
                         handleCardSelection={handleCardSelection} 
+                        handleMultiCardSelection={handleMultiCardSelection}
                         selectedCard={selectedCard}
                         handleCardCommit={handleCardCommit} 
                         chopsticksInPlayedHand={chopsticksInPlayedHand}

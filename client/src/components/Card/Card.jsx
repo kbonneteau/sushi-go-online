@@ -1,21 +1,26 @@
 import './Card.scss';
 import { useState, useEffect } from 'react';
 
-const Card = ({ card, selectedCard, handleCardSelection }) => {
+const Card = ({ card, selectedCard, handleCardSelection, handleMultiCardSelection, useChopsticks }) => {
     const [ selected, setSelected ] = useState(false);
 
-    const handleCardSelect = (card) => {
-        handleCardSelection(card)
+    const handleCardClick = (card) => {
+        console.log(card);
+        handleCardSelection(card);
         setSelected(!selected);
     }
     
     useEffect(() => {
+        if(useChopsticks){
+            // selectedCard = [];
+        }
+
         if(selected && selectedCard.id !== card.id) {
             setSelected(false)
         }
     }, [selected, selectedCard, card.id]);
     return (
-        <article onClick={() => handleCardSelect(card)}>
+        <article onClick={() => useChopsticks ? handleMultiCardSelection(card) : handleCardClick(card)}>
             <div className={selected ? `player-card ${card.card} selected` : `player-card ${card.card}`}>
                 <header className="player-card__card-icons">
                     {card.card === "maki"
