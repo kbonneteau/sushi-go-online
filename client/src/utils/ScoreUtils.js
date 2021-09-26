@@ -38,8 +38,21 @@ const countUniqueCards = playedCards => {
     return Object.values(cardTypes);
 }
 
-const dumpling = () => {
-    console.log('hello from dumpling!')
+
+/**
+ * Calculates the total value of all dumpling cards played.
+ * Value designation is [1, 3, 6, 10, 15]
+ * Pattern is previous value + the current card number in the total number of cards
+ * 
+ * @param {number} cardCount number of dumpling cards
+ * @return {*} calculated value
+ */
+const dumpling = (cardCount) => {
+    let value = 0;
+    for(let i = 1; i <= cardCount; i++){
+        value += i;
+    };
+    console.log('dumpling score is', value)
 }
 
 const tempura = () => {
@@ -104,7 +117,7 @@ const calculateScore = (player) => {
 
     countedCardsOfEachType.forEach(cardTypeCounted => {
         const calculator = determineCalculatorFunction(cardTypeCounted.card)
-        calculator('hello');
+        calculator(cardTypeCounted.count);
     });
 
     // for(const cardType in countedCardsOfEachType) {
