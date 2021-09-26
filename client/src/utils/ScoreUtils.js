@@ -34,17 +34,82 @@ const countUniqueCards = playedCards => {
         }
     })
 
+    // return cardTypes;
     return Object.values(cardTypes);
 }
 
 const dumpling = () => {
-
+    console.log('hello from dumpling!')
 }
+
+const tempura = () => {
+    console.log('hello from tempura!')
+}
+
+const sashimi = () => {
+    console.log('hello from sashimi!')
+}
+
+const nigiri = () => {
+    console.log('hello from nigiri!')
+}
+
+const wasabi = () => {
+    console.log('hello from wasabi!')
+}
+
+const chopsticks = () => {
+    console.log('hello from chopsticks!')
+}
+
+const maki = () => {
+    console.log('hello from maki!')
+}
+
+const pudding = () => {
+    console.log('hello from pudding!')
+}
+
+
+
+const determineCalculatorFunction = cardType => {
+    switch(cardType) {
+        case 'dumpling':
+            return dumpling;
+        case 'tempura':
+            return tempura;
+        case 'sashimi':
+            return sashimi;
+        case 'nigiri':
+            return nigiri;
+        case 'wasabi':
+            return wasabi;
+        case 'chopsticks':
+            return chopsticks;
+        case 'maki':
+            return maki;
+        case 'pudding':
+            return pudding;
+        default:
+            return console.log;
+    }
+}
+
 
 const calculateScore = (player) => {
     console.log('calculate score :: player', player.playerPosition)
     const countedCardsOfEachType = countUniqueCards(player.cardsPlayed)
-    console.log(countedCardsOfEachType)
+    // console.log(countedCardsOfEachType)
+    let score;
+
+    countedCardsOfEachType.forEach(cardTypeCounted => {
+        const calculator = determineCalculatorFunction(cardTypeCounted.card)
+        calculator('hello');
+    });
+
+    // for(const cardType in countedCardsOfEachType) {
+    //     console.log(cardType)
+    // }
 };
 
 const calculateBonusPoints = (player) => {
@@ -55,21 +120,11 @@ calculateScore(player);
 
 
 
-
-
-
 /*
 
 Calculate total score:
 Where n = number of cards in playedCards
 
-dumpling(n)
-
-tempura(n)
-
-sashimi(n)
-
-nigiri(n)
 
 Calculate all points for nigiri.
 Call wasabi within this? OR minus the value of of the nigiri found in wasabi from total points
