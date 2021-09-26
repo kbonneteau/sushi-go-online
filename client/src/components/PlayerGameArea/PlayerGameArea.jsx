@@ -5,7 +5,7 @@ import PlayChopsticks from '../PlayChopsticks/PlayChopsticks';
 import SelectCardAlt from '../SelectCardAlt/SelectCardAlt';
 
 
-const PlayerGameArea = ({ player, handleCardSelection, selectedCard, handleCardCommit, chopsticksInPlayedHand, useChopsticks, handlePlayChopsticks, handleMultiCardSelection }) => {
+const PlayerGameArea = ({ player, handleCardSelection, selectedCard, handleCardCommit, chopsticksInPlayedHand, useChopsticks, handlePlayChopsticks, handleMultiCardSelection, multiCardSelection }) => {
     return (
         <>
             <section className="player-area">
@@ -16,6 +16,7 @@ const PlayerGameArea = ({ player, handleCardSelection, selectedCard, handleCardC
                 <PlayerHand 
                     playerCards={player.cardsInHand} 
                     selectedCard={selectedCard} 
+                    multiCardSelection={multiCardSelection}
                     handleCardSelection={handleCardSelection}
                     handleMultiCardSelection={handleMultiCardSelection}
                     useChopsticks={useChopsticks}

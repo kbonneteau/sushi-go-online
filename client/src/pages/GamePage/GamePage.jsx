@@ -39,7 +39,7 @@ const GamePage = ({ match }) => {
         console.log('multi card selection')
         const selectedCards = [...multiCardSelection]
         // user can select two cards.
-        // If 2 cards are already selected, 
+        // If 2 cards are already selected, add the new card to the start, and remove the last item selected
 
         if(selectedCards.length === 2) {
             selectedCards.unshift(clickedCard);
@@ -160,6 +160,7 @@ const GamePage = ({ match }) => {
                         handleCardSelection={handleCardSelection} 
                         handleMultiCardSelection={handleMultiCardSelection}
                         selectedCard={selectedCard}
+                        multiCardSelection={multiCardSelection}
                         handleCardCommit={handleCardCommit} 
                         chopsticksInPlayedHand={chopsticksInPlayedHand}
                         useChopsticks={useChopsticks}

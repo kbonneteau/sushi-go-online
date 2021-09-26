@@ -3,7 +3,7 @@ import './PlayerHand.scss';
 import Card from '../Card/Card.jsx';
 
 
-const PlayerHand = ({ playerCards, selectedCard, handleCardSelection, useChopsticks, handleMultiCardSelection }) => {
+const PlayerHand = ({ playerCards, selectedCard, handleCardSelection, useChopsticks, handleMultiCardSelection, multiCardSelection }) => {
     return (
         <article className="player-hand">
             {playerCards.map((card, i) => (
@@ -12,6 +12,7 @@ const PlayerHand = ({ playerCards, selectedCard, handleCardSelection, useChopsti
                     handleCardSelection={handleCardSelection}
                     handleMultiCardSelection={handleMultiCardSelection}
                     useChopsticks={useChopsticks}
+                    multiCardSelection={multiCardSelection}
                 />)
             )}
         </article>
