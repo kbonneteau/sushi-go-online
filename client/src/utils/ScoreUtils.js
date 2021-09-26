@@ -1,11 +1,21 @@
+// const cardsPlayed = [
+//     {id: '96a3d5ae-fbc2-4591-a879-0557a83d69cf', card: 'wasabi', subType: 'wasabi', image: {}, value: 'Next nigiri x3'}, 
+//     {id: 'a33ada0d-1058-4c62-8667-0c6f7ccf7a97', card: 'dumpling', subType: 'dumpling', image: {}, value: '1 3 6 10 15'},
+//     {id: '9e6f0639-684a-4f8e-aeba-2b3fec1fde44', card: 'pudding', subType: 'pudding', image: {}, value: 'Most 6 Least -6'},
+//     {id: '96a3d5ae-fbc2-4591-a879-0557a83d69cf', card: 'wasabi', subType: 'wasabi', image: {}, value: 'Next nigiri x3'},
+//     {id: 'a33ada0d-1058-4c62-8667-0c6f7ccf7a97', card: 'dumpling', subType: 'dumpling', image: {}, value: '1 3 6 10 15'},
+//     {id: 'a33ada0d-1058-4c62-8667-0c6f7ccf7a97', card: 'dumpling', subType: 'dumpling', image: {}, value: '1 3 6 10 15'},
+//     {id: '91c99c9d-cbdd-4be2-bc60-0b6172e12fe4', card: 'maki', subType: 'maki', numberOfRolls: 2, image: {}, }
+// ]
+
 const cardsPlayed = [
-    {id: '96a3d5ae-fbc2-4591-a879-0557a83d69cf', card: 'wasabi', subType: 'wasabi', image: {}, value: 'Next nigiri x3'}, 
-    {id: 'a33ada0d-1058-4c62-8667-0c6f7ccf7a97', card: 'dumpling', subType: 'dumpling', image: {}, value: '1 3 6 10 15'},
-    {id: '9e6f0639-684a-4f8e-aeba-2b3fec1fde44', card: 'pudding', subType: 'pudding', image: {}, value: 'Most 6 Least -6'},
     {id: '96a3d5ae-fbc2-4591-a879-0557a83d69cf', card: 'wasabi', subType: 'wasabi', image: {}, value: 'Next nigiri x3'},
+    {id: '9258c02c-aaf9-40a8-a1e1-3c22146f9631', card: 'tempura', subType: 'tempura', image: {}, value: 'x2=5'},
+    {id: 'eff09179-fba1-4f7c-9341-53862ed7b5e6', card: 'nigiri', subType: 'squid', image: {}, value: '3'},
+    {id: '9e6f0639-684a-4f8e-aeba-2b3fec1fde44', card: 'pudding', subType: 'pudding', image: {}, value: 'Most 6 Least -6'},
+    {id: '239bd62a-37e3-4f5d-9c04-a6dbbe7e2e7f', card: 'maki', subType: 'maki', numberOfRolls: 1, image: {}, },
+    {id: '9258c02c-aaf9-40a8-a1e1-3c22146f9631', card: 'tempura', subType: 'tempura', image: {}, value: 'x2=5'},
     {id: 'a33ada0d-1058-4c62-8667-0c6f7ccf7a97', card: 'dumpling', subType: 'dumpling', image: {}, value: '1 3 6 10 15'},
-    {id: 'a33ada0d-1058-4c62-8667-0c6f7ccf7a97', card: 'dumpling', subType: 'dumpling', image: {}, value: '1 3 6 10 15'},
-    {id: '91c99c9d-cbdd-4be2-bc60-0b6172e12fe4', card: 'maki', subType: 'maki', numberOfRolls: 2, image: {}, }
 ]
 
 const player =  {
@@ -51,12 +61,29 @@ const dumpling = (cardCount) => {
     let value = 0;
     for(let i = 1; i <= cardCount; i++){
         value += i;
+        if(value === 15) break;
     };
     console.log('dumpling score is', value)
 }
 
-const tempura = () => {
-    console.log('hello from tempura!')
+
+/**
+ * Calculates the total value of all tempura cards played.
+ * Value designation is 2 cards = 5 points
+ * 
+ * @param {number} cardCount number of tempura cards
+ * @returns {*} calculated value
+ */
+const tempura = (cardCount) => {
+    let value = 0;
+    const totalPairs = parseInt(cardCount / 2);
+    if(totalPairs < 1) {
+        return console.log('tempura score is', value);
+        // return value;
+    }
+    value = totalPairs * 5;
+
+    console.log('tempura score is', value)
 }
 
 const sashimi = () => {
