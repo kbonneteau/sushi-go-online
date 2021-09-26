@@ -86,6 +86,7 @@ const GamePage = ({ match }) => {
         if(player && player.cardsInHand.length === 0) {
             console.log('game over!')
             setGameOver(true)
+            GameLogic.determineWinner([player, opponents]);
         }
 
         // If card is committed, do something.
