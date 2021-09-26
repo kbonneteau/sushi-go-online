@@ -267,7 +267,39 @@ export const calculateScore = (player) => {
     }
 };
 
-const calculateBonusPoints = (player) => {
+
+
+const compareCounts = (players, propertyName) => {
+    //Track player position and their high score
+    let highestNumber = 0;
+    let lowestNumber = players[0][propertyName];
+    players.forEach(player => {
+
+        if(player[propertyName] > highestNumber){
+            highestNumber = player[propertyName]
+        }
+        if (player[propertyName] < lowestNumber){
+            lowestNumber = player[propertyName]
+        }
+    })
+
+    return {
+        highestNumber: players.filter(player => player[propertyName] === highestNumber),
+        lowestNumber: players.filter(player => player[propertyName] === lowestNumber)
+    }
+}
+
+const makiCounts = (players) => {
+    
+}
+
+
+export const calculateBonusPoints = (players) => {
+    const puddingResults = compareCounts(players, 'puddingCount');
+    const makiResults = compareCounts(players, 'makiCount');
+
+    console.log('pudding results:', puddingResults)
+    console.log('maki results:', makiResults)
 
 };
 
