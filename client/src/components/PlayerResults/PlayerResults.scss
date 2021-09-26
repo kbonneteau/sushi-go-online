@@ -1,0 +1,18 @@
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/keyframes' as *;
+@use '../../partials/mixins' as *;
+
+.player-results {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+
+    &__player-name {
+
+    }
+
+    &__player-points {
+        
+    }
+}
