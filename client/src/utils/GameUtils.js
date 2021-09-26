@@ -1,6 +1,6 @@
 import { DiceRoll } from 'rpg-dice-roller';
 import { cloneDeep } from 'lodash';
-// import { calculateScore } from './ScoreUtils';
+import { calculateScore } from './ScoreUtils';
 
 
 /**
@@ -180,10 +180,8 @@ export const countCards = playedCards => {
 
 export const determineWinner = (players) => {
     console.log('determine winner ::')
-    let scores = [];
     players.forEach(player => {
-        // calculateScore(player.playedCards);
-
+        console.log(calculateScore(player));
     })
 }
 
