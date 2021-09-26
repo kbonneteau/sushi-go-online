@@ -58,11 +58,6 @@ const player =  {
 }
 
 
-const countNigiri = () => {
-
-}
-
-
 const countUniqueCards = playedCards => {
     let cardTypes = {};
 
@@ -166,6 +161,7 @@ const wasabi = (player, card) => {
     let valueToDeduct = 0;
     const nigiri = player.cardsPlayed.filter(card => card.card === 'nigiri');
     for(let i = 0; i < card.count; i++) {
+        if(nigiri[i] === undefined) break;
         totalValue += (Number(nigiri[i].value) * 3)
         valueToDeduct += Number(nigiri[i].value)
     }
