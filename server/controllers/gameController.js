@@ -60,10 +60,16 @@ let gameController = {
     },
 
     /**
-     * 
+     * Removes the requested game session from the list of active games.
     */
     deleteGame: (req, res) => {
-
+        const foundGame = gameModel.readGames().find(game => game.gameId === req.params.gameId);
+        if(foundGame === undefined){
+            return res.status(404).send('server unable to find game');
+        }
+        const updatedGamesList = gameModel.readGames().filter(game => game.gameId !== foundGame.gameId);
+        gameModel.writeGames(updatedGamesList);
+        res.status(200).json(foundGame);
     },
 }
 
