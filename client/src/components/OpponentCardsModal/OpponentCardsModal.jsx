@@ -4,20 +4,8 @@ import OpponentIcon from '../OpponentIcon/OpponentIcon';
 import ModalIcon from '../ModalIcon/ModalIcon';
 import { countCards } from '../../utils/GameUtils';
 
-// // Dummy data.  Fed in by props in the future.
-// const cards = [
-//     {icon: 'https://via.placeholder.com/50x50', count: 3},
-//     {icon: 'https://via.placeholder.com/50x50', count: 0},
-//     {icon: 'https://via.placeholder.com/50x50', count: 1},
-//     {icon: 'https://via.placeholder.com/50x50', count: 2},
-//     {icon: 'https://via.placeholder.com/50x50', count: 0},
-//     {icon: 'https://via.placeholder.com/50x50', count: 0},
-//     {icon: 'https://via.placeholder.com/50x50', count: 1},
-//     {icon: 'https://via.placeholder.com/50x50', count: 0},
-// ]
-
 const OpponentCardsModal = ({ id, opponent }) => {
-    const [ hidden, setHidden ] = useState(true);
+    const [ hidden, setHidden ] = useState(false);
     // hidden state toggled when user icon is clicked
     const handleModalToggle = () => setHidden(!hidden);
 

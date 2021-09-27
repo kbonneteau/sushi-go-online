@@ -10,6 +10,9 @@
     align-items: center;
     background-color: $accent;
     
+    &__super-script {
+        font-size: 1.25rem;
+    }
 
     &--first{
         background-color: $primary-cta;
