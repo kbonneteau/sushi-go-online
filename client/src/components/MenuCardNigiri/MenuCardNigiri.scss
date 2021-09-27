@@ -26,11 +26,24 @@
         text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
     }
 
+    &__dish-container {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        height: 2.85rem;
+    }
+
     &__dish-name {
         margin: .5rem;
     }
 
     &__dish-image {
-        
+        max-width: 3rem;
+        max-height: 3rem;
+    }
+
+    &__point {
+        font-weight: bold;
+        font-size: 1.1rem;
     }
 }
