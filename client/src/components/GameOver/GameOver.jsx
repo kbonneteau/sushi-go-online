@@ -1,7 +1,7 @@
 import './GameOver.scss';
 import PlayerResults from '../PlayerResults/PlayerResults';
 import { useHistory } from 'react-router-dom';
-import win2 from '../../assets/images/win2.gif';
+// import win2 from '../../assets/images/win2.gif';
 import win from '../../assets/images/win.webp';
 import lose from '../../assets/images/lose.gif';
 

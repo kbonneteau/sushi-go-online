@@ -156,6 +156,8 @@ const determineCalculatorFunction = cardType => {
             return countMaki;
         case 'pudding':
             return countPudding;
+        default:
+            break;
     }
 }
 

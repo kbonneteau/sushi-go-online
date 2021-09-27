@@ -9,13 +9,6 @@ router.route("/")
 
 router.route("/:gameId")
     .get(gameController.getCurrentGameData)
-    .put((req, res) => {
-
-        console.log(req.body)
-        res.send(`Hello put for ${req.params.gameId}`)
-    })
-
-
-
+    .put(gameController.updateGameData)
 
 module.exports = router;

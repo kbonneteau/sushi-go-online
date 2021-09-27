@@ -88,10 +88,11 @@ const GamePage = ({ match }) => {
             console.log('==== ROUND OVER ====', updatedRoundCount)
             axios.put(API_BASE_URL + API_GAME + `/${match.params.gameId}`, {
                 roundCount: updatedRoundCount,
-                players: [player, opponents]
+                player: player,
+                opponents: opponents
             })
                 .then(res => {
-                    console.log("ROUND OVER AXIOS", res.data)
+                    console.log(res.data)
                     // console.log("axios done, setting state")
                     // console.log(res.data.players)
                 
@@ -112,7 +113,6 @@ const GamePage = ({ match }) => {
 
         // If card is committed, do something.
         if(playerCommit) {
-            const allPlayers = [player, ...opponents]
             console.log('card commit ::')
             // Here, I want to
             //      - update played cards
