@@ -6,10 +6,32 @@
 .player-results {
     display: flex;
     justify-content: space-evenly;
-    align-items: baseline;
+    align-items: center;
+    width: 40rem;
+
+    border: 2px solid black;
+    border-radius: 10px;
+    @include primary-box-shadow;
+    margin: 1rem 0;
+
+    &__place {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    &__icon {
+        border-radius: 50%;
+        padding: .5rem;
+        margin: auto 0;
+    }
+
+    &__player-name-title {
+        margin: 0;
+    }
 
     &__player-name {
-
+        margin: 0;
     }
 
     &__player-points {

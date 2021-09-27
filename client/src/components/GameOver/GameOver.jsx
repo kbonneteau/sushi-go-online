@@ -1,5 +1,6 @@
 import './GameOver.scss';
 import PlayerResults from '../PlayerResults/PlayerResults';
+import PlayerResultsFirst from '../PlayerResultsFirst/PlayerResultsFirst';
 import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { API_BASE_URL, API_GAME } from '../../utils/ApiUtils';
@@ -32,10 +33,15 @@ const GameOver = ({ results }) => {
             <img className="game-over__hero-image" src={determinePlayerScore(results)} alt="" />
             <h2 className="game-over__title">Game Over</h2>
             <div className="game-over__results-container">
-                <h3 className="game-over__results-title">Results</h3>
+                <h3 className="game-over__results-title">Standings</h3>
                 <ul className="game-over__results-list">
                     {/* Players.map */}
-                    {results.map((playerResults, i) => <PlayerResults key={i} standing={i+1} results={playerResults} />)}
+                    {results.map((playerResults, i) => (
+                        i === 0 
+                            ? <PlayerResultsFirst key={i} standing={i+1} results={playerResults}/> 
+                            : <PlayerResults key={i} standing={i+1} results={playerResults} />
+                        )
+                    )}
                 </ul>
             </div>
             <button onClick={handleGameOver} className="game-over__new-game">
