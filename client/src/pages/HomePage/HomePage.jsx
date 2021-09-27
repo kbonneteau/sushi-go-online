@@ -1,12 +1,12 @@
 import './HomePage.scss';
 import HomeHero from '../../components/HomeHero/HomeHero';
+import ErrorModal from '../../components/ErrorModal/ErrorModal';
 
 const HomePage = () => {
     return (
         <main className="home">
-            {/* Remove this in the future */}
-            {/* <h1>Home Page</h1> */}
             <HomeHero />
+            <ErrorModal />
         </main>
     );
 };
