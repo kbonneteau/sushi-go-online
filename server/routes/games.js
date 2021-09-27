@@ -10,5 +10,6 @@ router.route("/")
 router.route("/:gameId")
     .get(gameController.getCurrentGameData)
     .put(gameController.updateGameData)
+    .delete(gameController.deleteGame)
 
 module.exports = router;

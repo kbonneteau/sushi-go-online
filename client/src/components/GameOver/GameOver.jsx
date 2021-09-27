@@ -1,6 +1,8 @@
 import './GameOver.scss';
 import PlayerResults from '../PlayerResults/PlayerResults';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
+import axios from 'axios';
+import { API_BASE_URL, API_GAME } from '../../utils/ApiUtils';
 // import win2 from '../../assets/images/win2.gif';
 import win from '../../assets/images/win.webp';
 import lose from '../../assets/images/lose.gif';
@@ -8,7 +10,12 @@ import lose from '../../assets/images/lose.gif';
 
 const GameOver = ({ results }) => {
     const history = useHistory();
+    const params = useParams();
+
     const handleGameOver = () => {
+        axios.delete(API_BASE_URL + API_GAME + `/${params.gameId}`)
+            .then(() => localStorage.removeItem('jwtToken'))
+            .catch(console.log)
         console.log('destroy session')
         history.push(`/`);
     }
