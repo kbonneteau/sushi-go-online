@@ -4,13 +4,21 @@
 @use '../../partials/mixins' as *;
 
 .error-modal {
-    background-color: lightgoldenrodyellow;
+    position: absolute;
+    background-color: rgba(250, 128, 114, 0.3);
+    backdrop-filter: blur(15px);
     padding: 5rem;
     @include primary-box-shadow;
-    border-radius: 5px;
+    border-radius: 5%;
+    @include flex-centering;
+    flex-direction: column;
 
     &__image {
-        
+
+    }
+
+    &__message-container {
+
     }
 
     &__title {
@@ -23,8 +31,8 @@
 
     &__button {
         @include button-secondary;
-        width: 7rem;
-        padding: .5rem 1rem;
+        // width: 7rem;
+        padding: .75rem 1.5rem;
     }
 }
 
