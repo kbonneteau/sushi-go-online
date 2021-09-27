@@ -1,8 +1,8 @@
 import './ErrorModal.scss';
 
-const ErrorModal = ({ handleModalClose }) => {
+const ErrorModal = ({ handleModalClose, page }) => {
     return (
-        <aside className="error-modal">
+        <aside className={page === 'game' ? "error-modal error-modal--game" : "error-modal"}>
             <img className="error-modal__image" src="http://localhost:8080/modal-gifs/sushi-oops.gif" alt="" />
             {/* <div className="error-modal__message-container"> */}
                 <h2 className="error-modal__title">Oops!</h2>

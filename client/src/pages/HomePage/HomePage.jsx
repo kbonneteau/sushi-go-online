@@ -1,5 +1,5 @@
 import './HomePage.scss';
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
 import HomeHero from '../../components/HomeHero/HomeHero';
 import ErrorModal from '../../components/ErrorModal/ErrorModal';
 

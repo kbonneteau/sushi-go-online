@@ -13,6 +13,13 @@
     @include flex-centering;
     flex-direction: column;
 
+    &--game {
+        box-shadow: unset;
+        position: relative;
+        border-radius: unset;
+        height: 90vh;
+    }
+
     &__image {
 
     }
@@ -35,44 +42,3 @@
         padding: .75rem 1.5rem;
     }
 }
-
-// .game-over {
-//     // height: 30rem;
-//     padding: 3rem 0;
-//     width: 50rem;
-//     background-color: salmon;
-//     @include primary-box-shadow;
-//     border-radius: 10px;
-//     transform: rotateX(30px);
-//     @include flex-centering;
-//     flex-direction: column;
-
-//     &__hero-image {
-//         max-height: 10rem;
-//         max-width: 20rem;
-//     }
-
-//     &__title {
-//         margin: 0;
-//     }
-
-//     &__results-container {
-
-//     }
-
-//     &__results-title {
-//         margin: 0;
-//     }
-
-//     &__results-list {
-//         list-style: none;
-//         margin: 0;
-//         padding: 0;
-//     }
-
-//     &__new-game {
-//         @include button-game;
-//         background-color: white;
-//         margin: 0;
-//     }
-// }

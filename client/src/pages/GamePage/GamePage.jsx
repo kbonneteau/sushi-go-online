@@ -6,7 +6,9 @@ import GameOver from '../../components/GameOver/GameOver';
 import axios from 'axios';
 import { API_BASE_URL, API_GAME } from '../../utils/ApiUtils';
 import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import * as GameLogic from '../../utils/GameUtils';
+import ErrorModal from '../../components/ErrorModal/ErrorModal';
 // import { allComputersCommitCards, findPlayer, findOpponents, setPlayedCards } from '../../utils/GameUtils';
 
 
@@ -15,6 +17,8 @@ const GamePage = ({ match }) => {
     // User can pull up "cards played modal to see the cards on the board"
 
     // const [ computerCommit, setComputerCommit ] = useState(null);
+    const history = useHistory();
+    const [ error, setError ] = useState(false)
     const [ playerCommit, setPlayerCommit ] = useState(false);
     const [ roundCount, setRoundCount ] = useState(1);
     const [ endRound, setEndRound ] = useState(false);
@@ -45,6 +49,11 @@ const GamePage = ({ match }) => {
         setOpponents(GameLogic.findOpponents(arrayOfPlayers));
     }
 
+    const handleModalClose = () => {
+        history.push('/');
+        localStorage.removeItem('jwtToken');
+    };
+
     useEffect(() => {
         // console.log('useEffect')
         // If there aren't any players, make an axios request to get the data.
@@ -57,7 +66,9 @@ const GamePage = ({ match }) => {
                 // setPlayer(GameLogic.findPlayer(res.data.players));
                 // setOpponents(GameLogic.findOpponents(res.data.players));
             })
-            .catch(err => console.log(err.message))
+            .catch(() => {
+                setError(true);
+            })
         }
 
         // if there are opponents, but they haven't selected a card, make a selection.
@@ -134,8 +145,9 @@ const GamePage = ({ match }) => {
             setEndRound(true);
         }
 
-    }, [opponents, player, match.params.gameId, opponentSelectedCard, endRound, selectedCard, playerCommit, roundCount])
+    }, [opponents, player, match.params.gameId, opponentSelectedCard, endRound, selectedCard, playerCommit, roundCount, error])
 
+    if(error) return <ErrorModal handleModalClose={handleModalClose} page='game' />
 
     return (
         <>
