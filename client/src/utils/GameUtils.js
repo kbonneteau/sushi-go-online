@@ -186,5 +186,6 @@ export const determineWinner = (players) => {
         const playerClone = cloneDeep(player);
         updatedPlayers = [ ...updatedPlayers, calculateScore(playerClone) ]
     })
-    return calculateBonusPoints(updatedPlayers);
+    const sortedPlayers = calculateBonusPoints(updatedPlayers).sort((a, b) => b.score - a.score)
+    return sortedPlayers;
 }

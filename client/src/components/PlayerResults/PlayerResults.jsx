@@ -1,10 +1,11 @@
 import './PlayerResults.scss';
 
-const PlayerResults = () => {
+const PlayerResults = ({ results, standing }) => {
     return (
         <li className="player-results">
-            <h4 className="player-results__player-name">Player 1</h4>
-            <p className="player-results__player-points">x points</p>
+            <p>{standing}</p>
+            <h4 className="player-results__player-name">Player {results.playerPosition}</h4>
+            <p className="player-results__player-points">{results.score} points</p>
         </li>
     );
 };
