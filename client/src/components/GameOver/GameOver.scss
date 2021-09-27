@@ -7,10 +7,10 @@
     // height: 30rem;
     padding: 3rem 0;
     width: 50rem;
-    background-color: salmon;
+    background-color: rgba(250, 128, 114, 0.3);
+    backdrop-filter: blur(50px);
     @include primary-box-shadow;
     border-radius: 10px;
-    transform: rotateX(30px);
     @include flex-centering;
     flex-direction: column;
 
@@ -21,6 +21,9 @@
 
     &__title {
         margin: 0;
+        @include title-text;
+        color: black;
+        font-size: 2rem;
     }
 
     &__results-container {
@@ -29,6 +32,10 @@
 
     &__results-title {
         margin: 0;
+        @include title-text;
+        text-align: left;
+        color: black;
+        font-size: 1.5rem;
     }
 
     &__results-list {
@@ -38,8 +45,10 @@
     }
 
     &__new-game {
-        @include button-game;
+        @include button-secondary;
         background-color: white;
-        margin: 0;
+        width: 7rem;
+        padding: 1rem 1.5rem;
+        margin: 1rem 0 0;
     }
 }
