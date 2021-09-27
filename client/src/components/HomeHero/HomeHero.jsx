@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { API_BASE_URL, API_GAME } from '../../utils/ApiUtils';
 
-const HomeHero = () => {
+const HomeHero = ({ handleError }) => {
     const history = useHistory();
 
     const handleNewGame = () => {
@@ -33,7 +33,7 @@ const HomeHero = () => {
                 history.push(`/game/${res.data.gameId}`);
             })
             // Create an error modal if the user needs to start a new game
-            .catch(error => console.log(error.message))
+            .catch(handleError)
     }
 
     return (
