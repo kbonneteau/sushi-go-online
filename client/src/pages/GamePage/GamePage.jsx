@@ -16,7 +16,8 @@ const GamePage = ({ match }) => {
 
     // const [ computerCommit, setComputerCommit ] = useState(null);
     const [ playerCommit, setPlayerCommit ] = useState(false);
-    const [ roundStart, setRoundStart ] = useState(false);
+    const [ roundCount, setRoundCount ] = useState(1);
+    const [ endRound, setEndRound ] = useState(false);
     // If computers do not have cards committed in state, roundStart = true
     const [ selectedCard, setSelectedCard ] = useState({});
     const [ player, setPlayer ] = useState(null);
@@ -80,8 +81,26 @@ const GamePage = ({ match }) => {
         }
 
         // If a new round is starting, re-initialize the round data.
-        if(roundStart) {
-            setOpponentSelectedCard(null);
+        if(endRound) {
+            // setOpponentSelectedCard(null);
+            let updatedRoundCount = roundCount + 1;
+            setRoundCount(updatedRoundCount)
+            console.log('==== ROUND OVER ====', updatedRoundCount)
+            axios.put(API_BASE_URL + API_GAME + `/${match.params.gameId}`, {
+                roundCount: updatedRoundCount,
+                player: player,
+                opponents: opponents
+            })
+                .then(res => {
+                    console.log(res.data)
+                    // console.log("axios done, setting state")
+                    // console.log(res.data.players)
+                
+                    // setPlayer(GameLogic.findPlayer(res.data.players));
+                    // setOpponents(GameLogic.findOpponents(res.data.players));
+                })
+                .catch(err => console.log(err.message))
+            setEndRound(false);
         }
 
         if(player && player.cardsInHand.length === 0) {
@@ -94,7 +113,6 @@ const GamePage = ({ match }) => {
 
         // If card is committed, do something.
         if(playerCommit) {
-            const allPlayers = [player, ...opponents]
             console.log('card commit ::')
             // Here, I want to
             //      - update played cards
@@ -113,9 +131,10 @@ const GamePage = ({ match }) => {
             // This resolved the issue with computer async card setting (I think??)
             setOpponentSelectedCard(null)
             setSelectedCard({})
+            setEndRound(true);
         }
 
-    }, [opponents, player, match.params.gameId, opponentSelectedCard, roundStart, selectedCard, playerCommit])
+    }, [opponents, player, match.params.gameId, opponentSelectedCard, endRound, selectedCard, playerCommit, roundCount])
 
 
     return (

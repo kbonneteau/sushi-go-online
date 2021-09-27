@@ -7,6 +7,8 @@ router.route("/")
     .post(gameController.createNewGame)
     .get(gameController.restoreGameSession);
 
-router.get("/:gameId", gameController.getCurrentGameData)
+router.route("/:gameId")
+    .get(gameController.getCurrentGameData)
+    .put(gameController.updateGameData)
 
 module.exports = router;
