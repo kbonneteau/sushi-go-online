@@ -1,0 +1,30 @@
+@use '../../partials/mixins' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/variables' as *;
+
+.tutorial {
+
+    &__title {
+
+    }
+
+    &__tutorial-container {
+        display: flex;
+        gap: 5rem;
+    }
+
+    &__tip {
+        width: 15rem;
+        height: 15rem;
+        background-color: lightgray;
+
+        &:hover {
+            transform: scale(1.5);
+            transition: transform .3s ease;
+        }
+    }
+
+    &__information {
+
+    }
+}
