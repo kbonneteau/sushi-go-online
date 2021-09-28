@@ -3,18 +3,30 @@
 @use '../../partials/mixins' as *;
 
 .player-area {
-    background-color: powderblue;
-    height: 20rem;
-    width: 80rem;
-    // width: 70rem;
+    margin: 2rem;
+    background-color: salmon;
+    // background-color: rgba(250, 128, 114, 0.8);
+    // background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 1rem;
+    // border: 3px solid $accent;
+    @include primary-box-shadow;
+    flex-grow: 1;
     padding: 1rem 1rem;
 
+    &__context-container {
+        display: flex;
+        align-items: baseline;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    
     &__title {
         margin: 0;
+        font-size: 1.6rem;
     }
     
     &__action-description {
         margin: 0;
-
+        font-size: 1.2rem;
     }
 }

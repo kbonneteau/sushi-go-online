@@ -4,8 +4,6 @@ import {useRef} from 'react'
 import HomeHero from '../HomeHero/HomeHero';
 import Tutorial from '../Tutorial/Tutorial';
 
-const url = (name, wrap = false) =>
-  `${wrap ? 'url(' : ''}https://awv3node-homepage.surge.sh/build/assets/${name}.svg${wrap ? ')' : ''}`
 
 const HeroParallax = ({ handleError }) => {
   const parallax = useRef();
@@ -24,7 +22,6 @@ const HeroParallax = ({ handleError }) => {
         </ParallaxLayer>
 
         <ParallaxLayer offset={1} speed={0.1} className="parallax__parent-container" onClick={() => parallax.current.scrollTo(0)}>
-          {/* <img src={url('bash')} style={{ width: '40%' }} /> */}
           <Tutorial />
         </ParallaxLayer>
 
