@@ -39,13 +39,18 @@ const HomeHero = ({ handleError, handleTutorialClick }) => {
 
     return (
         <section className="hero">
-            <img className="hero__image" src="https://via.placeholder.com/400x400" alt="" />
+            {/* <img className="hero__image" src="http://localhost:8080/modal-gifs/jumpy-sushi.gif" alt="" /> */}
             <div className="hero__content-container">
                 <h1 className="hero__title">Sushi Go! Online</h1>
-                <p className="hero__game-description">
-                    Based on the classic pick-and-pass tabletop board game, Sushi Go! Online brings your favourite mouth-watering sushi conveyor game to a computer near you.
-                    {/* Play with friends online, or play against various difficulties of computers. */}
+                <div className="hero__game-description-container">
+                <p className="hero__game-description hero__game-description--subtext">
+                    Based on the classic pick-and-pass tabletop board game.
                 </p>
+                <p className="hero__game-description">
+                    Sushi Go! Online brings your favourite mouth-watering sushi conveyor game to a computer near you.
+                </p>
+
+                </div>
                 <div className="hero__cta-container">
                     <p className="hero__call-to-action">Want to play a game?</p>
                     <button className="hero__learn-game" onClick={handleTutorialClick} >How to Play</button>
