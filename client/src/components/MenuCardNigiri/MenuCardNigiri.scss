@@ -9,7 +9,7 @@
     background-color: $nigiri;
     @include flex-centering;
     flex-direction: column;
-    padding-bottom: 1rem;
+    padding-bottom: .5rem;
     border-radius: 10px;
     @include primary-box-shadow;
 
@@ -20,6 +20,7 @@
         width: 100%;
         padding: .5rem 1rem;
         margin: 0;
+        margin-bottom: .5rem;
         text-align: center;
         @include text($roboto, 1.25rem, bold, normal);
         letter-spacing: 1px;
@@ -27,6 +28,7 @@
     }
 
     &__dish-container {
+        flex-grow: 1;
         display: flex;
         align-items: center;
         gap: 1rem;

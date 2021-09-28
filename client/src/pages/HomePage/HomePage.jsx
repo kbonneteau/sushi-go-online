@@ -1,7 +1,7 @@
 import './HomePage.scss';
 import { useState, useEffect } from 'react';
-import HomeHero from '../../components/HomeHero/HomeHero';
 import ErrorModal from '../../components/ErrorModal/ErrorModal';
+import HeroParallax from '../../components/HeroParallax/HeroParallax';
 
 const HomePage = () => {
     const [ error, setError ] = useState(false)
@@ -10,7 +10,7 @@ const HomePage = () => {
 
     return (
         <main className="home">
-            <HomeHero handleError={handleError} />
+            <HeroParallax handleError={handleError} />
             {error ? <ErrorModal handleModalClose={handleModalClose} /> : null}
         </main>
     );
