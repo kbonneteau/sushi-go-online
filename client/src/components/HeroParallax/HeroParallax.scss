@@ -1,0 +1,17 @@
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/mixins' as *;
+
+.parallax {
+    width: 100%;
+    height: 100%;
+    background: #e99c8f;
+    
+    &__second-section {
+        background-color: #805E73;
+    }
+
+    &__parent-container {
+        @include flex-centering;
+    }
+}
