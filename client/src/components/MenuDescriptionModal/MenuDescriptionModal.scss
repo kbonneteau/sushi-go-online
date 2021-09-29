@@ -1,0 +1,26 @@
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/mixins' as *;
+@use '../../partials/keyframes' as *;
+
+.menu-desc {
+    position: absolute;
+    padding: 1rem;
+    left: 47%;
+    right: 53%;
+    top: 30%;
+    bottom: 70%;
+    width: 30rem;
+    height: 20rem;
+    background-color: white;
+    border-radius: 15px;
+    @include primary-box-shadow;
+
+    &__title {
+
+    }
+
+    &__description {
+
+    }
+}

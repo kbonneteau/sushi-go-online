@@ -1,34 +1,47 @@
 import './GamePage.scss';
+import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
+import { API_BASE_URL, API_GAME } from '../../utils/ApiUtils';
 import MenuBoard from '../../components/MenuBoard/MenuBoard';
 import PlayerGameArea from '../../components/PlayerGameArea/PlayerGameArea';
 import PlayedCards from '../../components/PlayedCards/PlayedCards';
 import GameOver from '../../components/GameOver/GameOver';
-import axios from 'axios';
-import { API_BASE_URL, API_GAME } from '../../utils/ApiUtils';
-import { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import * as GameLogic from '../../utils/GameUtils';
 import ErrorModal from '../../components/ErrorModal/ErrorModal';
-// import { allComputersCommitCards, findPlayer, findOpponents, setPlayedCards } from '../../utils/GameUtils';
+import * as GameLogic from '../../utils/GameUtils';
 
 
 const GamePage = ({ match }) => {
-    // Modal popup with a cardflip animation?
-    // User can pull up "cards played modal to see the cards on the board"
-
-    // const [ computerCommit, setComputerCommit ] = useState(null);
     const history = useHistory();
-    const [ error, setError ] = useState(false)
-    const [ playerCommit, setPlayerCommit ] = useState(false);
-    const [ roundCount, setRoundCount ] = useState(1);
+    // STATE INITIALIZATION
+    // State related to the overall game
     const [ endRound, setEndRound ] = useState(false);
-    // If computers do not have cards committed in state, roundStart = true
-    const [ selectedCard, setSelectedCard ] = useState({});
-    const [ player, setPlayer ] = useState(null);
-    const [ opponents, setOpponents ] = useState(null);
-    const [ opponentSelectedCard, setOpponentSelectedCard ] = useState(null);
+    const [ roundCount, setRoundCount ] = useState(1);
     const [ gameOver, setGameOver] = useState(false)
     const [ results, setResults ] = useState([])
+
+    // State related to modal rendering
+    const [ error, setError ] = useState(false)
+
+    // State related to players and opponents
+    const [ player, setPlayer ] = useState(null);
+    const [ selectedCard, setSelectedCard ] = useState({});
+    const [ playerCommit, setPlayerCommit ] = useState(false);
+    const [ opponents, setOpponents ] = useState(null);
+    const [ opponentSelectedCard, setOpponentSelectedCard ] = useState(null);
+
+    // useEffect dependencies
+    const dependencies = [
+        opponents, 
+        player, 
+        match.params.gameId, 
+        opponentSelectedCard, 
+        endRound, 
+        selectedCard, 
+        playerCommit, 
+        roundCount, 
+        error
+    ]
 
     const handleCardSelection = clickedCard => {
         clickedCard.id === selectedCard.id 
@@ -55,16 +68,11 @@ const GamePage = ({ match }) => {
     };
 
     useEffect(() => {
-        // console.log('useEffect')
         // If there aren't any players, make an axios request to get the data.
         if(!opponents && !player){
         axios.get(API_BASE_URL + API_GAME + `/${match.params.gameId}`)
             .then(res => {
-                // console.log("axios done, setting state")
-                // console.log(res.data.players)
                 setPlayers(res.data.players);
-                // setPlayer(GameLogic.findPlayer(res.data.players));
-                // setOpponents(GameLogic.findOpponents(res.data.players));
             })
             .catch(() => {
                 setError(true);
@@ -79,21 +87,8 @@ const GamePage = ({ match }) => {
             }
         }
 
-
-        // If the opponent has selected a card...
-        // Can I filter update the opponents object here after each round instead of back-end.
-        if(opponentSelectedCard) {
-            // console.log('Now these cards are selected',opponentSelectedCard)
-        }
-
-        // If a card is selected, do something here.
-        if(selectedCard.id !== undefined) {
-            // console.log('player selected card ::',selectedCard)
-        }
-
-        // If a new round is starting, re-initialize the round data.
+        // On the end of a round, update the back-end data.
         if(endRound) {
-            // setOpponentSelectedCard(null);
             let updatedRoundCount = roundCount + 1;
             setRoundCount(updatedRoundCount)
             console.log('==== ROUND OVER ====', updatedRoundCount)
@@ -104,11 +99,6 @@ const GamePage = ({ match }) => {
             })
                 .then(res => {
                     console.log(res.data)
-                    // console.log("axios done, setting state")
-                    // console.log(res.data.players)
-                
-                    // setPlayer(GameLogic.findPlayer(res.data.players));
-                    // setOpponents(GameLogic.findOpponents(res.data.players));
                 })
                 .catch(err => console.log(err.message))
             setEndRound(false);
@@ -125,19 +115,11 @@ const GamePage = ({ match }) => {
         // If card is committed, do something.
         if(playerCommit) {
             console.log('card commit ::')
-            // Here, I want to
-            //      - update played cards
-            //      - pass hand to next player
-            //      - receive a new hand
             const playersWithCards = GameLogic.setPlayedCards(player, opponents, selectedCard, opponentSelectedCard);
             setPlayers(playersWithCards);
 
             // Infinite loop triggered without this
             setPlayerCommit(false);
-            // setRoundStart((prevRound) => {
-            //     if(prevRound === true) return
-            //     else return true;
-            // })
 
             // This resolved the issue with computer async card setting (I think??)
             setOpponentSelectedCard(null)
@@ -145,7 +127,7 @@ const GamePage = ({ match }) => {
             setEndRound(true);
         }
 
-    }, [opponents, player, match.params.gameId, opponentSelectedCard, endRound, selectedCard, playerCommit, roundCount, error])
+    }, dependencies)
 
     if(error) return <ErrorModal handleModalClose={handleModalClose} page='game' />
 
@@ -161,9 +143,8 @@ const GamePage = ({ match }) => {
                         ? <PlayedCards player={player} opponents={opponents} />
                         : null
                     }
-                    
                 </div>
-                {/* Pass current hands to this component, and pass player hand to player game area component? */}
+
                 <div className="game-area__player-interaction-container">
                     {player 
                         ? <PlayerGameArea 
@@ -174,9 +155,9 @@ const GamePage = ({ match }) => {
                         />
                         : null
                     }
-                    {/* <SelectCard /> */}
-                </div> 
+                </div>
             </main>
+            
             {gameOver 
                 ?  (<div className="game-area__game-over-container">
                         <GameOver results={results} />
