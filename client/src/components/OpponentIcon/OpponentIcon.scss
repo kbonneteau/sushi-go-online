@@ -5,6 +5,7 @@
 
 .opponent-icon {
     padding: 0 0.25rem;
+    @include player-icon-container;
     
     &__image {
         @extend .player-icon__image;

@@ -5,7 +5,7 @@ import ModalIcon from '../ModalIcon/ModalIcon';
 import { countCards } from '../../utils/GameUtils';
 
 
-const PlayerModal = ({ playedCards }) => {
+const PlayerModal = ({ icon, playedCards }) => {
     const [ hidden, setHidden ] = useState(false);
     // hidden state toggled when user icon is clicked
     const handleModalToggle = () => setHidden(!hidden);
@@ -25,7 +25,7 @@ const PlayerModal = ({ playedCards }) => {
                     ))}
                 </ul>
             </div>
-            <PlayerIcon handleModalToggle={handleModalToggle} />
+            <PlayerIcon icon={icon} handleModalToggle={handleModalToggle} />
         </article>
     );
 };

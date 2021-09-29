@@ -32,21 +32,25 @@ const constructPlayers = () => {
     return [
         {
             playerPosition: 1,
+            icon: "http://localhost:8080/player-icons/yellow.png",
             cardsInHand: [],
             cardsPlayed: []
         },
         {
             playerPosition: 2,
+            icon: "http://localhost:8080/player-icons/purple.png",
             cardsInHand: [],
             cardsPlayed: []
         },
         {
             playerPosition: 3,
+            icon: "http://localhost:8080/player-icons/orange.png",
             cardsInHand: [],
             cardsPlayed: []
         },
         {
             playerPosition: 4,
+            icon: "http://localhost:8080/player-icons/green.png",
             cardsInHand: [],
             cardsPlayed: []
         }
