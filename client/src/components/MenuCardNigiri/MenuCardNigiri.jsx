@@ -1,8 +1,8 @@
 import './MenuCardNigiri.scss';
 
-const MenuCardNigiri = () => {
+const MenuCardNigiri = ({ id, handleMenuHover, handleMouseLeave }) => {
     return (
-        <article className="menu-card-nigiri">
+        <article className="menu-card-nigiri" onMouseEnter={() => handleMenuHover(id)} onMouseLeave={handleMouseLeave}>
             <header className="menu-card-nigiri__dish-type">
                 {/* Can this be an h3? */}
                 nigiri

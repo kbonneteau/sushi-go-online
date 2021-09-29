@@ -1,10 +1,16 @@
 import './MenuDescriptionModal.scss';
 
-const MenuDescriptionModal = () => {
+const MenuDescriptionModal = ({ menuItem }) => {
     return (
         <aside className="menu-desc">
-            <h2 className="menu-desc__title">Card Name</h2>
-            <p className="menu-desc__description">This is descriptive text</p>
+            <img className="menu-desc__dish-icon" src={menuItem.image} alt="" />
+            <h2 className="menu-desc__title">{menuItem.dishName}</h2>
+            <p className="menu-desc__sub-info">{menuItem.shortDescription}</p>
+            {menuItem.rules.map((rule, i) => <p key={i} className="menu-desc__description">{menuItem.rules[i]}</p>)}
+            {menuItem.rulesExpanded 
+                ? menuItem.rulesExpanded.map((rule, i) => <p key={i} className="menu-desc__secondary-description">{menuItem.rulesExpanded[i]}</p>)
+                : null
+            }
         </aside>
     );
 };
