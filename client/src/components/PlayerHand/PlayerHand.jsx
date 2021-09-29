@@ -8,7 +8,7 @@ const PlayerHand = ({ playerCards, selectedCard, handleCardSelection }) => {
 
     useEffect(() => {
         return animateConveyorBelt(cardContainer.current);
-    }, [playerCards,])
+    }, [playerCards])
 
     const animateConveyorBelt = (cardContainer) => {
         cardContainer.className = "player-hand card-slide-in";

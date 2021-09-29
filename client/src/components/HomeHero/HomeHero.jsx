@@ -1,8 +1,7 @@
 import './HomeHero.scss';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { API_BASE_URL, API_GAME } from '../../utils/ApiUtils';
-import { Parallax, ParallaxLayer, IParallax } from '@react-spring/parallax';
 
 const HomeHero = ({ handleError, handleTutorialClick }) => {
     const history = useHistory();
@@ -16,7 +15,6 @@ const HomeHero = ({ handleError, handleTutorialClick }) => {
                 history.push(`/game/${res.data.newGame.gameId}`);
             })
             .catch(() => {
-                // Throw an error modal?
                 console.log('An error occurred. Please try again.')
             })
     }
@@ -39,7 +37,6 @@ const HomeHero = ({ handleError, handleTutorialClick }) => {
 
     return (
         <section className="hero">
-            {/* <img className="hero__image" src="http://localhost:8080/modal-gifs/jumpy-sushi.gif" alt="" /> */}
             <div className="hero__content-container">
                 <h1 className="hero__title">Sushi Go! Online</h1>
                 <div className="hero__game-description-container">

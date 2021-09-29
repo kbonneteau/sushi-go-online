@@ -1,5 +1,5 @@
 import './HeroParallax.scss';
-import { Parallax, ParallaxLayer, IParallax } from '@react-spring/parallax';
+import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import {useRef} from 'react'
 import HomeHero from '../HomeHero/HomeHero';
 import Tutorial from '../Tutorial/Tutorial';
