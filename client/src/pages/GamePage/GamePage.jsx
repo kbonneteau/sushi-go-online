@@ -30,19 +30,6 @@ const GamePage = ({ match }) => {
     const [ opponents, setOpponents ] = useState(null);
     const [ opponentSelectedCard, setOpponentSelectedCard ] = useState(null);
 
-    // useEffect dependencies
-    const dependencies = [
-        opponents, 
-        player, 
-        match.params.gameId, 
-        opponentSelectedCard, 
-        endRound, 
-        selectedCard, 
-        playerCommit, 
-        roundCount, 
-        error
-    ]
-
     const handleCardSelection = clickedCard => {
         clickedCard.id === selectedCard.id 
             ? setSelectedCard({})
@@ -127,7 +114,17 @@ const GamePage = ({ match }) => {
             setEndRound(true);
         }
 
-    }, dependencies)
+    }, [
+        opponents, 
+        player, 
+        match.params.gameId, 
+        opponentSelectedCard, 
+        endRound, 
+        selectedCard, 
+        playerCommit, 
+        roundCount, 
+        error
+    ])
 
     if(error) return <ErrorModal handleModalClose={handleModalClose} page='game' />
 

@@ -3,9 +3,13 @@
 @use '../../partials/variables' as *;
 
 .tutorial {
+    @include flex-centering;
+    flex-direction: column;
+    gap: 5rem;
 
     &__title {
-
+        @include title-text;
+        font-size: 3rem;
     }
 
     &__tutorial-container {
@@ -13,18 +17,16 @@
         gap: 5rem;
     }
 
-    &__tip {
-        width: 15rem;
-        height: 15rem;
-        background-color: lightgray;
-
-        &:hover {
-            transform: scale(1.5);
-            transition: transform .3s ease;
-        }
-    }
-
     &__information {
 
+    }
+
+    &__tip-container {
+        max-width: 60ch;
+        line-height: 1.3;
+        color: white;
+        font-family: $lato;
+        font-size: 1.2rem;
+        height: 10rem;
     }
 }

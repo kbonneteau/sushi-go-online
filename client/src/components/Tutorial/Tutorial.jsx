@@ -1,23 +1,44 @@
 import './Tutorial.scss';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { API_BASE_URL, API_TUTORIAL } from '../../utils/ApiUtils';
+import TutorialTip from '../TutorialTip/TutorialTip';
 
 const Tutorial = () => {
+    const [ tutorials, setTutorials ] = useState([]);
+    const [ tutorialTip, setTutorialTip ] = useState({});
+
+    const handleTutorialHover = (hoveredId) => {
+        setTutorialTip(tutorials.find(tutorial => tutorial.id === hoveredId))
+        console.log(hoveredId)
+    }
+
+    useEffect(() => {
+        axios.get(API_BASE_URL + API_TUTORIAL)
+            .then(res => setTutorials(res.data))
+            .catch(console.log)
+    }, [])
+
     return (
         <section className="tutorial">
-            <h1 className="tutorial__title">How to Play</h1>
+            <h1 className="tutorial__title">Game Tips</h1>
             <div className="tutorial__tutorial-container">
-                <article className="tutorial__tip">
-                    <header>How to Play</header>
-                </article>
-                <article className="tutorial__tip">
-                    <header>How to Score</header>
-                </article>
-                <article className="tutorial__tip">
-                    <header>How to Win</header>
-                </article>
+                {tutorials.map(tutorial => (
+                    <TutorialTip 
+                        key={tutorial.id} 
+                        tutorial={tutorial} 
+                        handleTutorialHover={handleTutorialHover}
+                    />
+                ))}
             </div>
-            <p className="tutorial__information">
-                This is a tutorial tip
-            </p>
+            <div className="tutorial__tip-container">
+                <h3 className="tutorial__tip-name">{tutorialTip.title}</h3>
+                {!tutorialTip.tip ? null : tutorialTip.tip.map((tipDetail, i) => (
+                    <p key={i} className="tutorial__information">
+                        {tipDetail}
+                    </p>
+                ))}
+            </div>
         </section>
     );
 };

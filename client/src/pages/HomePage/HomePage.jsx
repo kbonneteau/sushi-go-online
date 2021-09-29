@@ -1,5 +1,5 @@
 import './HomePage.scss';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import ErrorModal from '../../components/ErrorModal/ErrorModal';
 import HeroParallax from '../../components/HeroParallax/HeroParallax';
 
