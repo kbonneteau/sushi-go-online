@@ -9,12 +9,12 @@
         "id": 2,
         "title": "How to Score",
         "tip": ["Players score points by playing cards.", "Card totals are tallied at the end of the game.", "All players are awarded points (or might even lose 'em) depending on the values of each card, and the number of cards played of each type."],
-        "image": "http://localhost:8080/tutorials/tutorial2-2.png"
+        "image": "http://localhost:8080/tutorials/tutorial2-3.png"
     },
     {
         "id": 3,
         "title": "How to Win",
         "tip": ["Playing by stomach alone won't ensure a win! Winning is all about strategy.", "To secure your best chance of winning, players should consider some of the following...:", "• how many turns are remaining?",  "• how many cards of each type are left in the other hands?", "• should I skip dessert?"],
-        "image": "http://localhost:8080/tutorials/tutorial3-5.png"
+        "image": "http://localhost:8080/tutorials/tutorial3-2.png"
     }
 ]

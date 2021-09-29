@@ -13,32 +13,32 @@ const Tutorial = () => {
         console.log(hoveredId)
     }
 
-    const handleMouseLeave = () => setTutorialTip({})
-
     useEffect(() => {
         axios.get(API_BASE_URL + API_TUTORIAL)
             .then(res => setTutorials(res.data))
             .catch(console.log)
-    }, [tutorialTip, tutorials])
+    }, [])
 
     return (
         <section className="tutorial">
-            <h1 className="tutorial__title">How to Play</h1>
+            <h1 className="tutorial__title">Game Tips</h1>
             <div className="tutorial__tutorial-container">
                 {tutorials.map(tutorial => (
                     <TutorialTip 
                         key={tutorial.id} 
                         tutorial={tutorial} 
-                        handleMouseLeave={handleMouseLeave} 
                         handleTutorialHover={handleTutorialHover}
                     />
                 ))}
             </div>
-            {!tutorialTip.tip ? null : tutorialTip.tip.map((tipDetail, i) => (
-                <p key={i} className="tutorial__information">
-                    {tipDetail}
-                </p>
-            ))}
+            <div className="tutorial__tip-container">
+                <h3 className="tutorial__tip-name">{tutorialTip.title}</h3>
+                {!tutorialTip.tip ? null : tutorialTip.tip.map((tipDetail, i) => (
+                    <p key={i} className="tutorial__information">
+                        {tipDetail}
+                    </p>
+                ))}
+            </div>
         </section>
     );
 };
