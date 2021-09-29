@@ -3,7 +3,7 @@
         "id": 1,
         "title": "How to Play",
         "tip": ["Turns in Sushi Go! Online happen simultaneously.", "Each player chooses one card from their hand to play that turn. The remaining cards are then passed counter clockwise to the next player.", "Players continue to pass cards around and pick a card from each hand until all cards are gone."],
-        "image": "http://localhost:8080/tutorials/tutorial1-1.png"
+        "image": "http://localhost:8080/tutorials/tutorial1-2.png"
     },
     {
         "id": 2,
