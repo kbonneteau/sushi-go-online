@@ -8,6 +8,10 @@
     @include flex-centering;
 
     &__logo {
-        height: 4rem;
+        height: 6vh;
+
+        @include desktop {
+            height: 4rem;
+        }
     }
 }
