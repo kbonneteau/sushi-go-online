@@ -23,7 +23,7 @@ const OpponentCardsModal = ({ id, opponent }) => {
                     ))}
                 </ul>
             </div>
-            <OpponentIcon id={id} handleModalToggle={handleModalToggle} />
+            <OpponentIcon id={id} icon={opponent.icon} handleModalToggle={handleModalToggle} />
         </article>
     );
 }

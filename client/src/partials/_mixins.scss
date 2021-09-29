@@ -52,6 +52,13 @@
     text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
 }
 
+@mixin player-icon-container {
+    border-radius: 50%;
+    width: 6rem;
+    background-color: #ffeaeb;
+    @include primary-box-shadow;
+}
+
 // Button mixins
 @mixin button-primary {
     @include text($roboto, 1rem, normal, normal);

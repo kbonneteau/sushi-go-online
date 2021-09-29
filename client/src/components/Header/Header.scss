@@ -3,7 +3,11 @@
 @use '../../partials/mixins' as *;
 
 .site-header {
-    background-color: papayawhip;
-    height: 5vh;
+    background-color: $accent;
+    height: 6vh;
     @include flex-centering;
+
+    &__logo {
+        height: 4rem;
+    }
 }

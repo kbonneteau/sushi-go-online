@@ -1,9 +1,9 @@
 import './MenuCard.scss';
 
 // Can this be a stateful component and show a tooltip with information about the card?
-const MenuCard = ({ type, name, image}) => {
+const MenuCard = ({ id, type, name, image, handleMenuHover, handleMouseLeave }) => {
     return (
-        <article className={`menu-card ${name}`}>
+        <article className={`menu-card ${name}`} onMouseEnter={() => handleMenuHover(id)} onMouseLeave={handleMouseLeave}>
             <header className="menu-card__dish-type">
                 {/* Can this be an h3? */}
                 {type}

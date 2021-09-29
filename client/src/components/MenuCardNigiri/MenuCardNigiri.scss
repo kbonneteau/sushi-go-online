@@ -5,6 +5,7 @@
 // @mixin text($font-family, $font-size, $font-weight, $line-height) 
 
 .menu-card-nigiri {
+    cursor: pointer;
     width: 10rem;
     background-color: $nigiri;
     @include flex-centering;

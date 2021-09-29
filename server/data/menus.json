@@ -6,49 +6,72 @@
                 "id": 1,
                 "dishType": "nigiri",
                 "dishName": "nigiri",
-                "image": "http://localhost:8080/images/squid_nigiri.png"
+                "image": "http://localhost:8080/images/squid_nigiri.png",
+                "shortDescription": "Nigiri are an essential part of any great sushi meal.",
+                "rules": ["Each egg nigiri is worth 1 point.", "Each salmon nigiri is worth 2 points.", "Each squid nigiri is worth 3 points."],
+                "rulesExpanded": ["For any nigiri played on a wasabi, multiply the nigiri value by 3."]
             },
             {
                 "id": 2,
                 "dishType": "rolls",
                 "dishName": "maki",
-                "image": "http://localhost:8080/images/maki.png"
+                "image": "http://localhost:8080/images/maki.png",
+                "shortDescription": "Small and tasty, can you eat more maki than anyone else?",
+                "rules": ["Whoever has the most maki rolls scores 6 points.", "Whoever has second most scores 3.", "If multiple players tie for most or second most, all players receive the full points."], 
+                "rulesExpanded": ["A player must have at least 1 maki roll card to receive any points for maki rolls."]
             },
             {
                 "id": 3,
                 "dishType": "special",
                 "dishName": "wasabi",
-                "image": "http://localhost:8080/images/wasabi.png"
+                "image": "http://localhost:8080/images/wasabi.png",
+                "shortDescription": "Dipping a nigiri in some wasabi makes it extra hot!",
+                "rules": ["When you play a wasabi card, it has no effect. However, the next nigiri card will be triple points at the end of the round!", "One wasabi can only be used with one nigiri card."], 
+                "rulesExpanded": ["You can play multiple wasabi cards in one round, though a wasabi without any nigiri matched to it at the end of the round is worth 0 points."]
             },
             {
                 "id": 4,
                 "dishType": "special",
                 "dishName": "chopsticks",
-                "image": "http://localhost:8080/images/chopsticks.png"
+                "image": "http://localhost:8080/images/chopsticks.png",
+                "shortDescription": "Use chopsticks to grab those two dishes you really need at the same time.",
+                "rules": ["Chopsticks let you take 2 cards on a future turn. An unused chopstick card is worth 0 points at the end of the game."]
             },
             {
                 "id": 5,
                 "dishType": "appetizer",
                 "dishName": "dumpling",
-                "image": "http://localhost:8080/images/dumpling.png"
+                "image": "http://localhost:8080/images/dumpling.png",
+                "shortDescription": "Dumplings are so yummy – the more you eat, the more you want!",
+                "rules": ["Score points based on how many dumplings you have, as follows:"],
+                "rulesExpanded": ["1 = 1pt, 2 = 3pts, 3 = 6pts, 4 = 10pts, 5+ = 15pts(max)"]
             },
             {
                 "id": 6,
                 "dishType": "appetizer",
                 "dishName": "tempura",
-                "image": "http://localhost:8080/images/tempura.png"
+                "image": "http://localhost:8080/images/tempura.png",
+                "shortDescription": "A deep-fried delight – you can’t eat just one piece of tempura.",
+                "rules": ["If you have 1 tempura, you score 0.", "If you have 2 tempura, you score 5."],
+                "rulesExpanded": ["You may score multiple sets of tempura in a round."]
             },
             {
                 "id": 7,
                 "dishType": "appetizer",
                 "dishName": "sashimi",
-                "image": "http://localhost:8080/images/sashimi.png"
+                "image": "http://localhost:8080/images/sashimi.png",
+                "shortDescription": "A true delicacy, sashimi takes time to fully appreciate.",
+                "rules": ["If you have 1 or 2 sashimi, you score 0.", "If you have 3 sashimi, you score 10."],
+                "rulesExpanded": ["You may score multiple sets of sashimi in a round."]
             },
             {
                 "id": 8,
                 "dishType": "dessert",
                 "dishName": "pudding",
-                "image": "http://localhost:8080/images/pudding.png"
+                "image": "http://localhost:8080/images/pudding.png",
+                "shortDescription": "Pudding is the perfect end to a meal – make sure you don’t miss it.",
+                "rules": ["At the end of the game, players compare how many pudding cards they have.", "The player with the most scores 6 points. The player with the fewest (including 0) loses 6 points."],
+                "rulesExpanded": ["If multiple players tie for most or fewest, all tied players gain or lose the full points."]
             }
         ]
     }

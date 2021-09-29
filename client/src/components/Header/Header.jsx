@@ -1,10 +1,12 @@
 import "./Header.scss";
-import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
         <header className="site-header">
-            Sushi Go! Online Logo
+            <Link to="/">
+                <img src="http://localhost:8080/images/logo-1.png" alt="Sushi Go! Online logo" className="site-header__logo" />
+            </Link>
         </header>
     );
 };

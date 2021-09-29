@@ -3,10 +3,26 @@
 @use '../../partials/variables' as *;
 
 .game-area {
+    background-image: url(http://localhost:8080/backgrounds/sushibackground5.png);
+    background-color: rgb(238, 197, 181);
+    background-size: contain;
     height: 90vh;
     position: relative;
     @include flex-column;
     justify-content: space-between;
+
+    &__title {
+        text-align: center;
+        margin: 1rem 0 0 0;
+    }
+
+    &__menu-container {
+        margin: 2rem;
+        background-color: #a2cfd5;
+        border-radius: 1rem;
+        // border: 3px solid $accent;
+        @include primary-box-shadow;
+    }
 
     &__game-component-container {
         @include flex-centering;

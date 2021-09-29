@@ -5,7 +5,10 @@
 
 .player-modal {
     background-color: salmon;
+    @include primary-box-shadow;
     @include flex-centering;
+    border-radius: 10px;
+    // border: 2px solid black;
     justify-content: space-around;
     padding-right: .5rem;
     padding-bottom: .25rem;

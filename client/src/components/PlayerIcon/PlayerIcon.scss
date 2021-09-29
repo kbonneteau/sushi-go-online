@@ -4,13 +4,16 @@
 @use '../../partials/mixins' as *;
 
 .player-icon {
-    align-self: center;
+    // align-self: center;
     padding: 0 0.25rem;
+    @include player-icon-container;
 
     &__image {
-        border-radius: 50%;
+        // border-radius: 50%;
         cursor: pointer;
-        @include primary-box-shadow;
+        max-width: 6rem;
+        height: 6rem;
+        padding-left: .75rem;
     }
 
 }

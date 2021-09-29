@@ -5,7 +5,7 @@ import OpponentPlayingArea from '../OpponentPlayingArea/OpponentPlayingArea';
 const PlayedCards = ({ player, opponents }) => {
     return (
         <section className="played-cards-area">
-            <PlayerModal playedCards={player.cardsPlayed} />
+            <PlayerModal playedCards={player.cardsPlayed} icon={player.icon} />
             <OpponentPlayingArea opponents={opponents} />
         </section>
     );

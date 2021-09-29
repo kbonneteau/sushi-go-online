@@ -5,6 +5,7 @@
 // @mixin text($font-family, $font-size, $font-weight, $line-height) 
 
 .menu-card {
+    cursor: pointer;
     width: 10rem;
     @include flex-centering;
     flex-direction: column;
