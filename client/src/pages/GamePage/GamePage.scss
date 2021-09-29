@@ -17,18 +17,29 @@
     }
 
     &__menu-container {
-        margin: 2rem;
+        margin: .5rem;
         background-color: #a2cfd5;
         border-radius: 1rem;
-        // border: 3px solid $accent;
         @include primary-box-shadow;
+        width: 35rem;
+        
+        @include desktop {
+            margin: 2rem;
+            width: unset;
+        }
     }
 
     &__game-component-container {
         @include flex-centering;
         align-items: flex-start;
         justify-content: space-between;
-        height: 37.5rem;
+        background-color: violet;
+        height: 55vh;
+        
+        @include desktop {
+            height: 37.5rem;
+
+        }
     }
 
     &__player-interaction-container {
@@ -44,7 +55,6 @@
     }
 
     &--game-over {
-        // background: rgba(0,0,0,0.5);
         filter: blur(10px)
     }
 }

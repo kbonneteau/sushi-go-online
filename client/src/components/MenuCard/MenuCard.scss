@@ -6,12 +6,18 @@
 
 .menu-card {
     cursor: pointer;
-    width: 10rem;
     @include flex-centering;
     flex-direction: column;
     padding-bottom: 1rem;
     border-radius: 10px;
     @include primary-box-shadow;
+    width: 7rem;
+    // height: 7rem;
+    
+    @include desktop {
+        width: 10rem;
+
+    }
 
     &__dish-type {
         background-color: $primary-cta;
@@ -27,6 +33,11 @@
     }
 
     &__dish-image {
-        max-height: 6.25rem;
+        max-height: 4rem;
+        
+        @include desktop {
+            max-height: 6.25rem;
+
+        }
     }
 }

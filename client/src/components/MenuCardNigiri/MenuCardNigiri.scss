@@ -6,13 +6,19 @@
 
 .menu-card-nigiri {
     cursor: pointer;
-    width: 10rem;
     background-color: $nigiri;
     @include flex-centering;
-    flex-direction: column;
-    padding-bottom: .5rem;
     border-radius: 10px;
     @include primary-box-shadow;
+    flex-direction: column;
+    width: 7rem;
+    
+    @include desktop {
+        width: 10rem;
+        padding-bottom: .5rem;
+        
+    }
+
 
     &__dish-type {
         background-color: $primary-cta;
@@ -28,12 +34,18 @@
         text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
     }
 
+        
     &__dish-container {
-        flex-grow: 1;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        height: 2.85rem;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    height: 2rem;
+    
+        @include desktop {
+            height: 2.85rem;
+
+        }
     }
 
     &__dish-name {
@@ -41,8 +53,14 @@
     }
 
     &__dish-image {
-        max-width: 3rem;
-        max-height: 3rem;
+        max-width: 2rem;
+        max-height: 2rem;
+        
+        @include desktop {
+            max-width: 3rem;
+            max-height: 3rem;
+            
+        }
     }
 
     &__point {
