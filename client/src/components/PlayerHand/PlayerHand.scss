@@ -1,9 +1,14 @@
 @use '../../partials/variables' as *;
 @use '../../partials/typography' as *;
 @use '../../partials/mixins' as *;
+@use '../../partials/keyframes' as *;
 
 .player-hand {
     height: 15rem;
     display: flex;
     justify-content: space-evenly;
+}
+
+.card-slide-in {
+    @include player-cards-slide;
 }
