@@ -3,9 +3,18 @@
 @use '../../partials/mixins' as *;
 
 .menu-board {
-    width: 48.5rem;
-    padding: 2rem;
-    height: 29.5625rem;
+    height: 90%;
+    padding: 1rem;
     @include flex-wrap;
-    gap: 1.5rem;
+    justify-content: center;
+    gap: .5rem;
+    
+    @include desktop {
+        justify-content: center;
+        padding: 2rem;
+        gap: 1.5rem;
+        width: 48.5rem;
+        height: 29.5625rem;
+        
+    }
 }

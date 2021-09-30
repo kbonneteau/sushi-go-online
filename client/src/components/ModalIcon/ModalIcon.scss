@@ -5,19 +5,33 @@
 .modal-icon {
 
     &__icon-container {
-        height: 4rem;
-        width: 4rem;
+        height: 2.5rem;
+        width: 3rem;
         @include flex-centering;
+        
+        @include desktop {
+            height: 4rem;
+            width: 4rem;
+        }
     }
-
+    
     &__food-icon {
-        max-width: 4rem;
-        max-height: 4rem;
+        max-width: 3rem;
+        max-height: 3rem;
+        
+        @include desktop {
+            max-height: 4rem;
+            max-width: 4rem;
+        }
     }
 
     &__card-count {
         font-family: $roboto;
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         margin: 0;
+        
+        @include desktop {
+            font-size: 1.3rem;    
+        }
     }
 }

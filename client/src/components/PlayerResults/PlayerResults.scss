@@ -8,29 +8,49 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: 40rem;
-
+    width: 27rem;
+    
     border: 2px solid black;
     border-radius: 10px;
     @include primary-box-shadow;
-    margin: 1rem 0;
+    margin: .5rem 0;
+    
+    @include desktop {
+        width: 40rem;
+        margin: 1rem 0;
+    }
 
     &__place {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         font-weight: bold;
         margin: 0;
+        
+        @include desktop {
+            font-size: 1.5rem;
+        }
     }
 
     &__icon-container {
         @include player-icon-container;
-        width: 4.6875rem;
+        width: 3.5rem;
         margin: .25rem;
+        
+        @include desktop {
+            width: 4.6875rem;
+            margin: .25rem;
+        }
     }
-
+    
     &__icon {
-        max-width: 4.6875rem;
-        height: 4.6875rem;
-        padding-left: .75rem;
+        max-width: 3.5rem;
+        height: 3.5rem;
+        padding-left: .6rem;
+
+        @include desktop {
+            max-width: 4.6875rem;
+            height: 4.6875rem;
+            padding-left: .75rem;
+        }
     }
 
     &__player-name-title {

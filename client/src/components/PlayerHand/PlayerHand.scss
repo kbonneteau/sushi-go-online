@@ -4,9 +4,13 @@
 @use '../../partials/keyframes' as *;
 
 .player-hand {
-    height: 15rem;
     display: flex;
     justify-content: space-evenly;
+    height: 12rem;
+    
+    @include desktop {
+        height: 15rem;
+    }
 }
 
 .card-slide-in {

@@ -4,17 +4,26 @@
 @use '../../partials/mixins' as *;
 @use '../PlayerModal/PlayerModal.scss';
 
-.played-modal {
+.opponent-modal {
     background-color: lightsteelblue;
     padding: 0 .5rem;
     @include flex-centering;
     @include primary-box-shadow;
-    height: 8.6875rem;
+    // height: 8.6875rem;
+    // @include desktop {
+    //     height: 5.8125rem;
+
+    // }
 
     &__player-name {
         @include title-text;
         text-align: left;
         padding: .5rem;
+        font-size: 1rem;
+        
+        @include desktop {
+            font-size: 1.3rem;
+        }
     }
 
     &__played-list {
@@ -24,9 +33,12 @@
         display: flex;
         justify-content: space-evenly;
         gap: 1rem;
-        // width: 39rem;
-        height: 5.8125rem;
+        height: 4rem;
         @include flex-centering;
+        
+        @include desktop {
+            height: 5.8125rem;
+        }
     }
 
     &__played-item {

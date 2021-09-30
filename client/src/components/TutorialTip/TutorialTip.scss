@@ -4,28 +4,32 @@
 
 .tutorial-tip {
     cursor: pointer;
-    width: 15rem;
-    height: 15rem;
-    background-position: -1.875rem 0;
     @include primary-box-shadow;
     border-radius: 1rem;
-    width: 15rem;
-    max-height: 15rem;
     background-color: white;
     @include flex-centering;
     flex-direction: column;
+    width: 12rem;
+    height: 12rem;
+
+    @include desktop {
+        width: 15rem;
+        height: 15.5rem;
+    }
 
     &:hover {
-        transform: scale(1.5);
+        transform: scale(1.2);
         transition: transform .5s ease;
+        
+        @include desktop {
+            transform: scale(1.5);
+        }
     }
 
     &__header {
         width: 100%;
         background-color: rgba(0, 0, 0, 0.404);
-        height: 3rem;
         border-radius: 1rem 1rem 0 0;
-
     }
 
     
@@ -33,12 +37,16 @@
         @include title-text;
         padding: 1rem;
         margin: 0;
-
     }
 
     &__icon {
-        max-height: 12rem;
+        height: 8.5rem;
         padding: 1rem;
+        
+        @include desktop {
+            height: 12rem;
+
+        }
     }
 }
 
