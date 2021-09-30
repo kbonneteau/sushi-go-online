@@ -6,7 +6,7 @@
 .error-modal {
     position: absolute;
     background-color: rgba(250, 128, 114, 0.3);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(1rem);
     padding: 5rem;
     @include primary-box-shadow;
     border-radius: 5%;
@@ -20,25 +20,8 @@
         height: 90vh;
     }
 
-    &__image {
-
-    }
-
-    &__message-container {
-
-    }
-
-    &__title {
-
-    }
-
-    &__message {
-
-    }
-
     &__button {
         @include button-secondary;
-        // width: 7rem;
         padding: .75rem 1.5rem;
     }
 }

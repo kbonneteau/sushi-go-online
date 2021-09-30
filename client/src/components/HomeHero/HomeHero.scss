@@ -6,19 +6,18 @@
     display: flex;
     gap: 3.5rem;
     background-image: url(http://localhost:8080/modal-gifs/jumpy-sushi.gif);
-    background-size:40%;
+    background-size: 40%;
     background-repeat: no-repeat;
-    background-position: center 160px;
+    background-position: center;
     
     @include desktop {
         background-size:unset;
-        background-position: 45px 65px;   
+        background-position: 2.8125rem 4.0625rem;   
     }
 
     &__content-container {
         @include flex-column;
         padding: 1rem 0 1rem;
-
     }
 
     &__title {

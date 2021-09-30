@@ -30,25 +30,37 @@ const GamePage = ({ match }) => {
     const [ opponents, setOpponents ] = useState(null);
     const [ opponentSelectedCard, setOpponentSelectedCard ] = useState(null);
 
+    /**
+     * Sets a card into state when a card is clicked.
+     * @param {object} clickedCard 
+     */
     const handleCardSelection = clickedCard => {
         clickedCard.id === selectedCard.id 
             ? setSelectedCard({})
             : setSelectedCard(clickedCard);
     }
 
+    /**
+     * Checks if a card is selected on card commit. If yes, set commit to true.
+     */
     const handleCardCommit = () => { 
         if(selectedCard.id !== undefined) {
             setPlayerCommit(true)
-        } else {
-            console.log('this card is null')
-        }
+        } 
     }
 
+    /**
+     * Parses through an array containing all players and sets a player and all opponents into state.
+     * @param {array} arrayOfPlayers 
+     */
     const setPlayers = arrayOfPlayers => {
         setPlayer(GameLogic.findPlayer(arrayOfPlayers));
         setOpponents(GameLogic.findOpponents(arrayOfPlayers));
     }
 
+    /**
+     * Removes the saved jwt token from local storage and redirects the user to the home page.
+     */
     const handleModalClose = () => {
         history.push('/');
         localStorage.removeItem('jwtToken');
@@ -74,34 +86,32 @@ const GamePage = ({ match }) => {
             }
         }
 
-        // On the end of a round, update the back-end data.
+        // At the end of a round, update the back-end data.
         if(endRound) {
+            // Update the round cound
             let updatedRoundCount = roundCount + 1;
             setRoundCount(updatedRoundCount)
-            console.log('==== ROUND OVER ====', updatedRoundCount)
             axios.put(API_BASE_URL + API_GAME + `/${match.params.gameId}`, {
                 roundCount: updatedRoundCount,
                 player: player,
                 opponents: opponents
             })
-                .then(res => {
-                    console.log(res.data)
-                })
+                .then()
                 .catch(err => console.log(err.message))
+            // Reset the round in state
             setEndRound(false);
         }
 
+        // If a player exists but no longer has cards in their hand, trigger game end & score calculations.
         if(player && player.cardsInHand.length === 0) {
-            console.log('game over!')
             let allPlayers = [player]
             opponents.forEach(opponent => allPlayers = [...allPlayers, opponent])
             setGameOver(true)
             setResults(GameLogic.determineWinner(allPlayers));
         }
 
-        // If card is committed, do something.
+        // If card is committed, set the played cards for all players, and exchange hands with the next player.
         if(playerCommit) {
-            console.log('card commit ::')
             const playersWithCards = GameLogic.setPlayedCards(player, opponents, selectedCard, opponentSelectedCard);
             setPlayers(playersWithCards);
 

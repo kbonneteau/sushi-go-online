@@ -8,12 +8,16 @@ const Tutorial = () => {
     const [ tutorials, setTutorials ] = useState([]);
     const [ tutorialTip, setTutorialTip ] = useState({});
 
+    /**
+     * Sets a specific tutorial in state based on the tutorial id of the hovered tip.
+     * @param {string} hoveredId of the tutorial item hovered over
+     */
     const handleTutorialHover = (hoveredId) => {
         setTutorialTip(tutorials.find(tutorial => tutorial.id === hoveredId))
-        console.log(hoveredId)
     }
 
     useEffect(() => {
+        // Grabs the tutorial information from server
         axios.get(API_BASE_URL + API_TUTORIAL)
             .then(res => setTutorials(res.data))
             .catch(console.log)

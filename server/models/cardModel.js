@@ -1,6 +1,5 @@
 const fs = require('fs');
 const Deck = require('card-deck');
-// const cardData = '../data/cards.json';
 const cardData = './data/cards.json';
 const { v4: uuid } = require('uuid');
 
@@ -10,6 +9,11 @@ const { v4: uuid } = require('uuid');
  */
 const readCards = () => JSON.parse(fs.readFileSync(cardData));
 
+/**
+ * A card object is constructed using the cardData provided to it.
+ * @param {object} cardData containing all necessary card details.
+ * @returns {object} constructed card object
+ */
 const constructPlayingCard = cardData => {
     return {
         id: cardData.id,
@@ -24,7 +28,6 @@ const constructPlayingCard = cardData => {
     }
 };
 
-
 /**
  * Constructs an array of all playing cards, with all details required by the game already added to the cards
  * @returns {array} of all playing cards
@@ -37,14 +40,6 @@ const constructPlayingCard = cardData => {
     })
     return cards;
 }
-
-/**
- * Constructs a new deck with all required Sushi Go cards
- * @param {array} containing all cards required in the deck 
- * @returns {class object} containing 59 Sushi Go cards
- */
-// const constructDeck = (cardArray) => new Deck(cardArray);
-
 
 /**
  * Shuffles and deals cards to all players, placing the cards in their hand.
@@ -67,6 +62,5 @@ module.exports = {
     readCards,
     constructPlayingCard,
     constructArrayOfCards,
-    // constructDeck,
     dealCardsToPlayers
 }

@@ -7,15 +7,11 @@
     background-color: salmon;
     @include primary-box-shadow;
     @include flex-centering;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     justify-content: space-around;
     padding-right: .5rem;
     padding-bottom: .25rem;
     margin-bottom: 0.5rem;
-
-    @include desktop {
-
-    }
 
     &__player-name {
         @include title-text;
@@ -27,7 +23,6 @@
         @include desktop {
             font-size: 1.3rem;
             padding: .5rem;
-        
         }
     }
 
@@ -43,7 +38,6 @@
         @include desktop {
             height: 5.8125rem;
             width: 39rem;
-        
         }
     }
 

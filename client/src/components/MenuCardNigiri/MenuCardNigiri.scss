@@ -2,8 +2,6 @@
 @use '../../partials/typography' as *;
 @use '../../partials/mixins' as *;
 
-// @mixin text($font-family, $font-size, $font-weight, $line-height) 
-
 .menu-card-nigiri {
     cursor: pointer;
     background-color: $nigiri;
@@ -16,9 +14,7 @@
     @include desktop {
         width: 10rem;
         padding-bottom: .5rem;
-        
     }
-
 
     &__dish-type {
         background-color: $primary-cta;
@@ -33,8 +29,7 @@
         letter-spacing: 1px;
         text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
     }
-
-        
+  
     &__dish-container {
     flex-grow: 1;
     display: flex;
@@ -44,7 +39,6 @@
     
         @include desktop {
             height: 2.85rem;
-
         }
     }
 
@@ -59,7 +53,6 @@
         @include desktop {
             max-width: 3rem;
             max-height: 3rem;
-            
         }
     }
 

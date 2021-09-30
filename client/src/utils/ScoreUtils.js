@@ -167,7 +167,6 @@ const determineCalculatorFunction = cardType => {
  * @returns {object} player with score, makiCount and puddingCount
  */
 export const calculateScore = (player) => {
-    console.log('calculate score :: player', player.playerPosition)
     const countedCardsOfEachType = countUniqueCards(player.cardsPlayed)
     // Tracking variables
     let score = 0;
@@ -252,24 +251,18 @@ const makiCounts = (players) => {
  */
 const awardBonusPoints = (players, puddingResults, makiResults) => {
     players.forEach(player => {
-        console.log(`player ${player.playerPosition} score before`, player.score)
         if(player.puddingCount === puddingResults.highestNumber) {
-            console.log('player pudding is highest')
             player.score += 3;
         }
         if(player.puddingCount === puddingResults.lowestNumber) {
-            console.log('player pudding is lowest')
             player.score -= 3;
         }
         if(player.makiCount === makiResults.highestNumber) {
-            console.log('player maki is highest')
             player.score += 6;
         }
         if(player.makiCount === makiResults.secondHighestNumber) {
-            console.log('player maki is second highest')
             player.score += 3;
         }
-        console.log(`player ${player.playerPosition} score after`, player.score)
     })
     return players;
 }
