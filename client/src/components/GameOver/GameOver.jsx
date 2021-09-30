@@ -4,7 +4,6 @@ import PlayerResultsFirst from '../PlayerResultsFirst/PlayerResultsFirst';
 import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { API_BASE_URL, API_GAME } from '../../utils/ApiUtils';
-// import win2 from '../../assets/images/win2.gif';
 import win from '../../assets/images/win.webp';
 import lose from '../../assets/images/lose.gif';
 
