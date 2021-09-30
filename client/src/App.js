@@ -12,7 +12,6 @@ function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/game/:gameId" component={GamePage} />
-        {/* <Route path="/guide" component={GuidePage} /> */}
       </Switch>
       <Footer />
     </BrowserRouter>
