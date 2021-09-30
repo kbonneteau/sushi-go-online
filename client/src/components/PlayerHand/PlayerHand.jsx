@@ -7,9 +7,14 @@ const PlayerHand = ({ playerCards, selectedCard, handleCardSelection }) => {
     const cardContainer = createRef();
 
     useEffect(() => {
+        // On every change to playerCards prop, animate the conveyor belt.
         return animateConveyorBelt(cardContainer.current);
     }, [playerCards])
 
+    /**
+     * Applies the "card-slide-in" class, and removes it after 500ms
+     * @param {virtualDOM object} cardContainer 
+     */
     const animateConveyorBelt = (cardContainer) => {
         cardContainer.className = "player-hand card-slide-in";
 
@@ -17,7 +22,6 @@ const PlayerHand = ({ playerCards, selectedCard, handleCardSelection }) => {
             cardContainer.className = "player-hand"
         }, 500)
     };
-
     
     return (
         <article ref={cardContainer} className="player-hand">

@@ -2,8 +2,6 @@
 @use '../../partials/typography' as *;
 @use '../../partials/mixins' as *;
 
-// @mixin text($font-family, $font-size, $font-weight, $line-height) 
-
 .menu-card {
     cursor: pointer;
     @include flex-centering;
@@ -12,11 +10,9 @@
     border-radius: 10px;
     @include primary-box-shadow;
     width: 7rem;
-    // height: 7rem;
     
     @include desktop {
         width: 10rem;
-
     }
 
     &__dish-type {
@@ -37,7 +33,6 @@
         
         @include desktop {
             max-height: 6.25rem;
-
         }
     }
 }

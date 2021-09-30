@@ -11,17 +11,23 @@ class MenuBoard extends Component {
         description: true,
         menuItemHovered: {}
     };
-
-    handleMenuDescription = () => this.setState({description: !this.state.description})
     
-    handleMenuHover = (hoveredMenuId) => {
+    /**
+     * Finds a menu item based on the menu card hovered. Sets the found item to state.
+     * @param {string} hoveredMenuId id of the hovered menu item
+     */
+    handleMenuHover = hoveredMenuId => {
         const foundItem = this.state.menuDetails.find(menuItem => menuItem.id === hoveredMenuId);
         this.setState({ menuItemHovered: foundItem })
     }
 
+    /**
+     * Resets the state of menuItemHovered on mouse leave of menu item.
+     */
     handleMouseLeave = () => this.setState({ menuItemHovered: {} })
 
     componentDidMount() {
+        // Axios request for menu details.
         axios.get(`/menu/original`)
             .then(res => this.setState({ menuDetails: res.data.menuCards }))
             .catch(console.log)
@@ -64,6 +70,5 @@ class MenuBoard extends Component {
         );
     };
 }
-
 
 export default MenuBoard;

@@ -16,9 +16,6 @@ let gameController = {
             process.env.JWT_SECRET,
             { expiresIn: '24h' }
         );
-
-        // Redirect user to game page to start playing (this did not work due to cors issue)
-        // res.redirect(`http://localhost:3000/game/${newGame.gameId}`);
         res.status(200).json({ newGame, token });
     },
 
@@ -26,7 +23,6 @@ let gameController = {
      * Responds to the user with gameId of their outstanding session.
     */
     restoreGameSession: (req, res) => {
-        // Do I want to pull and server gameData to pass as props from client-side HomeHero to Game Page?
         res.status(200).json({ gameId: req.decoded })
     },
 

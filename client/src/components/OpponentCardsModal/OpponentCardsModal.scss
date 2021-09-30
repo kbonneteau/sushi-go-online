@@ -9,11 +9,6 @@
     padding: 0 .5rem;
     @include flex-centering;
     @include primary-box-shadow;
-    // height: 8.6875rem;
-    // @include desktop {
-    //     height: 5.8125rem;
-
-    // }
 
     &__player-name {
         @include title-text;

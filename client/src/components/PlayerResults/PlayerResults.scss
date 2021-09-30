@@ -11,7 +11,7 @@
     width: 27rem;
     
     border: 2px solid black;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     @include primary-box-shadow;
     margin: .5rem 0;
     
@@ -64,6 +64,5 @@
     
     &__player-points {
         font-size: 1.1rem;
-        
     }
 }

@@ -55,8 +55,6 @@ export const allComputersCommitCards = arrayOfComputers => {
 export const removePlayedCardsFromHands = (player, playedCard ) => {
     const currentPlayer = player;
     const foundIndex = currentPlayer.cardsInHand.findIndex(card => card.id === playedCard.id);
-    // console.log('Player:', player.playerPosition)
-    // console.log('found index', foundIndex)
     // Not sure why, but splice was not working as expected here.
     const filteredHand = currentPlayer.cardsInHand.filter((_card, i) => i !== foundIndex)
     return {
@@ -72,7 +70,6 @@ export const removePlayedCardsFromHands = (player, playedCard ) => {
  * @returns {array} containing all of the updated player hands
  */
 export const exchangeCardsWithNextPlayer = players => {
-    console.log('rotate player hands ::')
     // Tracking variables
     let updatedPlayers = [];
     let previousPlayerHand;
@@ -90,12 +87,11 @@ export const exchangeCardsWithNextPlayer = players => {
         // Update previousPlayerHand to this player's previous hand
         previousPlayerHand = currentPlayerPreviousHand;
         // Save the updated players in an array
-        updatedPlayers.push(player)
+        updatedPlayers.push(player);
     });
     const currentPlayer = players[0];
     currentPlayer.cardsInHand = previousPlayerHand;
     return [currentPlayer, updatedPlayers];
-    // console.log(updatedPlayers)
 }
 
 /**
@@ -124,15 +120,10 @@ export const exchangeCardsWithNextPlayer = players => {
         opponentClone.cardsPlayed = [...opponentClone.cardsPlayed, playedCard.selectedCard];
         allPlayers.push(opponentClone);
     })
-    console.log("All players", allPlayers)
     exchangeCardsWithNextPlayer(allPlayers)
     return allPlayers;
 }
 
-
-export const updatePlayerHands = () => {
-
-};
 
 /**
  * Takes in an array of opponent cards played.  Loops through the array of cards to count all the matching types.
@@ -178,8 +169,13 @@ export const countCards = playedCards => {
 }
 
 
+/**
+ * Calculates the overall score for all players. Bonus points are calculated and awarded to players. 
+ * Finally, an array of players sorted from highest to lowest scores is returned.
+ * @param {array} players 
+ * @returns {array} of sortedPlayers
+ */
 export const determineWinner = (players) => {
-    console.log('determine winner ::')
     let updatedPlayers = [];
     players.forEach(player => {
         // Clone player so results can be manipulated without altering state.
