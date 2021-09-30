@@ -1,0 +1,68 @@
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/keyframes' as *;
+@use '../../partials/mixins' as *;
+@use '../PlayerIcon/PlayerIcon.scss';
+
+.player-results {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 27rem;
+    
+    border: 2px solid black;
+    border-radius: 0.625rem;
+    @include primary-box-shadow;
+    margin: .5rem 0;
+    
+    @include desktop {
+        width: 40rem;
+        margin: 1rem 0;
+    }
+
+    &__place {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin: 0;
+        
+        @include desktop {
+            font-size: 1.5rem;
+        }
+    }
+
+    &__icon-container {
+        @include player-icon-container;
+        width: 3.5rem;
+        margin: .25rem;
+        
+        @include desktop {
+            width: 4.6875rem;
+            margin: .25rem;
+        }
+    }
+    
+    &__icon {
+        max-width: 3.5rem;
+        height: 3.5rem;
+        padding-left: .6rem;
+
+        @include desktop {
+            max-width: 4.6875rem;
+            height: 4.6875rem;
+            padding-left: .75rem;
+        }
+    }
+
+    &__player-name-title {
+        margin: 0;
+        font-size: 1.1rem;
+    }
+    
+    &__player-name {
+        margin: 0;
+    }
+    
+    &__player-points {
+        font-size: 1.1rem;
+    }
+}

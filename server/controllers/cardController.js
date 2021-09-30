@@ -14,8 +14,6 @@ let cardController = {
             ? res.status(200).json(playingCards) 
             : res.status(404).json({ message: "No cards founds"} );
     }
-
-
 }
 
 module.exports = cardController;

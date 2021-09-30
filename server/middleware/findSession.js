@@ -1,6 +1,10 @@
 const jwt = require('jsonwebtoken');
 require("dotenv").config();
 
+/**
+ * Decodes the user's jwt token to find the game id.  Future implementation for authorization here.
+ * @returns 
+ */
 const findSession = (req, res, next) => {
     if(!req.headers.authorization) return next();
 

@@ -1,9 +1,9 @@
 import './OpponentIcon.scss';
 
-const OpponentIcon = ({ handleModalToggle, id }) => {
+const OpponentIcon = ({ icon, handleModalToggle }) => {
     return (
         <div className="opponent-icon">
-            <img className="opponent-icon__image" src="https://via.placeholder.com/96x96" alt="" 
+            <img className="opponent-icon__image" src={icon} alt="colourful chess icon" 
                 onClick={handleModalToggle}
             />
         </div>

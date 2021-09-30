@@ -2,15 +2,18 @@
 @use '../../partials/typography' as *;
 @use '../../partials/mixins' as *;
 
-// @mixin text($font-family, $font-size, $font-weight, $line-height) 
-
 .menu-card {
-    width: 10rem;
+    cursor: pointer;
     @include flex-centering;
     flex-direction: column;
     padding-bottom: 1rem;
     border-radius: 10px;
     @include primary-box-shadow;
+    width: 7rem;
+    
+    @include desktop {
+        width: 10rem;
+    }
 
     &__dish-type {
         background-color: $primary-cta;
@@ -26,6 +29,10 @@
     }
 
     &__dish-image {
+        max-height: 4rem;
         
+        @include desktop {
+            max-height: 6.25rem;
+        }
     }
 }

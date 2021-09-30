@@ -3,7 +3,7 @@
 @use '../../partials/variables' as *;
 
 .home {
+    position: relative;
     @include flex-centering;
-    // 100vh - Header & Footer heights
     height: 90vh;
 }

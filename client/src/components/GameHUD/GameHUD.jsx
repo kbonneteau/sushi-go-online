@@ -1,10 +1,16 @@
 import './GameHUD.scss';
+import SelectCard from '../SelectCard/SelectCard';
 
-const GameHUD = () => {
+const GameHUD = ({ handleCardCommit, selectedCard }) => {
     return (
-        <div>
-            Game HUD
-        </div>
+        <section className="game-hud">
+            
+            <div className="game-hud__title-container">
+                <h2 className="game-hud__title">Your turn</h2>
+            </div>
+
+            <SelectCard handleCardCommit={handleCardCommit} selectedCard={selectedCard} />
+        </section>
     );
 };
 

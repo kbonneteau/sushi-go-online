@@ -1,12 +1,17 @@
 import './HomePage.scss';
-import HomeHero from '../../components/HomeHero/HomeHero';
+import { useState } from 'react';
+import ErrorModal from '../../components/ErrorModal/ErrorModal';
+import HeroParallax from '../../components/HeroParallax/HeroParallax';
 
 const HomePage = () => {
+    const [ error, setError ] = useState(false)
+    const handleError = () => setError(true)
+    const handleModalClose = () => setError(false)
+
     return (
         <main className="home">
-            {/* Remove this in the future */}
-            {/* <h1>Home Page</h1> */}
-            <HomeHero />
+            <HeroParallax handleError={handleError} />
+            {error ? <ErrorModal handleModalClose={handleModalClose} /> : null}
         </main>
     );
 };

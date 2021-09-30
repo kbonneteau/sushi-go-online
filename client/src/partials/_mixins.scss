@@ -52,6 +52,13 @@
     text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
 }
 
+@mixin player-icon-container {
+    border-radius: 50%;
+    width: 6rem;
+    background-color: #ffeaeb;
+    @include primary-box-shadow;
+}
+
 // Button mixins
 @mixin button-primary {
     @include text($roboto, 1rem, normal, normal);
@@ -94,5 +101,32 @@
     &:active {
         transform: translate(4px, 4px);
         @include primary-box-shadow;
+    }
+}
+
+@mixin button-game {
+    cursor: pointer;
+    margin: auto;
+    height: 3rem;
+
+    background: none;
+    border: 3px solid $dumpling;
+    font: $roboto;
+    color: $dumpling;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: lowercase;
+    line-height: 1;
+    border-radius: 4px;
+    transition: 0.3s;
+    
+    &:hover {
+        box-shadow: inset 9.5em 0 0 0 $dumpling;
+        border: 3px solid $dumpling;
+        color: white;
+    }
+
+    &:active {
+        transform: translate(3px, 3px);
     }
 }

@@ -9,8 +9,8 @@
         "value": "1",
         "modifier": "wasabi",
         "image": {
-            "icon": "https://via.placeholder.com/50x50",
-            "main": "https://via.placeholder.com/100x100"
+            "icon": "http://localhost:8080/images/egg_nigiri.png",
+            "main": "http://localhost:8080/images/egg_nigiri.png"
         }
     },
     {
@@ -23,8 +23,8 @@
         "value": "2",
         "modifier": "wasabi",
         "image": {
-            "icon": "https://via.placeholder.com/50x50",
-            "main": "https://via.placeholder.com/100x100"
+            "icon": "http://localhost:8080/images/salmon_nigiri.png",
+            "main": "http://localhost:8080/images/salmon_nigiri.png"
         }
     },
     {
@@ -37,8 +37,8 @@
         "value": "3",
         "modifier": "wasabi",
         "image": {
-            "icon": "https://via.placeholder.com/50x50",
-            "main": "https://via.placeholder.com/100x100"
+            "icon": "http://localhost:8080/images/squid_nigiri.png",
+            "main": "http://localhost:8080/images/squid_nigiri.png"
         }
     },
     {
@@ -51,8 +51,8 @@
         "value": "Next nigiri x3",
         "modifier": "next nigiri *3",
         "image": {
-            "icon": "https://via.placeholder.com/50x50",
-            "main": "https://via.placeholder.com/100x100"
+            "icon": "http://localhost:8080/images/wasabi.png",
+            "main": "http://localhost:8080/images/wasabi.png"
         }
     },
     {
@@ -65,8 +65,8 @@
         "value": "Most 6 Least -6",
         "modifier": "highest count @ end earns 6 points, lowest loses 6 points",
         "image": {
-            "icon": "https://via.placeholder.com/50x50",
-            "main": "https://via.placeholder.com/100x100"
+            "icon": "http://localhost:8080/images/pudding.png",
+            "main": "http://localhost:8080/images/pudding.png"
         }
     },
     {
@@ -79,8 +79,8 @@
         "value": "x3=10",
         "modifier": "0 if user does not get 3",
         "image": {
-            "icon": "https://via.placeholder.com/50x50",
-            "main": "https://via.placeholder.com/100x100"
+            "icon": "http://localhost:8080/images/sashimi.png",
+            "main": "http://localhost:8080/images/sashimi.png"
         }
     },
     {
@@ -93,8 +93,8 @@
         "value": "1 3 6 10 15",
         "modifier": "Value changes based on number of cards",
         "image": {
-            "icon": "https://via.placeholder.com/50x50",
-            "main": "https://via.placeholder.com/100x100"
+            "icon": "http://localhost:8080/images/dumpling.png",
+            "main": "http://localhost:8080/images/dumpling.png"
         }
     },
     {
@@ -107,8 +107,8 @@
         "value": "x2=5",
         "modifier": "requires two cards to earn 5 points",
         "image": {
-            "icon": "https://via.placeholder.com/50x50",
-            "main": "https://via.placeholder.com/100x100"
+            "icon": "http://localhost:8080/images/tempura.png",
+            "main": "http://localhost:8080/images/tempura.png"
         }
     },
     {
@@ -118,11 +118,11 @@
         "subType": "chopsticks",
         "dishType": "special",
         "numberInDeck": 3,
-        "value": "Swap fpr 2",
+        "value": "Swap for 2",
         "modifier": "Value changes based on number of cards",
         "image": {
-            "icon": "https://via.placeholder.com/50x50",
-            "main": "https://via.placeholder.com/100x100"
+            "icon": "http://localhost:8080/images/chopsticks.png",
+            "main": "http://localhost:8080/images/chopsticks.png"
         }
     },
     {
@@ -136,8 +136,8 @@
         "value": "1st=6 2nd=3",
         "modifier": "highest number of maki gets 6 points, 2nd gets 3 points",
         "image": {
-            "icon": "https://via.placeholder.com/50x50",
-            "main": "https://via.placeholder.com/100x100"
+            "icon": "http://localhost:8080/images/maki.png",
+            "main": "http://localhost:8080/images/maki.png"
         }
     },
     {
@@ -151,8 +151,8 @@
         "value": "1st=6 2nd=3",
         "modifier": "highest number of maki gets 6 points, 2nd gets 3 points",
         "image": {
-            "icon": "https://via.placeholder.com/50x50",
-            "main": "https://via.placeholder.com/100x100"
+            "icon": "http://localhost:8080/images/maki.png",
+            "main": "http://localhost:8080/images/maki.png"
         }
     },
     {
@@ -166,8 +166,8 @@
         "value": "1st=6 2nd=3",
         "modifier": "highest number of maki gets 6 points, 2nd gets 3 points",
         "image": {
-            "icon": "https://via.placeholder.com/50x50",
-            "main": "https://via.placeholder.com/100x100"
+            "icon": "http://localhost:8080/images/maki.png",
+            "main": "http://localhost:8080/images/maki.png"
         }
     }
 ]

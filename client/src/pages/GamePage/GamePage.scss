@@ -3,19 +3,61 @@
 @use '../../partials/variables' as *;
 
 .game-area {
+    background-image: url(http://localhost:8080/backgrounds/sushibackground5.png);
+    background-color: rgb(238, 197, 181);
+    background-size: contain;
     height: 90vh;
     position: relative;
     @include flex-column;
     justify-content: space-between;
 
+    &__title {
+        text-align: center;
+        margin: 1rem 0 0 0;
+    }
+
+    &__menu-container {
+        margin: .5rem;
+        background-color: #a2cfd5;
+        border-radius: 1rem;
+        @include primary-box-shadow;
+        width: 35rem;
+        
+        @include desktop {
+            margin: 2rem;
+            width: unset;
+        }
+    }
+
     &__game-component-container {
         @include flex-centering;
         align-items: flex-start;
         justify-content: space-between;
-        height: 37.5rem;
+        height: 55vh;
+        
+        @include desktop {
+            height: 37.5rem;
+        }
     }
 
     &__player-interaction-container {
         display: flex;
+    }
+
+    &__game-over-container {
+        position: absolute;
+        top: 7vh;
+        left: 30vw;
+        box-shadow: 0 5px 1.875rem rgba(0,0,0,0.3);
+        border-radius: 0.625rem;
+
+        @include desktop {
+            top: 10vh;
+            left: 33vw;
+        }
+    }
+
+    &--game-over {
+        filter: blur(0.625rem)
     }
 }
