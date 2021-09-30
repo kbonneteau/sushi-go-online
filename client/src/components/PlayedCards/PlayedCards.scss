@@ -1,0 +1,13 @@
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/mixins' as *;
+
+.played-cards-area {
+    width: 50vw;
+    max-width: 35rem;
+    
+    @include desktop {
+        width: 47rem;
+        max-width: unset;
+    }
+}

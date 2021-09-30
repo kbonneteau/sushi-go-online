@@ -1,0 +1,39 @@
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/keyframes' as *;
+@use '../../partials/mixins' as *;
+
+.select-card {
+    margin: auto;
+    height: 3rem;
+    pointer-events: none;
+
+    background: none;
+    background-color: white;
+    border: 3px solid $accent;
+    font: $roboto;
+    color: $accent;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: lowercase;
+    line-height: 1;
+    border-radius: 1rem;
+    transition: 0.3s;
+    
+    &--selected {
+        cursor: pointer;
+        pointer-events: auto;
+        border: 3px solid black;
+        color: black;
+    }
+
+    &:hover {
+        box-shadow: inset 9.5em 0 0 0 black;
+        border: 3px solid black;
+        color: white;
+    }
+
+    &:active {
+        transform: translate(3px, 3px);
+    }
+}

@@ -1,0 +1,87 @@
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/mixins' as *;
+
+.hero {
+    display: flex;
+    gap: 3.5rem;
+    background-image: url(http://localhost:8080/modal-gifs/jumpy-sushi.gif);
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    @include desktop {
+        background-size:unset;
+        background-position: 2.8125rem 4.0625rem;   
+    }
+
+    &__content-container {
+        @include flex-column;
+        padding: 1rem 0 1rem;
+    }
+
+    &__title {
+        text-align: left;
+        @include title-text;
+        font-size: 5rem;  
+
+        @include desktop {
+            font-size: 7rem;  
+        }
+        
+    }
+    &__game-description-container {
+        height: 25vh;
+
+        @include desktop {
+            height: 25rem;
+            width: 100%;
+        }
+    }
+    
+    &__game-description {
+        @include text($roboto, 1.25rem, normal, 2rem);
+        text-align: center;
+        margin: 0 auto;
+
+        width: 50ch;
+        flex-grow: 1;
+        
+        &--subtext {
+            @include title-text;
+            width: unset;
+            padding-bottom: 1rem;
+        }
+    }
+
+    &__cta-container {
+        padding-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &__call-to-action {
+        @include title-text;
+        font-size: 2rem;
+        flex-basis: 100%;
+        margin: 0;
+    }
+
+    &__learn-game {
+        flex-grow: 1;
+        @include button-secondary;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    &__game-buttons-container {
+        flex-grow: 1;
+        @include flex-column;
+    }
+
+    &__play-game {
+        @include button-primary;
+    }
+}

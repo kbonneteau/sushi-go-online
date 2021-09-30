@@ -1,0 +1,17 @@
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/mixins' as *;
+
+.site-header {
+    background-color: $accent;
+    height: 6vh;
+    @include flex-centering;
+
+    &__logo {
+        height: 6vh;
+
+        @include desktop {
+            height: 4rem;
+        }
+    }
+}

@@ -1,0 +1,29 @@
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/mixins' as *;
+
+.game-hud {
+    margin-bottom: 2rem;
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+
+    &__title-container {
+        background-color: $accent;
+        padding: 1rem 2rem;
+        border-radius: 1.5rem 0 0 1.5rem;
+        @include primary-box-shadow;
+        position: relative;
+
+        @include desktop {
+            top: -2rem;
+        }
+    }
+
+    &__title {
+        margin: 0;
+        @include title-text;
+        text-align: left;
+        text-transform: uppercase;
+    }
+}

@@ -1,0 +1,38 @@
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/mixins' as *;
+
+.menu-card {
+    cursor: pointer;
+    @include flex-centering;
+    flex-direction: column;
+    padding-bottom: 1rem;
+    border-radius: 10px;
+    @include primary-box-shadow;
+    width: 7rem;
+    
+    @include desktop {
+        width: 10rem;
+    }
+
+    &__dish-type {
+        background-color: $primary-cta;
+        border-radius: 10px 10px 0 0;
+        width: 100%;
+        padding: .5rem 1rem;
+        @include title-text;
+    }
+
+    &__dish-name {
+        margin: .5rem;
+        text-transform: uppercase;
+    }
+
+    &__dish-image {
+        max-height: 4rem;
+        
+        @include desktop {
+            max-height: 6.25rem;
+        }
+    }
+}

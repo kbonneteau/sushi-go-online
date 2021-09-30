@@ -1,38 +1,37 @@
-.App {
-  text-align: center;
+@use './partials/mixins' as *;
+@use './partials/variables' as *;
+@use './partials/typography' as *;
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  font-family: $roboto-condensed;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nigiri {
+  background-color: $nigiri;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.maki {
+  background-color: $maki;
 }
-
-.App-link {
-  color: #61dafb;
+.wasabi {
+  background-color: $wasabi;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.chopsticks {
+  background-color: $chopsticks;
+}
+.dumpling {
+  background-color: $dumpling;
+}
+.tempura {
+  background-color: $tempura;
+}
+.sashimi {
+  background-color: $sashimi;
+}
+.pudding {
+  background-color: $pudding;
 }

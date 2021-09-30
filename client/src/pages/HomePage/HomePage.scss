@@ -1,0 +1,9 @@
+@use '../../partials/mixins' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/variables' as *;
+
+.home {
+    position: relative;
+    @include flex-centering;
+    height: 90vh;
+}

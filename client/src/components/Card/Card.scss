@@ -1,0 +1,96 @@
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/mixins' as *;
+
+.player-card {
+    cursor: pointer;
+    height: 100%;
+    width: 8rem;
+    @include flex-column;
+    gap: .5rem;
+    @include primary-box-shadow;
+    border-radius: 0.625rem;
+
+    @include desktop {
+        width: 10rem;
+    }
+    
+    &:hover {
+        transform: translateY(-25px);
+        transition: transform .15s ease;
+    }
+
+    &__card-icons {
+        display: flex;
+        padding: .5rem;
+    }
+
+    &__top-icon {
+        max-width: 2.25rem;
+        max-height: 2.25rem;
+
+        @include desktop {
+            max-width: 3rem;
+            max-height: 3rem;
+        }
+    }
+
+    &__main-card-container {
+        @include flex-centering;
+        flex-grow: 1;
+    }
+    
+    &__main-icon {
+        max-width: 6rem;
+        max-height: 5.5rem;
+        
+        @include desktop {
+            max-width: 7.5rem;
+            max-height: 7rem;
+        }
+    }
+    
+    &__type-box {
+        @include flex-centering;
+        background-color: $accent;
+        border-radius: 0 0 0.625rem 0.625rem;
+        height: 2.5rem;
+        
+        @include desktop {
+            height: 3.125rem;
+            padding: .5rem 0;
+        
+        }
+    }
+
+    &__type-title {
+        @include title-text;
+        padding: 0 .25rem;
+        font-size: .8rem;
+        text-transform: uppercase;
+        
+        @include desktop {
+            font-size: 1rem;
+        }
+    }
+    
+    &__point-value {
+        text-align: center;
+        margin: 0;
+        min-width: 5ch;
+        max-width: 8ch;
+        padding: 0 .25rem;
+        font-size: .75rem;
+        font-weight: bold;
+        
+        @include desktop {
+            font-size: .9rem;
+        
+        }
+    }
+}
+
+.selected {
+    transform: translateY(-25px);
+    filter: grayscale(0);
+}

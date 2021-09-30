@@ -1,0 +1,54 @@
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/keyframes' as *;
+@use '../../partials/mixins' as *;
+
+.game-over {
+    padding: 1rem 0;
+    width: 35rem;
+    background-color: rgba(250, 128, 114, 0.3);
+    backdrop-filter: blur(50px);
+    border-radius: 10px;
+    @include primary-box-shadow;
+    @include flex-centering;
+    flex-direction: column;
+    
+    @include desktop {
+        padding: 3rem 0;
+        width: 50rem;
+    }
+
+    &__hero-image {
+        max-height: 10rem;
+        max-width: 20rem;
+    }
+
+    &__title {
+        margin: 0;
+        @include title-text;
+        color: black;
+        font-size: 2rem;
+    }
+
+    &__results-title {
+        margin: 0;
+        @include title-text;
+        text-align: left;
+        color: black;
+        font-size: 1.5rem;
+    }
+
+    &__results-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__new-game {
+        @include button-secondary;
+        background-color: white;
+        width: 7rem;
+        padding: 1rem 1.5rem;
+        margin: 1rem 0 0;
+    }
+}

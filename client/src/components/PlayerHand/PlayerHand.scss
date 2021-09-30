@@ -1,0 +1,18 @@
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/mixins' as *;
+@use '../../partials/keyframes' as *;
+
+.player-hand {
+    display: flex;
+    justify-content: space-evenly;
+    height: 12rem;
+    
+    @include desktop {
+        height: 15rem;
+    }
+}
+
+.card-slide-in {
+    @include player-cards-slide;
+}

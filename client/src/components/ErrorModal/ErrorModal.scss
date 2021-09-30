@@ -1,0 +1,27 @@
+@use '../../partials/variables' as *;
+@use '../../partials/typography' as *;
+@use '../../partials/keyframes' as *;
+@use '../../partials/mixins' as *;
+
+.error-modal {
+    position: absolute;
+    background-color: rgba(250, 128, 114, 0.3);
+    backdrop-filter: blur(1rem);
+    padding: 5rem;
+    @include primary-box-shadow;
+    border-radius: 5%;
+    @include flex-centering;
+    flex-direction: column;
+
+    &--game {
+        box-shadow: unset;
+        position: relative;
+        border-radius: unset;
+        height: 90vh;
+    }
+
+    &__button {
+        @include button-secondary;
+        padding: .75rem 1.5rem;
+    }
+}
