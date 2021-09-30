@@ -3,15 +3,17 @@
 @use '../../partials/mixins' as *;
 
 .player-area {
-    margin: 2rem;
     background-color: salmon;
-    // background-color: rgba(250, 128, 114, 0.8);
-    // background-color: rgba(255, 255, 255, 0.8);
     border-radius: 1rem;
-    // border: 3px solid $accent;
     @include primary-box-shadow;
     flex-grow: 1;
-    padding: 1rem 1rem;
+    padding: .5rem 1rem;
+    margin: .5rem;
+    
+    @include desktop {
+        margin: 2rem;
+        padding: 1rem 1rem;
+    }
 
     &__context-container {
         display: flex;
@@ -22,11 +24,19 @@
     
     &__title {
         margin: 0;
-        font-size: 1.6rem;
+        font-size: 1.3rem;
+
+        @include desktop {
+            font-size: 1.6rem;
+        }
     }
     
     &__action-description {
         margin: 0;
-        font-size: 1.2rem;
+        font-size: 1rem;
+
+        @include desktop {
+            font-size: 1.2rem;
+        }
     }
 }
