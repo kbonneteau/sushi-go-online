@@ -5,14 +5,20 @@
 
 .game-over {
     // height: 30rem;
-    padding: 3rem 0;
-    width: 50rem;
+    padding: 1rem 0;
+    width: 35rem;
+
     background-color: rgba(250, 128, 114, 0.3);
     backdrop-filter: blur(50px);
     @include primary-box-shadow;
     border-radius: 10px;
     @include flex-centering;
     flex-direction: column;
+    
+    @include desktop {
+        padding: 3rem 0;
+        width: 50rem;
+    }
 
     &__hero-image {
         max-height: 10rem;
@@ -50,5 +56,9 @@
         width: 7rem;
         padding: 1rem 1.5rem;
         margin: 1rem 0 0;
+
+        @include desktop {
+            
+        }
     }
 }

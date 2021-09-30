@@ -47,10 +47,15 @@
 
     &__game-over-container {
         position: absolute;
-        top: 10vh;
-        left: 33vw;
+        top: 7vh;
+        left: 30vw;
         box-shadow: 0 5px 30px rgba(0,0,0,0.3);
         border-radius: 10px;
+
+        @include desktop {
+            top: 10vh;
+            left: 33vw;
+        }
     }
 
     &--game-over {

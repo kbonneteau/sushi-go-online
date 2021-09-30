@@ -11,19 +11,31 @@
     background-color: $accent;
     
     &__super-script {
-        font-size: 1.25rem;
+        font-size: 1rem;
+        
+        @include desktop {
+            font-size: 1.25rem;
+        }
     }
 
     &--first{
         background-color: $primary-cta;
         color: white;
-        height: 7rem;
+        height: 5rem;
+        
+        @include desktop {
+            height: 7rem;
+        }
     }
 
     &__place--first {
         @extend .player-results__place;
-        font-size: 3rem;
+        font-size: 2rem;
         margin: 0;
+
+        @include desktop {
+            font-size: 3rem;
+        }
     }
 
     &__player-name--first {
